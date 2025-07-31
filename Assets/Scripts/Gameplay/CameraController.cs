@@ -6,7 +6,7 @@ namespace Gameplay
     public class CameraController : MonoBehaviour
     {
         [SerializeField] private GameObject player;
-        [SerializeField] private Vector3 offset = new Vector3(0, 5, -10);
+        [SerializeField] private Vector3 offset = new Vector3(0, 0, -10);
         [SerializeField] private float smoothing = 0.5f;
         
         // Used for cutscenes
@@ -26,7 +26,7 @@ namespace Gameplay
         private void CameraSmooth()
         {
             Vector3 desiredPosition = player.transform.position + offset;
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothing);
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothing * Time.deltaTime);
             transform.position = smoothedPosition;
         }
         

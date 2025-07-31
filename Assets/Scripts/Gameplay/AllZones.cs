@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LamentsNeverEnd.Scripts.Gameplay
+namespace Gameplay
 {
     public static class AllZones
     {

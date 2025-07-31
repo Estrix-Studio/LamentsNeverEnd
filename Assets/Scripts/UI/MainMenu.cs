@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Scene = LamentsNeverEnd.Scripts.Scene;
 
-public class MainMenu : MonoBehaviour
+namespace UI
 {
-
-    public void GoToGameplay()
+    public class MainMenu : MonoBehaviour
     {
-        SceneManager.LoadScene((int)Scene.Gameplay);
+
+        public void GoToGameplay()
+        {
+            SceneManager.LoadScene((int)global::Scene.Gameplay);
+        }
     }
 }

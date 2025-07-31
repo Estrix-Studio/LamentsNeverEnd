@@ -1,4 +1,4 @@
-﻿namespace LamentsNeverEnd.Scripts.Gameplay
+﻿namespace Gameplay
 {
     public class ZoneInfo
     {

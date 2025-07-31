@@ -18,7 +18,7 @@
     public enum CycleZoneID
     {
         None = 0,
-        Penek = 1,
+        Penyok = 1,
         Zone1= 2,
         Zone2 = 3,
     }

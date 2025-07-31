@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace LamentsNeverEnd.Scripts.Gameplay
+namespace Gameplay
 {
     public class TriggerZone : MonoBehaviour
     {

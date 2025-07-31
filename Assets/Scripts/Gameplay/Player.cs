@@ -20,12 +20,12 @@ namespace Gameplay
             rb = GetComponent<Rigidbody2D>();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             Vector2 input = inputActions.Player.Move.ReadValue<Vector2>();
-            Vector2 dir = input * movespeed * Time.deltaTime;
+            Vector2 dir = input.normalized * movespeed;
             
-            transform.Translate(dir, Space.World);
+            rb.MovePosition(rb.position + dir * Time.fixedDeltaTime);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

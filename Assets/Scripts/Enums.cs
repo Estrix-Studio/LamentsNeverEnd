@@ -20,3 +20,9 @@ public enum CycleZoneID
     Zone1= 2,
     Zone2 = 3,
 }
+
+public enum CycleZoneCondition
+{
+    None = 0,
+    
+}

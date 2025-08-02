@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2336798326969418230, guid: 73fab64645c972c49bb61d21971dbdcb, type: 3}
       propertyPath: m_Intensity
-      value: 1
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 4694333615500172985, guid: 73fab64645c972c49bb61d21971dbdcb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -515,29 +515,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2094350564 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5735118557050460667, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
-  m_PrefabInstance: {fileID: 1520445255134615474}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2094350567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094350564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6bb25e3107912c409a165a90fcb7008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  torchlight: {fileID: 0}
-  inputActions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
-  _torchData:
-    dimIntensity: 0
-    normalIntensity: 0
-    transitionSpeed: 0.5
 --- !u!1 &2129466259
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +554,70 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 519732283734715551, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData
+      value: 
+      objectReference: {fileID: 11400000, guid: 311a723f2abe2ab4d9896727a4ce52d3, type: 2}
+    - target: {fileID: 519732283734715551, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.maxIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519732283734715551, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.minIntensity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData
+      value: 
+      objectReference: {fileID: 11400000, guid: 311a723f2abe2ab4d9896727a4ce52d3, type: 2}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.flickTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.dimIntensity
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.maxIntensity
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.minIntensity
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.flickBackTime
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.flickCooldown.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.flickCooldown.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.normalIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.transitionSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.defaultIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682254230637744634, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682254230637744634, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData
+      value: 
+      objectReference: {fileID: 11400000, guid: 311a723f2abe2ab4d9896727a4ce52d3, type: 2}
     - target: {fileID: 4940299431325786252, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4457064
@@ -617,26 +658,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5777473651524557456, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5777473651524557456, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
-      propertyPath: m_Color.g
-      value: 0.05768951
-      objectReference: {fileID: 0}
-    - target: {fileID: 5777473651524557456, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
-      propertyPath: m_Color.r
-      value: 0.5377358
-      objectReference: {fileID: 0}
-    - target: {fileID: 5777473651524557456, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
-      propertyPath: m_Intensity
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5777473651524557456, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
-      propertyPath: m_LightVolumeEnabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6774689028725361118, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
       propertyPath: m_Name
       value: Player
@@ -644,60 +665,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2901836729953979378, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1520445255134615476}
-    - targetCorrespondingSourceObject: {fileID: 2901836729953979378, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1520445255134615479}
-    - targetCorrespondingSourceObject: {fileID: 5735118557050460667, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2094350567}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
---- !u!1 &1520445255134615475 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2901836729953979378, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
-  m_PrefabInstance: {fileID: 1520445255134615474}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1520445255134615476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1520445255134615475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca9157cce05d50a45b8513f8263b5572, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _intensityData:
-    minIntensity: 0.8
-    maxIntensity: 1.4
-    defaultIntensity: 0
-    flickTime: 0.25
-    flickBackTime: 0.8
-    flickCooldown: {x: 0.4, y: 2.5}
-  defaultIntensity: 0
---- !u!114 &1520445255134615479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1520445255134615475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6bb25e3107912c409a165a90fcb7008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  torchlight: {fileID: 0}
-  inputActions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
-  _torchData:
-    dimIntensity: 0
-    normalIntensity: 0
-    transitionSpeed: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

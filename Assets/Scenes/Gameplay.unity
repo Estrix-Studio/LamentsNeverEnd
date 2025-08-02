@@ -554,6 +554,70 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 519732283734715551, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData
+      value: 
+      objectReference: {fileID: 11400000, guid: 311a723f2abe2ab4d9896727a4ce52d3, type: 2}
+    - target: {fileID: 519732283734715551, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.maxIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519732283734715551, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.minIntensity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData
+      value: 
+      objectReference: {fileID: 11400000, guid: 311a723f2abe2ab4d9896727a4ce52d3, type: 2}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.flickTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.dimIntensity
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.maxIntensity
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.minIntensity
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.flickBackTime
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.flickCooldown.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.flickCooldown.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.normalIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.transitionSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291123270793222222, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData.defaultIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682254230637744634, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682254230637744634, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
+      propertyPath: torchData
+      value: 
+      objectReference: {fileID: 11400000, guid: 311a723f2abe2ab4d9896727a4ce52d3, type: 2}
     - target: {fileID: 4940299431325786252, guid: 2fda1b1a3ff6f2847ad58770d55bde54, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4457064

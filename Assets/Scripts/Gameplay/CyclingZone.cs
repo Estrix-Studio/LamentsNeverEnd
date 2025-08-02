@@ -23,7 +23,7 @@ namespace Gameplay
 
         private void OnZoneEnter(object sender, ZoneSide e)
         {
-            Debug.Log($"Location {ThisZoneID} entered form side:  {e}");
+            // Debug.Log($"Location {ThisZoneID} entered form side:  {e}");
             OnZoneEntered?.Invoke(this, e);
         }
     }

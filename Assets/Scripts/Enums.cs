@@ -24,5 +24,11 @@ public enum CycleZoneID
 public enum CycleZoneCondition
 {
     None = 0,
-    
+}
+
+public enum EventName
+{
+    None,
+    Level1Completed,
+    Level1_1Completed
 }

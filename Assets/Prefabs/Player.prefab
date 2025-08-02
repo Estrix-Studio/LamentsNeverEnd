@@ -273,34 +273,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5461770660097542839, guid: 612c79a4b35bf8c46b58a5aaa5203d57, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 745520513415426995}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 612c79a4b35bf8c46b58a5aaa5203d57, type: 3}
---- !u!1 &2901836729953979378 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5461770660097542839, guid: 612c79a4b35bf8c46b58a5aaa5203d57, type: 3}
-  m_PrefabInstance: {fileID: 7172402814542758213}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &745520513415426995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2901836729953979378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca9157cce05d50a45b8513f8263b5572, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _intensityData:
-    minIntensity: 0.8
-    maxIntensity: 1.4
-    flickTime: 0.25
-    flickBackTime: 0.8
-    flickCooldown: {x: 0.4, y: 2.5}
 --- !u!4 &8910708124664324650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1738476935137764207, guid: 612c79a4b35bf8c46b58a5aaa5203d57, type: 3}

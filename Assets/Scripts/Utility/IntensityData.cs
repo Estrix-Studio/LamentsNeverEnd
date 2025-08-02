@@ -11,6 +11,8 @@ namespace Utility
         
         [Range(1f, 1.5f)]
         public float maxIntensity;
+        
+        public float defaultIntensity;
 
         public float flickTime;
         public float flickBackTime;

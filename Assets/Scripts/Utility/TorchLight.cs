@@ -9,6 +9,8 @@ namespace Utility
         private Light2D _torchlight;
         [SerializeField] public IntensityData _intensityData;
         
+        public float defaultIntensity;
+        
         // Switcher for coroutine
         private bool isRunning { get; set; } = false;
         
@@ -18,6 +20,8 @@ namespace Utility
             if (!_torchlight)
                 _torchlight = GetComponent<Light2D>();
 
+            defaultIntensity = _torchlight.intensity;
+            
             isRunning = true;
             StartCoroutine(Flickering());
         }
@@ -35,7 +39,7 @@ namespace Utility
                 yield return StartCoroutine(IntensityRandomizer(_torchlight.intensity,  target, _intensityData.flickTime));
                 
                 // Return to default intensity
-                yield return StartCoroutine(IntensityRandomizer(_torchlight.intensity,  1.0f, _intensityData.flickBackTime));
+                yield return StartCoroutine(IntensityRandomizer(_torchlight.intensity,  defaultIntensity, _intensityData.flickBackTime));
             }
         }
 

@@ -1,0 +1,38 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+namespace Gameplay.LevelScripts
+{
+    public class RoomVisistCondition : LevelCondition
+    {
+        [SerializeField] private List<CycleZoneID> zonesToVisit;
+        
+        private Dictionary<CycleZoneID, bool> _zonesVisited = new Dictionary<CycleZoneID, bool>();
+
+        private void Start()
+        {
+            foreach (var zone in zonesToVisit)
+            {
+                _zonesVisited.Add(zone, false);
+            }
+
+            if (_zonesVisited.Count == 0)
+            {
+                CompleteEvent();
+            }
+        }
+
+        protected override void InstanceOnOnZoneEntered(CycleZoneID obj)
+        {
+            if (_zonesVisited.ContainsKey(obj))
+            {
+                _zonesVisited[obj] = true;
+                if (_zonesVisited.All(p => p.Value))
+                {
+                    CompleteEvent();
+                }
+            }
+        }
+    }
+}

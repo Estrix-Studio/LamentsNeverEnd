@@ -19,28 +19,44 @@ namespace Gameplay
         [SerializeField] private Transform TopPosition;
         [SerializeField] private Transform BottomPosition;
         
+        private int _isChangingZonesCooldown = 0;
+        private Dictionary<CycleZoneID, CyclingZone> _resources = new Dictionary<CycleZoneID, CyclingZone>();
+        private CameraController _camera;
         private void Awake()
         {
-            _gameData = GameData.Instance;
-            _neighbourZones[ZoneSide.Center] = null;
-            _neighbourZones[ZoneSide.Left] = null;
-            _neighbourZones[ZoneSide.Right] = null;
-            _neighbourZones[ZoneSide.Top] = null;
-            _neighbourZones[ZoneSide.Bottom] = null;
+             var zones = Resources.LoadAll<CyclingZone>("Zones");
+             foreach (var zone in zones)
+             {
+                 _resources[zone.ZoneID] = zone;
+             }
+             _gameData = GameData.Instance;
+             _neighbourZones[ZoneSide.Center] = null;
+             _neighbourZones[ZoneSide.Left] = null;
+             _neighbourZones[ZoneSide.Right] = null;
+             _neighbourZones[ZoneSide.Top] = null;
+             _neighbourZones[ZoneSide.Bottom] = null;
             
-            if (_player == null)
-                _player = FindFirstObjectByType<Player>();
-            
-            if (_currentZone == null)
-            {
-                SpawnZone(_gameData.FirstZone, ZoneSide.Center);
-            }
+             if (_player == null)
+                 _player = FindFirstObjectByType<Player>();
+
+             if (_camera == null)
+                 _camera = FindFirstObjectByType<CameraController>();
+
+             if (_currentZone == null)
+             {
+                 SpawnZone(_gameData.FirstZone, ZoneSide.Center);
+             }
+        }
+
+        private void Update()
+        {
+            if (_isChangingZonesCooldown > 0)
+                _isChangingZonesCooldown--;
         }
 
         private void SpawnZone(CycleZoneID zoneToSpawn, ZoneSide side)
         {
-            var zones = Resources.LoadAll<CyclingZone>("Zones");
-            var targetZone = zones.FirstOrDefault(z => z.ZoneID == zoneToSpawn);
+            var targetZone = _resources[zoneToSpawn];
             Vector3 pos;
             switch (side)
             {
@@ -75,19 +91,23 @@ namespace Gameplay
 
         private void NewZoneOnOnZoneEntered(object sender, ZoneSide e)
         {
+            if (_isChangingZonesCooldown > 0) 
+                return;
+
+            _isChangingZonesCooldown = 10;
             var enteredZone = sender as CyclingZone;
             if (enteredZone == null)
                 return;
-            var zoneInfo = _gameData.CurrentConnections[enteredZone.ZoneID];
 
+            _currentZone = enteredZone;
             _player.transform.SetParent(enteredZone.transform);
+            _camera.transform.SetParent(enteredZone.transform);
+            DespawnZones();
+            
             enteredZone.transform.position = CenterPosition.position;
             _neighbourZones[ZoneSide.Center] = enteredZone;
             
-            _currentZone = enteredZone;
-
-            DespawnZones();
-            
+            var zoneInfo = _gameData.CurrentConnections[enteredZone.ZoneID];
             if (zoneInfo.Left != CycleZoneID.None)
             {
                 SpawnZone(zoneInfo.Left, ZoneSide.Left);
@@ -108,6 +128,7 @@ namespace Gameplay
 
         private void DespawnZones()
         { 
+            ClearZone(ZoneSide.Center);
             ClearZone(ZoneSide.Left);
             ClearZone(ZoneSide.Right);
             ClearZone(ZoneSide.Top);
@@ -116,18 +137,13 @@ namespace Gameplay
 
         private void ClearZone(ZoneSide side)
         {
-            if (side == ZoneSide.Center) return;
             if (_neighbourZones[side] != null && _neighbourZones[side] != _currentZone)
             {
                 _neighbourZones[side].OnZoneEntered -= NewZoneOnOnZoneEntered;
-                Destroy(_neighbourZones[side]);
-                Debug.Log($"Zone destroyed side: {side}, {_neighbourZones[side].ZoneID}");
+                // Debug.Log($"Zone destroyed side: {side}, {_neighbourZones[side].ZoneID}");
+                Destroy(_neighbourZones[side].gameObject);
             }
             _neighbourZones[side] = null;
-        }
-        
-        private void Start()
-        {
         }
     }
 }

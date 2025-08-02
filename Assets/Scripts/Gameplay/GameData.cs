@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Gameplay
 {
@@ -22,9 +23,17 @@ namespace Gameplay
         private readonly Dictionary<CycleZoneID, ZoneInfo> _currentConnections = new ();
         public Dictionary<CycleZoneID, ZoneInfo> CurrentConnections => _currentConnections;
 
-        private readonly Dictionary<string, bool> _completedEvents = new Dictionary<string, bool>();
+        private readonly HashSet<EventName> _completedEvents = new HashSet<EventName>();
+
+        public HashSet<EventName> SpawnedConditions => _spawnedLevelConditions;
+        private readonly HashSet<EventName> _spawnedLevelConditions = new HashSet<EventName>();
+        
         public CycleZoneID FirstZone => ZoneConfig.FirstZone;
 
+        public event Action<CycleZoneID> OnZoneEntered;
+        public event Action<string> OnObjectInteracted;
+        public event Action<EventName> OnEventCompleted;
+        
         public void Reset()
         {
             CurrentConnections.Clear();
@@ -33,11 +42,28 @@ namespace Gameplay
                 CurrentConnections[zone.Zone] = zone;
             }
             _completedEvents.Clear();
+            _spawnedLevelConditions.Clear();
         }
 
-        public bool IsEventCompleted(string eventName)
+        public bool IsEventCompleted(EventName eventName)
         {
-            return _completedEvents.GetValueOrDefault(eventName, false);
+            return _completedEvents.Contains(eventName);
+        }
+
+        public void TriggerOnZoneEntered(CycleZoneID zone)
+        {
+            OnZoneEntered?.Invoke(zone);
+        }
+
+        public void TriggerOnObjectInteracted(string objectName)
+        {
+            OnObjectInteracted?.Invoke(objectName);
+        }
+
+        public void CompleteEvent(EventName eventName)
+        {
+            _completedEvents.Add(eventName);
+            OnEventCompleted?.Invoke(eventName);
         }
     }
 }

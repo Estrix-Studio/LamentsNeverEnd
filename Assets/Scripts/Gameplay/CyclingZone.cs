@@ -26,5 +26,13 @@ namespace Gameplay
             // Debug.Log($"Location {ThisZoneID} entered form side:  {e}");
             OnZoneEntered?.Invoke(this, e);
         }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag(("Player")))
+            {
+                GameData.Instance.TriggerOnZoneEntered(ZoneID);
+            } 
+        }
     }
 }

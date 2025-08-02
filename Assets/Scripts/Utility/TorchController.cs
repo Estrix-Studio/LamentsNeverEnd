@@ -57,8 +57,6 @@ namespace Utility
             if (!_isOn)
                 return;
             
-            
-            
             if (_dimAction.ReadValue<float>() > 0) _targetIntensity = _torchData.dimIntensity;
             if (_normalAction.ReadValue<float>() > 0) _targetIntensity =  _torchData.normalIntensity;
             

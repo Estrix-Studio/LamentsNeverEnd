@@ -17,11 +17,13 @@ using System;
         
                 private void Start()
                 {
-                    //tilemap = GetComponent<Tilemap>();
+                        player = GameObject.FindWithTag("Player").transform;
+                        playerCollider = player.GetComponent<Collider2D>();
+                    
                     FindAllTreeTilesAndPositions();
                 }
         
-                void FindAllTreeTilesAndPositions()
+                private void FindAllTreeTilesAndPositions()
                 {
                     BoundsInt bounds = tilemap.cellBounds;
         
@@ -39,11 +41,11 @@ using System;
                             }
                         }
                     }
-                    Debug.Log($"Found {treeTiles.Count} unique tree tile types.");
-                    Debug.Log($"Found {allTreePositions.Count} tree tile positions.");
+                    // Debug.Log($"Found {treeTiles.Count} unique tree tile types.");
+                    // Debug.Log($"Found {allTreePositions.Count} tree tile positions.");
                 }
         
-                void Update()
+                private void Update()
                 {
                     foreach (var cell in transparentTiles)
                         RestoreTransparency(cell);
@@ -66,7 +68,7 @@ using System;
                                     TileBase tile = tilemap.GetTile(cell);
                                     if (tile != null && allTreePositions.Contains(cell))
                                     {
-                                        Debug.Log($"Player is touching a tree collider: {treeCollider.name}, {cell}");
+                                        // Debug.Log($"Player is touching a tree collider: {treeCollider.name}, {cell}");
                                         SetTransparency(cell, 0.5f);
                                         transparentTiles.Add(cell);
                                     }

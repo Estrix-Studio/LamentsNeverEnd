@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2797997948693202446
+--- !u!1001 &2666784800599096929
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2914553223933247510, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: ThisZoneID
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3784785319153606400, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54,7 +54,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4123364821371309580, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_Name
-      value: Zone1
+      value: Penek
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392182279472391324, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392182279472391324, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392182279472391324, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

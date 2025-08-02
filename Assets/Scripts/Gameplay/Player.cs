@@ -1,5 +1,4 @@
-﻿using System;
-using Unity.VisualScripting;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,12 +11,29 @@ namespace Gameplay
 
         private Rigidbody2D rb;
 
+        private List<IInteractableObject> _currentInteractables = new List<IInteractableObject>();
+
+        private InputAction _interactAction;
+
+        [SerializeField] private GameObject InteractionPrompt;
+        
         private void Awake()
         {
             inputActions = new DefaultInputActions();
             inputActions.Enable();
             
+            _interactAction = inputActions.FindAction("Interact/Interact");
+            _interactAction.performed += InteractActionOnperformed;  
+            
             rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void InteractActionOnperformed(InputAction.CallbackContext obj)
+        {
+            foreach (var action in _currentInteractables)   
+            {
+                action.Interact();
+            }
         }
 
         private void FixedUpdate()
@@ -36,11 +52,39 @@ namespace Gameplay
         private void OnTriggerEnter2D(Collider2D collision)
         {
             Debug.Log($"Triggered by {collision.gameObject.name}");
+
+            if (collision.TryGetComponent<IInteractableObject>(out var interactable))
+            {
+                _currentInteractables.Add(interactable);
+                UpdateInteractionPrompt();
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.TryGetComponent<IInteractableObject>(out var interactable))
+            {
+                _currentInteractables.Remove(interactable);
+                UpdateInteractionPrompt();
+            }
+        }
+
+        private void UpdateInteractionPrompt()
+        {
+            if (_currentInteractables.Count > 0)
+            {
+                InteractionPrompt.SetActive(true);
+            }
+            else
+            {
+                InteractionPrompt.SetActive(false);
+            }
         }
 
 
         private void OnDestroy()
         {
+            _interactAction.performed -= InteractActionOnperformed;
             inputActions.Disable();
         }
     }

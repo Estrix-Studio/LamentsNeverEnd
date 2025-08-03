@@ -21,10 +21,6 @@ public enum CycleZoneID
     Zone2 = 3,
 }
 
-public enum CycleZoneCondition
-{
-    None = 0,
-}
 
 public enum EventName
 {

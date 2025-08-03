@@ -1,27 +1,39 @@
 using System;
 using System.Collections.Generic;
-using LamentsNeverEnd.Scripts;
-using LamentsNeverEnd.Scripts.Gameplay;
+using Gameplay.Data;
 using UnityEngine;
 
-public class CyclingZone : MonoBehaviour
+namespace Gameplay
 {
-    [SerializeField] private List<TriggerZone> zones;
-    [SerializeField] public string zoneName;
+    public class CyclingZone : MonoBehaviour
+    {
+        public CycleZoneID ZoneID => ThisZoneID;
+        
+        [SerializeField] private CycleZoneID ThisZoneID;
+        
+        [SerializeField] private List<TriggerZone> zones;
     
-    public string ZoneName => zoneName;
-    public event EventHandler<ZoneSide> OnZoneEntered;
-    private void Awake()
-    {
-        foreach (var zone in  zones)
+        public event EventHandler<ZoneSide> OnZoneEntered;
+        private void Awake()
         {
-            zone.OnZoneEnter += OnZoneEnter;
+            foreach (var zone in  zones)
+            {
+                zone.OnZoneEnter += OnZoneEnter;
+            }
         }
-    }
 
-    private void OnZoneEnter(object sender, ZoneSide e)
-    {
-        Debug.Log($"Location {ZoneName} entered form side:  {e}");
-        OnZoneEntered?.Invoke(this, e);
+        private void OnZoneEnter(object sender, ZoneSide e)
+        {
+            // Debug.Log($"Location {ThisZoneID} entered form side:  {e}");
+            OnZoneEntered?.Invoke(this, e);
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag(("Player")))
+            {
+                GameData.Instance.TriggerOnZoneEntered(ZoneID);
+            } 
+        }
     }
 }

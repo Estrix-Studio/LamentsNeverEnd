@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2111fbc62a2b443ba3f511c67c853e9c, type: 3}
+  m_Name: Level2Dialog
+  m_EditorClassIdentifier: 
+  Phrases:
+  - Look at you. Moving with purpose.
+  - "Kinda like a squirrel who just realized it\u2019s not autumn anymore. Still
+    \u2014 credit where credit\u2019s due. I thought you'd be sobbing in a ditch
+    by now."
+  - ...
+  - "You\u2019re probably feeling proud. Don\u2019t. The forest let you get this
+    far. It\u2019s toying with you. Like a cat with a laser pointer. Except you're
+    the laser, and the cat\u2019s a dimensional apex predator made of regret."
+  - "See those voices? Those aren\u2019t echoes. They\u2019re leftovers. Adventurers,
+    thinkers, emotionally unstable overachievers. Now they\u2019re just... ambiance.
+    Screaming furniture in the mood lighting."
+  - They gave up. Gave in. Got turned into poetic metaphors for failure. And buddy,
+    they love company.
+  - ...
+  - "So. You keep moving, or you join their pity party. I\u2019d recommend moving.
+    You\u2019re not dressed for ghosthood."

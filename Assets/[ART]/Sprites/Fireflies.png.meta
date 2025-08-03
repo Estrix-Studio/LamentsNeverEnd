@@ -1,0 +1,438 @@
+fileFormatVersion: 2
+guid: c5b211ea6474fa244a7762496c61eee8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2658572170075460962
+    second: Fireflies_0
+  - first:
+      213: 6779322997867153553
+    second: Fireflies_1
+  - first:
+      213: -5234779981945042647
+    second: Fireflies_2
+  - first:
+      213: -1484368021369238177
+    second: Fireflies_3
+  - first:
+      213: -1628876865766171277
+    second: Fireflies_4
+  - first:
+      213: -7883833302050913370
+    second: Fireflies_5
+  - first:
+      213: -1158236071262011840
+    second: Fireflies_6
+  - first:
+      213: 3030798939677427876
+    second: Fireflies_7
+  - first:
+      213: -2752496213872048752
+    second: Fireflies_8
+  - first:
+      213: 7820335298602880299
+    second: Fireflies_9
+  - first:
+      213: 9197437768782648071
+    second: Fireflies_10
+  - first:
+      213: -3710492965899002051
+    second: Fireflies_11
+  - first:
+      213: -9107263159144795645
+    second: Fireflies_12
+  - first:
+      213: 6744485923734969023
+    second: Fireflies_13
+  - first:
+      213: -2147570237045177326
+    second: Fireflies_14
+  - first:
+      213: -8908403521073093947
+    second: Fireflies_15
+  - first:
+      213: 1728328084511229040
+    second: Fireflies_16
+  - first:
+      213: -7387251877466232476
+    second: Fireflies_17
+  - first:
+      213: -3826361458270489396
+    second: Fireflies_18
+  - first:
+      213: -6531470110713817640
+    second: Fireflies_19
+  - first:
+      213: 7377660687978684908
+    second: Fireflies_20
+  - first:
+      213: 8794360462866442660
+    second: Fireflies_21
+  - first:
+      213: -7241872078237923220
+    second: Fireflies_22
+  - first:
+      213: -5362717702830631863
+    second: Fireflies_23
+  - first:
+      213: 5813822623926224304
+    second: Fireflies_24
+  - first:
+      213: -7488033350489301362
+    second: Fireflies_25
+  - first:
+      213: 8253686274620634135
+    second: Fireflies_26
+  - first:
+      213: -8306762491823595354
+    second: Fireflies_27
+  - first:
+      213: -3046153165753990451
+    second: Fireflies_28
+  - first:
+      213: -3176139159447551890
+    second: Fireflies_29
+  - first:
+      213: -3427137009297355907
+    second: Fireflies_30
+  - first:
+      213: -1538738393286761432
+    second: Fireflies_31
+  - first:
+      213: 3959530674113349789
+    second: Fireflies_32
+  - first:
+      213: 2144346856032526020
+    second: Fireflies_33
+  - first:
+      213: 6867290240642657327
+    second: Fireflies_34
+  - first:
+      213: -1197020620558029603
+    second: Fireflies_35
+  - first:
+      213: -953400963159632602
+    second: Fireflies_36
+  - first:
+      213: -4514562992364250972
+    second: Fireflies_37
+  - first:
+      213: -8672704136499319560
+    second: Fireflies_38
+  - first:
+      213: 7584706100072819045
+    second: Fireflies_39
+  - first:
+      213: -1024528792433721943
+    second: Fireflies_40
+  - first:
+      213: 3886948298258184014
+    second: Fireflies_41
+  - first:
+      213: 8432021618212874773
+    second: Fireflies_42
+  - first:
+      213: -6476481338011328156
+    second: Fireflies_43
+  - first:
+      213: -1417696286929428697
+    second: Fireflies_44
+  - first:
+      213: 2253396087740608134
+    second: Fireflies_45
+  - first:
+      213: -6362104435977079084
+    second: Fireflies_46
+  - first:
+      213: -1846348602581450379
+    second: Fireflies_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fireflies_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 265561f8d4525e420800000000000000
+      internalID: 2658572170075460962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fireflies_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1980281295ef41e50800000000000000
+      internalID: 6779322997867153553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fireflies_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92907da67535a57b0800000000000000
+      internalID: -5234779981945042647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fireflies_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5d465a2627766be0800000000000000
+      internalID: -1484368021369238177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fireflies_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37dd729ee111569e0800000000000000
+      internalID: -1628876865766171277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fireflies_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a34cd2d16ff69290800000000000000
+      internalID: -7883833302050913370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ab21b2d325a7d5243aab123fd72527bf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fireflies_0: 2658572170075460962
+      Fireflies_1: 6779322997867153553
+      Fireflies_2: -5234779981945042647
+      Fireflies_3: -1484368021369238177
+      Fireflies_4: -1628876865766171277
+      Fireflies_5: -7883833302050913370
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

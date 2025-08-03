@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: 2eab18fded01a5045ab7ac6a96a7af50
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1462526679387509826
+    second: Side-Prof-Holding_0
+  - first:
+      213: 8489233184194564239
+    second: Side-Prof-Holding_1
+  - first:
+      213: 5167445615154196639
+    second: Side-Prof-Holding_2
+  - first:
+      213: 8901009655697474188
+    second: Side-Prof-Holding_3
+  - first:
+      213: 102808476794518236
+    second: Side-Prof-Holding_4
+  - first:
+      213: 5267062090137190373
+    second: Side-Prof-Holding_5
+  - first:
+      213: 2526239666497084640
+    second: Side-Prof-Holding_6
+  - first:
+      213: 8264404386689931840
+    second: Side-Prof-Holding_7
+  - first:
+      213: 2838170270908878555
+    second: Side-Prof-Holding_8
+  - first:
+      213: -3900948080227628385
+    second: Side-Prof-Holding_9
+  - first:
+      213: 8897157971876627590
+    second: Side-Prof-Holding_10
+  - first:
+      213: -1678362158287274339
+    second: Side-Prof-Holding_11
+  - first:
+      213: -8043266331943824731
+    second: Side-Prof-Holding_12
+  - first:
+      213: 4750483461981020547
+    second: Side-Prof-Holding_13
+  - first:
+      213: -5137747896495279644
+    second: Side-Prof-Holding_14
+  - first:
+      213: -9216205423814650962
+    second: Side-Prof-Holding_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Side-Prof-Holding_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 0
+        width: 98
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2449c6f1440fb4410800000000000000
+      internalID: 1462526679387509826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_1
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 0
+        width: 98
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8010676a90dfc570800000000000000
+      internalID: 8489233184194564239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_2
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 0
+        width: 94
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f907a6f986476b740800000000000000
+      internalID: 5167445615154196639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_3
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 0
+        width: 94
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c828b2e4f1db68b70800000000000000
+      internalID: 8901009655697474188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_4
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 0
+        width: 110
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda7c33d3cf3d6100800000000000000
+      internalID: 102808476794518236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_5
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 0
+        width: 110
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5efbd8c901d581940800000000000000
+      internalID: 5267062090137190373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_6
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 0
+        width: 106
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ec5f0397910f0320800000000000000
+      internalID: 2526239666497084640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_7
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 0
+        width: 106
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04a55d4c00011b270800000000000000
+      internalID: 8264404386689931840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_8
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 0
+        width: 98
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde0999f2d4336720800000000000000
+      internalID: 2838170270908878555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_9
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 0
+        width: 98
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a4ace936c0dd9c0800000000000000
+      internalID: -3900948080227628385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_10
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 0
+        width: 94
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 684cd38490e097b70800000000000000
+      internalID: 8897157971876627590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_11
+      rect:
+        serializedVersion: 2
+        x: 1431
+        y: 0
+        width: 94
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e34d6628245b8e0800000000000000
+      internalID: -1678362158287274339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_12
+      rect:
+        serializedVersion: 2
+        x: 1547
+        y: 0
+        width: 110
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a211aad2e3906090800000000000000
+      internalID: -8043266331943824731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_13
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 0
+        width: 110
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3812fbe1a8b1de140800000000000000
+      internalID: 4750483461981020547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_14
+      rect:
+        serializedVersion: 2
+        x: 1803
+        y: 0
+        width: 106
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e173e3528d03b8b0800000000000000
+      internalID: -5137747896495279644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side-Prof-Holding_15
+      rect:
+        serializedVersion: 2
+        x: 1931
+        y: 0
+        width: 106
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea3df702ff5791080800000000000000
+      internalID: -9216205423814650962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Side-Prof-Holding_0: 1462526679387509826
+      Side-Prof-Holding_1: 8489233184194564239
+      Side-Prof-Holding_10: 8897157971876627590
+      Side-Prof-Holding_11: -1678362158287274339
+      Side-Prof-Holding_12: -8043266331943824731
+      Side-Prof-Holding_13: 4750483461981020547
+      Side-Prof-Holding_14: -5137747896495279644
+      Side-Prof-Holding_15: -9216205423814650962
+      Side-Prof-Holding_2: 5167445615154196639
+      Side-Prof-Holding_3: 8901009655697474188
+      Side-Prof-Holding_4: 102808476794518236
+      Side-Prof-Holding_5: 5267062090137190373
+      Side-Prof-Holding_6: 2526239666497084640
+      Side-Prof-Holding_7: 8264404386689931840
+      Side-Prof-Holding_8: 2838170270908878555
+      Side-Prof-Holding_9: -3900948080227628385
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

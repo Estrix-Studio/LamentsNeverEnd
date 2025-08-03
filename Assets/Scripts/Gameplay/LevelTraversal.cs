@@ -56,6 +56,7 @@ namespace Gameplay
 
         private void SpawnZone(CycleZoneID zoneToSpawn, ZoneSide side)
         {
+            Debug.Log($"Spawning Zone: {zoneToSpawn}");
             var targetZone = _resources[zoneToSpawn];
             Vector3 pos;
             switch (side)

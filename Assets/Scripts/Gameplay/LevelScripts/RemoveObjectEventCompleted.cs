@@ -11,6 +11,7 @@ namespace Gameplay.LevelScripts
 
         [SerializeField] private List<GameObject> destroyObjects;
         [SerializeField] private List<GameObject> enableObjects;
+        [SerializeField] private List<GameObject> completeEventObjects;
         private void Awake()
         {
             if (GameData.Instance.IsEventCompleted(triggerEvent))
@@ -24,6 +25,7 @@ namespace Gameplay.LevelScripts
                 if (obj.activeSelf)
                     obj.SetActive(false);
             }
+            
             GameData.Instance.OnEventCompleted += InstanceOnOnEventCompleted;
             wasSubscribed = true;
         }
@@ -46,6 +48,12 @@ namespace Gameplay.LevelScripts
             foreach (var obj in enableObjects)
             {
                 obj.SetActive(true);   
+            }
+
+            foreach (var obj in  completeEventObjects)
+            {
+                if (obj.TryGetComponent<ICompleteEvent>(out var completeEvent))
+                    completeEvent.CompleteEvent();
             }
             Destroy(gameObject);
         }

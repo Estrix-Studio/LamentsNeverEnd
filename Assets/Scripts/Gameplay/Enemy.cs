@@ -5,6 +5,7 @@ namespace Gameplay
     public class Enemy : MonoBehaviour
     {
         private Player _followPlayer;
+        public AudioSource audioSource;
 
         
         [SerializeField] private float speed;
@@ -12,6 +13,7 @@ namespace Gameplay
 
         public void SetFollowPlayer(Player followPlayer)
         {
+            audioSource.Play();
             _followPlayer = followPlayer;
             _isFollowing = true;
         }
@@ -23,6 +25,7 @@ namespace Gameplay
 
         private void Awake()
         {
+            audioSource  = GetComponent<AudioSource>();
         }
 
         private void Update()

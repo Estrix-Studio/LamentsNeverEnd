@@ -72,6 +72,7 @@ namespace Gameplay
         public void RestartGame()
         {
             Debug.Log("RESTARTING GAME HERE!");
+            Reset();
             SceneManager.LoadScene("LossScreen");
         }
     }

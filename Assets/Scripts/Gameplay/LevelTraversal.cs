@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Gameplay.Data;
 using UnityEngine;
@@ -101,6 +102,7 @@ namespace Gameplay
                 return;
 
             _currentZone = enteredZone;
+            
             _player.transform.SetParent(enteredZone.transform);
             _camera.transform.SetParent(enteredZone.transform);
             DespawnZones();

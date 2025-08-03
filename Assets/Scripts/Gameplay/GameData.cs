@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Gameplay.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Gameplay
 {
@@ -71,6 +72,7 @@ namespace Gameplay
         public void RestartGame()
         {
             Debug.Log("RESTARTING GAME HERE!");
+            SceneManager.LoadScene("LossScreen");
         }
     }
 }

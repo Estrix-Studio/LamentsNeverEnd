@@ -55,7 +55,7 @@ namespace Gameplay.Data
             {
                 Left = CycleZoneID.Room2_1,
                 Top = CycleZoneID.Penyok2,
-                Right = CycleZoneID.Penyok2,
+                Right = CycleZoneID.Room2_4,
                 Bottom = CycleZoneID.Room2_2,
             },
             new ZoneInfo(CycleZoneID.Room2_3)
@@ -69,7 +69,7 @@ namespace Gameplay.Data
             {
                 Left = CycleZoneID.None,
                 Top = CycleZoneID.None,
-                Right = CycleZoneID.Room2_4,
+                Right = CycleZoneID.None,
                 Bottom = CycleZoneID.Penyok3,
             },
             new ZoneInfo(CycleZoneID.Penyok3)

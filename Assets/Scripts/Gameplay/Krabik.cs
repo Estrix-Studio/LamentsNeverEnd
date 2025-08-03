@@ -10,6 +10,6 @@ public class Krabik : MonoBehaviour, IInteractableObject
     
     public void Interact()
     {
-        
+        Debug.Log("Interact with krabik!");
     }
 }

@@ -16,7 +16,12 @@ public enum ZoneSide
 public enum EventName
 {
     None,
-    Level1Completed,
-    Level1_1Completed,
     Dialog_1Completed,
+    Dialog_2Completed,
+    Dialog_3Completed,
+    Object_Interacted_2_1,
+    Object_Interacted_2_3,
+    Object_Interacted_3_1,
+    Object_Interacted_3_3,
+    Finished,
 }

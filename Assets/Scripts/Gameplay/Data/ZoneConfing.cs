@@ -75,80 +75,45 @@ namespace Gameplay.Data
             new ZoneInfo(CycleZoneID.Penyok3)
             {
                 Left = CycleZoneID.Penyok3,
-                Top = CycleZoneID.Room3_1,
-                Right = CycleZoneID.Room3_3,
-                Bottom = CycleZoneID.Room3_6,
+                Top = CycleZoneID.Penyok3,
+                Right = CycleZoneID.Room3_1,
+                Bottom = CycleZoneID.Room3_1,
             },
             new ZoneInfo(CycleZoneID.Room3_1)
             {
-                Left = CycleZoneID.None,
-                Top = CycleZoneID.Room3_1,
+                Left = CycleZoneID.Penyok3,
+                Top = CycleZoneID.Penyok3,
                 Right = CycleZoneID.Room3_2,
-                Bottom = CycleZoneID.Penyok3,
+                Bottom = CycleZoneID.Room3_1,
             },
             new ZoneInfo(CycleZoneID.Room3_2)
             {
-                Left = CycleZoneID.Room3_1,
+                Left = CycleZoneID.Room3_4,
                 Top = CycleZoneID.Penyok3,
-                Right = CycleZoneID.Room3_4,
+                Right = CycleZoneID.Room3_3,
                 Bottom = CycleZoneID.Room3_2,
             },
             new ZoneInfo(CycleZoneID.Room3_3)
             {
-                Left = CycleZoneID.Room3_3,
+                Left = CycleZoneID.None,
                 Top = CycleZoneID.Room3_3,
-                Right = CycleZoneID.Room3_4,
-                Bottom = CycleZoneID.Room3_3,
-            },
-            new ZoneInfo(CycleZoneID.Room3_4)
-            {
-                Left = CycleZoneID.Room3_3,
-                Top = CycleZoneID.Room3_2,
-                Right = CycleZoneID.Room3_4,
-                Bottom = CycleZoneID.Room3_6,
-            },
-            new ZoneInfo(CycleZoneID.Room3_5)
-            {
-                Left = CycleZoneID.Room3_5,
-                Top = CycleZoneID.Room3_6,
-                Right = CycleZoneID.Room3_5,
-                Bottom = CycleZoneID.Room3_7,
-            },
-            new ZoneInfo(CycleZoneID.Room3_6)
-            {
-                Left = CycleZoneID.Room3_7,
-                Top = CycleZoneID.Penyok3,
-                Right = CycleZoneID.Room3_4,
-                Bottom = CycleZoneID.Room3_5,
-            },
-            new ZoneInfo(CycleZoneID.Room3_7)
-            {
-                Left = CycleZoneID.Room3_9,
-                Top = CycleZoneID.Room3_7,
-                Right = CycleZoneID.Room3_6,
-                Bottom = CycleZoneID.Room3_8,
-            },
-            new ZoneInfo(CycleZoneID.Room3_8)
-            {
-                Left = CycleZoneID.Room3_8,
-                Top = CycleZoneID.Room3_7,
                 Right = CycleZoneID.None,
                 Bottom = CycleZoneID.None,
             },
-            new ZoneInfo(CycleZoneID.Room3_9)
+            new ZoneInfo(CycleZoneID.Room3_4)
             {
                 Left = CycleZoneID.None,
-                Top = CycleZoneID.Room3_10,
+                Top = CycleZoneID.Room3_5,
                 Right = CycleZoneID.None,
-                Bottom = CycleZoneID.Room3_9,
+                Bottom = CycleZoneID.None,
             },
-            new ZoneInfo(CycleZoneID.Room3_10)
+            new ZoneInfo(CycleZoneID.Room3_5)
             {
                 Left = CycleZoneID.None,
                 Top = CycleZoneID.Finish,
                 Right = CycleZoneID.None,
                 Bottom = CycleZoneID.None,
-            }
+            },
         };
     }
 }

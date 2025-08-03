@@ -33,11 +33,6 @@ public enum CycleZoneID
     Room3_3,
     Room3_4,
     Room3_5,
-    Room3_6,
-    Room3_7,
-    Room3_8,
-    Room3_9,
-    Room3_10,
     
     Finish
 }

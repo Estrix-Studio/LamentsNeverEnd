@@ -13,15 +13,6 @@ public enum ZoneSide
     Left = 5,
 }
 
-public enum CycleZoneID
-{
-    None = 0,
-    Penyok = 1,
-    Zone1= 2,
-    Zone2 = 3,
-}
-
-
 public enum EventName
 {
     None,

@@ -248,7 +248,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Side-Prof_0: 6701856948422976874
+      Side-Prof_1: 6170233958458717440
+      Side-Prof_2: 4431831034832057282
+      Side-Prof_3: 2902647767996646691
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

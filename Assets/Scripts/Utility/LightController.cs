@@ -10,8 +10,9 @@ namespace Utility
 
         //public float defaultIntensity;
         private Light2D _torchlight;
-        
-        private float minIntensity, maxIntensity;
+
+        private float minIntensity;
+        private float maxIntensity;
 
 
         // Switcher for coroutine
@@ -24,7 +25,7 @@ namespace Utility
                 _torchlight = GetComponent<Light2D>();
 
             _torchlight.intensity = torchData.defaultIntensity;
-
+            // Debug.Log($"Intensity: {_torchlight.intensity}");
             isRunning = true;
             StartCoroutine(Flickering());
         }
@@ -41,9 +42,9 @@ namespace Utility
             {
                 var cooldown = Random.Range(torchData.flickCooldown.x, torchData.flickCooldown.y);
                 yield return new WaitForSeconds(cooldown);
-                
-                torchData.flickRange = new Vector2( torchData.defaultIntensity - torchData.flickRange.x,
-                    torchData.defaultIntensity + torchData.flickRange.y);
+                // Debug.Log("Coldown finished");
+                // torchData.flickRange = new Vector2( torchData.defaultIntensity - torchData.flickRange.x,
+                //     torchData.defaultIntensity + torchData.flickRange.y);
 
                 // Start of flickering
                 var target = Random.Range(torchData.flickRange.x, torchData.flickRange.y);
@@ -51,14 +52,15 @@ namespace Utility
                 yield return StartCoroutine(IntensityRandomizer(_torchlight.intensity, target, torchData.flickTime));
 
                 // Return to default intensity
-                yield return StartCoroutine(IntensityRandomizer(_torchlight.intensity, torchData.defaultIntensity,
-                    torchData.flickBackTime));
+                // yield return StartCoroutine(IntensityRandomizer(_torchlight.intensity, torchData.defaultIntensity,
+                //     torchData.flickBackTime));
             }
         }
 
 
         private IEnumerator IntensityRandomizer(float from, float to, float duration)
         {
+            // Debug.Log($"Start Intensity Randomizer {from}, {to}, {duration}");
             float time = 0;
             while (time < duration)
             {
@@ -66,6 +68,7 @@ namespace Utility
                 time += Time.deltaTime;
                 yield return null;
             }
+            // Debug.Log($"Exit Intensity Randomizer {from}, {to}, {duration}");
         }
     }
 }

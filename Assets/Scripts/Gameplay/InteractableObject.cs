@@ -1,13 +1,14 @@
 ﻿using System.Collections;
+using Gameplay.LevelScripts;
 using UnityEngine;
 
 namespace Gameplay
 {
-    public class InteractableObject : MonoBehaviour, IInteractableObject
+    public class InteractableObject : MonoBehaviour, IInteractableObject, ICompleteEvent
     {
         [SerializeField] private EventName EventName;
 
-        [SerializeField] private float dissapearSpeed = 0.1f;
+        [SerializeField] private float dissapearSpeed = 1f;
         
         private bool hasBeenInteracted = false;
 

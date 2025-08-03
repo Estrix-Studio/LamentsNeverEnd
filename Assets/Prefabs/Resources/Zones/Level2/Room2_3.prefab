@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EventName: 5
-  dissapearSpeed: 0.1
+  dissapearSpeed: 1
 --- !u!1 &490443813587749110
 GameObject:
   m_ObjectHideFlags: 0

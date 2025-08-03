@@ -1,3 +1,4 @@
+using Gameplay;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ namespace UI
 
         public void GoToGameplay()
         {
+            GameData.Instance.Reset();
             SceneManager.LoadScene((int)global::Scene.Gameplay);
         }
 

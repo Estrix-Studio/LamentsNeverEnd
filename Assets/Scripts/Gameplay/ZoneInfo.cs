@@ -1,4 +1,6 @@
-﻿namespace Gameplay
+﻿using Gameplay.Data;
+
+namespace Gameplay
 {
     public class ZoneInfo
     {

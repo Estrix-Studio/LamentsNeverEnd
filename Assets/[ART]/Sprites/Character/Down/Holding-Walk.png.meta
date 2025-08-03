@@ -548,7 +548,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Holding-Walk_0: -7214547028496687699
+      Holding-Walk_1: -3168312979155212453
+      Holding-Walk_10: -6166697755384166450
+      Holding-Walk_11: 2374707526813674972
+      Holding-Walk_12: -5175557697697147437
+      Holding-Walk_13: -6348409770386989890
+      Holding-Walk_14: 5264468445166004912
+      Holding-Walk_15: 3023775238616485813
+      Holding-Walk_2: 3388600380819631717
+      Holding-Walk_3: 4512698648347964498
+      Holding-Walk_4: -4672635008062446038
+      Holding-Walk_5: -47356857366247133
+      Holding-Walk_6: -4454429907666094166
+      Holding-Walk_7: 1173578095973969313
+      Holding-Walk_8: -530452982205800191
+      Holding-Walk_9: 1746544875049421696
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Crab_AttackDown2_0: -4622492276011091049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

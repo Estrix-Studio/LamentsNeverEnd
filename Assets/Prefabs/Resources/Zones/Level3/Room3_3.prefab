@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1464307993162525497, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
-      value: -6.5
+      value: -0.390625
       objectReference: {fileID: 0}
     - target: {fileID: 1464307993162525497, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
-      value: 1.0625
+      value: -0.46875
       objectReference: {fileID: 0}
     - target: {fileID: 1464307993162525497, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
-      value: 0.71875
+      value: 6.828125
       objectReference: {fileID: 0}
     - target: {fileID: 1464307993162525497, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
-      value: 0.5
+      value: 2.03125
       objectReference: {fileID: 0}
     - target: {fileID: 2914553223933247510, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: ThisZoneID
@@ -1078,7 +1078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5965773437808801269, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
-      value: -1.6875
+      value: 0.59375
       objectReference: {fileID: 0}
     - target: {fileID: 5965773437808801269, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
@@ -1086,7 +1086,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5965773437808801269, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
-      value: 6.375
+      value: 8.65625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530470195281848905, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7405906664261529015, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_Tiles.Array.size
@@ -12191,6 +12195,10 @@ PrefabInstance:
     - target: {fileID: 7569801852793551791, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_Tiles.Array.data[16].second.m_TileObjectToInstantiateIndex
       value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443025734304707499, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8443025734304707499, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_ChunkCullingBounds.x

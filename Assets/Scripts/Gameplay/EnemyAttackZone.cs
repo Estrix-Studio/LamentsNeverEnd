@@ -23,7 +23,7 @@ namespace Gameplay
             }
         }
 
-        private void OnTriggerExit2D(Collider other)
+        private void OnTriggerExit2D(Collider2D other)
         {
             if (other.TryGetComponent<Player>(out var player))
             {

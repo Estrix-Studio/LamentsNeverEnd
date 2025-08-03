@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Gameplay.Data;
+using UnityEngine;
 
 namespace Gameplay
 {
@@ -65,6 +66,11 @@ namespace Gameplay
         {
             _completedEvents.Add(eventName);
             OnEventCompleted?.Invoke(eventName);
+        }
+
+        public void RestartGame()
+        {
+            Debug.Log("RESTARTING GAME HERE!");
         }
     }
 }

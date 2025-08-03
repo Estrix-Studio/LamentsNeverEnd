@@ -34,6 +34,8 @@ namespace Gameplay
         private bool _isWalking = true;
 
         private TorchController _torch;
+
+        public bool IsTrourchLit => _torch.IsLit;
         
         private void Awake()
         {
@@ -212,7 +214,10 @@ namespace Gameplay
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            // Debug.Log($"Collided with {collision.gameObject.name}");
+            if (collision.gameObject.TryGetComponent<Enemy>(out var enemy))
+            {
+                GameData.Instance.RestartGame();
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

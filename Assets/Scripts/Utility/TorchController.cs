@@ -21,6 +21,7 @@ namespace Utility
         private bool _isOn = true;
 
         private Animator _animator;
+        public bool IsLit => _isOn;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         private void Start()

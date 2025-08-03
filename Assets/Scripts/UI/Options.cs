@@ -10,7 +10,6 @@ namespace UI
 
         private void Start()
         {
-            audioSource = GetComponent<AudioSource>();
         }
 
         void Update()

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework.Constraints;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utility;
 
 namespace Gameplay
 {
@@ -21,18 +23,34 @@ namespace Gameplay
         private List<IInteractableObject> _currentInteractables = new List<IInteractableObject>();
 
         private InputAction _interactAction;
-
+        private InputAction _toggleAction;
+        private InputAction _uiAction;
+        
         [SerializeField] private GameObject InteractionPrompt;
 
         private Animator _animator;
 
+        private bool _isWalking = true;
+
+        private TorchController _torch;
+        
         private void Awake()
         {
             inputActions = new InputSystem_Actions();
             inputActions.Enable();
             
-            _interactAction = inputActions.FindAction("Interact/TriggerObject");
+            _interactAction = inputActions.Interact.TriggerObject;
             _interactAction.performed += InteractActionOnperformed;  
+        
+            _toggleAction = inputActions.Torch.Toggle;
+            _toggleAction.Enable();
+            _toggleAction.performed += ToggleActionOnperformed;
+
+            inputActions.UI.Click.performed += UiActionOnperformed;
+            inputActions.UI.Submit.performed += UiActionOnperformed;
+            inputActions.UI.RightClick.performed += UiActionOnperformed;
+            inputActions.UI.MiddleClick.performed += UiActionOnperformed;
+            inputActions.UI.Cancel.performed += UiActionOnperformed;
             
             rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
@@ -40,8 +58,35 @@ namespace Gameplay
             UpdateInteractionPrompt();
         }
 
+        private void UiActionOnperformed(InputAction.CallbackContext obj)
+        {
+            if (!_isWalking)
+            {
+                DialogController.Instance.DisplayNextPhrase();
+            }
+        }
+
+        private void Start()
+        {
+            _torch = FindFirstObjectByType<TorchController>();
+            DialogController.Instance.OnDialogEnd += InstanceOnOnDialogEnd;
+            DialogController.Instance.OnDialogStart += InstanceOnOnDialogStart;
+        }
+
+        private void InstanceOnOnDialogStart()
+        {
+            _isWalking = false;
+        }
+
+        private void InstanceOnOnDialogEnd()
+        {
+            _isWalking = true;
+        }
+
         private void InteractActionOnperformed(InputAction.CallbackContext obj)
         {
+            if (!_isWalking)
+                return;
             foreach (var action in _currentInteractables)   
             {
                 action.Interact();
@@ -52,11 +97,19 @@ namespace Gameplay
         
         private void FixedUpdate()
         {
-            Vector2 input = inputActions.Player.Move.ReadValue<Vector2>();
-            Vector2 dir = input.normalized * movespeed;
+            if (_isWalking)
+            {
+                Vector2 input = inputActions.Player.Move.ReadValue<Vector2>();
+                Vector2 dir = input.normalized * movespeed;
+                
+                rb.MovePosition(rb.position + dir * Time.fixedDeltaTime);   
+                UpdateAnimation(input);
+            }
+            else
+            {
+                UpdateAnimation(Vector2.zero);
+            }
             
-            rb.MovePosition(rb.position + dir * Time.fixedDeltaTime);
-            UpdateAnimation(input);
         }
 
         private void UpdateAnimation(Vector2 input)
@@ -158,12 +211,12 @@ namespace Gameplay
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log($"Collided with {collision.gameObject.name}");
+            // Debug.Log($"Collided with {collision.gameObject.name}");
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log($"Triggered by {collision.gameObject.name}");
+            // Debug.Log($"Triggered by {collision.gameObject.name}");
 
             if (collision.TryGetComponent<IInteractableObject>(out var interactable))
             {
@@ -196,8 +249,29 @@ namespace Gameplay
         }
         private void OnDestroy()
         {
+             _toggleAction.performed -= ToggleActionOnperformed;
+            _toggleAction.Disable();
             _interactAction.performed -= InteractActionOnperformed;
             inputActions.Disable();
+            
+            inputActions.UI.Click.performed -= UiActionOnperformed;
+            inputActions.UI.Click.Disable();
+            inputActions.UI.Submit.performed -= UiActionOnperformed;
+            inputActions.UI.Submit.Disable();
+            inputActions.UI.RightClick.performed -= UiActionOnperformed;
+            inputActions.UI.RightClick.Disable();
+            inputActions.UI.MiddleClick.performed -= UiActionOnperformed;
+            inputActions.UI.MiddleClick.Disable();
+            inputActions.UI.Cancel.performed -= UiActionOnperformed;
+            inputActions.UI.Cancel.Disable();
+            
+        }
+
+        private void ToggleActionOnperformed(InputAction.CallbackContext obj)
+        {
+            if (!_isWalking)
+                return;
+            _torch.Toggle();
         }
     }
 }

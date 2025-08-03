@@ -1,3 +1,4 @@
+using System;
 using Gameplay;
 using UnityEngine;
 using Utility;
@@ -7,9 +8,26 @@ public class Krabik : MonoBehaviour, IInteractableObject
     [SerializeField] private EventName EventName;
 
     [SerializeField] private DialogInfo DialogInfo;
+
+    private bool hasBeenInteracted = false;
     
     public void Interact()
     {
-        Debug.Log("Interact with krabik!");
+        if (hasBeenInteracted)
+            return;
+        Debug.Log("Start Dialog");
+        hasBeenInteracted = true;
+        DialogController.Instance.OnDialogEnd += InstanceOnOnDialogEnd;
+        DialogController.Instance.StartDialog(DialogInfo.Phrases);
+    }
+
+    private void OnDestroy()
+    {
+        DialogController.Instance.OnDialogEnd -= InstanceOnOnDialogEnd;
+    }
+
+    private void InstanceOnOnDialogEnd()
+    {
+        GameData.Instance.CompleteEvent(EventName);
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Gameplay.Data;
+using UnityEngine;
 
 namespace Gameplay.LevelScripts
 {

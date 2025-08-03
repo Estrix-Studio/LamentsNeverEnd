@@ -1058,6 +1058,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Interact",
+            "id": "5335ea78-0a00-4ec3-b1ce-856679346a80",
+            "actions": [
+                {
+                    "name": "TriggerObject",
+                    "type": "Button",
+                    "id": "617b08e0-6a0e-499d-b08c-384aaf7c8e01",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c7d897e5-a24c-44b0-8887-24ea142e4110",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerObject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

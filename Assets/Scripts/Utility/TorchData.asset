@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5977bf4b9a40ec83494729ed33e3e3, type: 3}
   m_Name: TorchData
   m_EditorClassIdentifier: 
-  minIntensity: 0.2
-  maxIntensity: 0.2
+  minIntensity: 0.1
+  maxIntensity: 1.28
   defaultIntensity: 1
   dimIntensity: 0.1
   normalIntensity: 1
   transitionSpeed: 0.5
-  flickTime: 0.25
-  flickBackTime: 0.25
+  flickTime: 0.66
+  flickBackTime: 0.6
   flickCooldown: {x: 0.4, y: 2}

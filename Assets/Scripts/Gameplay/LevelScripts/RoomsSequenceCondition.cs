@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Gameplay.Data;
 using UnityEngine;
 
 namespace Gameplay.LevelScripts

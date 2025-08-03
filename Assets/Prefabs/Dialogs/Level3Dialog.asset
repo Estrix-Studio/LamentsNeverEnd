@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2111fbc62a2b443ba3f511c67c853e9c, type: 3}
+  m_Name: Level3Dialog
+  m_EditorClassIdentifier: 
+  Phrases:
+  - Well, well, look at you. Three steps from freedom, and only mildly psychologically
+    shattered. Color me shell-shocked.
+  - ...
+  - "You know what? I found that you really deserve a chance to escape. Ok, look.
+    Forest hides relics those looks like shells. Magical mood stabilizers. Crack
+    'em open, and the forest throws a tantrum. Which is exactly what you want. You
+    break them \u2014 the illusion breaks. Then, if you're lucky and not completely
+    cursed yet, you run."
+  - ...
+  - "The forest will retaliate. You ever see a godlike ecosystem scream in existential
+    pain? It\u2019s like a toddler on fire. Loud. Messy. Possibly contagious."
+  - ...
+  - "So this is it. Go hit stuff. Ruin nature\u2019s evil mood board. And when the
+    final door opens? Don\u2019t ask questions. Don\u2019t monologue. Just. Leave."
+  - ...
+  - "...And if you fail? Don\u2019t worry. I\u2019ll clean up your mess like I always
+    do. Might even wear your skull as a hat. For the drama."
+  - Bye now. Go traumatize a tree for me.

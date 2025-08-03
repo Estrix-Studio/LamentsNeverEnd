@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: 5aef27e30e7c5be49aa96229f2ba3a4e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3076287760604841369
+    second: Other-Side-Holding_0
+  - first:
+      213: -7729844787420128982
+    second: Other-Side-Holding_1
+  - first:
+      213: -1668120859415918969
+    second: Other-Side-Holding_2
+  - first:
+      213: 1378831807348234960
+    second: Other-Side-Holding_3
+  - first:
+      213: 1914190582349673435
+    second: Other-Side-Holding_4
+  - first:
+      213: 1575315401782978401
+    second: Other-Side-Holding_5
+  - first:
+      213: -5713991572124905105
+    second: Other-Side-Holding_6
+  - first:
+      213: -5752276942129911063
+    second: Other-Side-Holding_7
+  - first:
+      213: -1786750768385382917
+    second: Other-Side-Holding_8
+  - first:
+      213: -1629150305218070799
+    second: Other-Side-Holding_9
+  - first:
+      213: 6714087642101522387
+    second: Other-Side-Holding_10
+  - first:
+      213: -4245076056272041796
+    second: Other-Side-Holding_11
+  - first:
+      213: 6129875342794822967
+    second: Other-Side-Holding_12
+  - first:
+      213: -9018690553975289343
+    second: Other-Side-Holding_13
+  - first:
+      213: -8785108545141172535
+    second: Other-Side-Holding_14
+  - first:
+      213: -743504396551125469
+    second: Other-Side-Holding_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Other-Side-Holding_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 98
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76a3442a494de45d0800000000000000
+      internalID: -3076287760604841369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_1
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 0
+        width: 98
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a291becce131ab490800000000000000
+      internalID: -7729844787420128982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_2
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 0
+        width: 94
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 786481c9ae4a9d8e0800000000000000
+      internalID: -1668120859415918969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_3
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 0
+        width: 94
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0da50023938922310800000000000000
+      internalID: 1378831807348234960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_4
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 0
+        width: 110
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd3b95d5132909a10800000000000000
+      internalID: 1914190582349673435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_5
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 0
+        width: 106
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 167e974f205acd510800000000000000
+      internalID: 1575315401782978401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_6
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 0
+        width: 110
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f615bed60f2d3b0b0800000000000000
+      internalID: -5713991572124905105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_7
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 0
+        width: 106
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea2da6199ecb20b0800000000000000
+      internalID: -5752276942129911063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_8
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 0
+        width: 98
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf5ab3c84af2437e0800000000000000
+      internalID: -1786750768385382917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_9
+      rect:
+        serializedVersion: 2
+        x: 1159
+        y: 0
+        width: 98
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f6f1c3dd681469e0800000000000000
+      internalID: -1629150305218070799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_10
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 0
+        width: 98
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3df1d42432b3d2d50800000000000000
+      internalID: 6714087642101522387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_11
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 0
+        width: 94
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb8836571d57615c0800000000000000
+      internalID: -4245076056272041796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_12
+      rect:
+        serializedVersion: 2
+        x: 1543
+        y: 0
+        width: 110
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73516b49521b11550800000000000000
+      internalID: 6129875342794822967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_13
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 0
+        width: 106
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10ac12769bc27d280800000000000000
+      internalID: -9018690553975289343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_14
+      rect:
+        serializedVersion: 2
+        x: 1803
+        y: 0
+        width: 106
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c69c9dd256051680800000000000000
+      internalID: -8785108545141172535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Other-Side-Holding_15
+      rect:
+        serializedVersion: 2
+        x: 1927
+        y: 0
+        width: 110
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32601aac0ba8ea5f0800000000000000
+      internalID: -743504396551125469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Other-Side-Holding_0: -3076287760604841369
+      Other-Side-Holding_1: -7729844787420128982
+      Other-Side-Holding_10: 6714087642101522387
+      Other-Side-Holding_11: -4245076056272041796
+      Other-Side-Holding_12: 6129875342794822967
+      Other-Side-Holding_13: -9018690553975289343
+      Other-Side-Holding_14: -8785108545141172535
+      Other-Side-Holding_15: -743504396551125469
+      Other-Side-Holding_2: -1668120859415918969
+      Other-Side-Holding_3: 1378831807348234960
+      Other-Side-Holding_4: 1914190582349673435
+      Other-Side-Holding_5: 1575315401782978401
+      Other-Side-Holding_6: -5713991572124905105
+      Other-Side-Holding_7: -5752276942129911063
+      Other-Side-Holding_8: -1786750768385382917
+      Other-Side-Holding_9: -1629150305218070799
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

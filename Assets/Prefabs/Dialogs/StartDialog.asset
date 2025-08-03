@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2111fbc62a2b443ba3f511c67c853e9c, type: 3}
+  m_Name: StartDialog
+  m_EditorClassIdentifier: 
+  Phrases:
+  - Oh... Another one. Sleeping Beauty decides to roll outta the dirt. Took you long
+    enough.
+  - You okay? No? Good. Welcome to the forest, not just your average collection of
+    trees, oh no... This one's got thoughts. Feelings. Maybe even a superiority complex.
+  - "Honestly? It\u2019s smarter than you. But don\u2019t take it personally. Most
+    rocks are, too."
+  - ...
+  - "I know what you\u2019re thinking. \u201CA crab? In a forest?\u201D"
+  - "I know what you\u2019re thinking. \u201CA crab? In a forest?\u201D"
+  - "Yeah, genius. A crab. Walking, talking, and mildly judgmental. But hey \u2014
+    I\u2019m not the one who passed out in sentient shrubbery wearing yesterday\u2019s
+    trauma. That\u2019s a you problem."
+  - ...
+  - You should try escaping. Assuming you like living. Or whatever it is you humans
+    call your half-conscious flailing.
+  - "But don\u2019t get cozy. This place? It... adapts. Warps. Chews up people like
+    you and spits out something with too many eyes."
+  - "Anyway! I\u2019ll be around. Lurking. Judging. You know. Like family."

@@ -7,88 +7,83 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class DialogController : MonoBehaviour
-    {
-        public static DialogController Instance => _instance;
-        private static DialogController _instance;
-    
-        [Header("UI References")]
-        public TextMeshProUGUI dialogText;
-        public Button nextButton;
-        public GameObject dialogPanel;
+	public class DialogController : MonoBehaviour
+	{
+		[Header("UI References")] public TextMeshProUGUI dialogText;
 
-        [Header("Typing Settings")]
-        public float typingSpeed = 0.02f;
+		public Button nextButton;
+		public GameObject dialogPanel;
 
-        private Queue<string> phrases = new Queue<string>();
-        private Coroutine typingCoroutine;
+		[Header("Typing Settings")] public float typingSpeed = 0.02f;
 
-        public event Action OnDialogStart;
-        public event Action OnDialogEnd;
-        private void Awake()
-        {
-            if (_instance != null && _instance != this)
-            {
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                _instance = this;
-            }
-        }
-        private void Start()
-        {
-            dialogPanel.SetActive(false);
-            if (nextButton != null)
-                nextButton.onClick.AddListener(DisplayNextPhrase);
-        }
+		private readonly Queue<string> _phrases = new();
+		private Coroutine _typingCoroutine;
+		public static DialogController instance { get; private set; }
 
-        public void StartDialog(List<string> dialogPhrases)
-        {
-            OnDialogStart?.Invoke();
-            phrases.Clear();
+		private void Awake()
+		{
+			if (instance != null && instance != this)
+				Destroy(gameObject);
+			else
+				instance = this;
+		}
 
-            foreach (var phrase in dialogPhrases)
-                phrases.Enqueue(phrase);
+		private void Start()
+		{
+			dialogPanel.SetActive(false);
+			if (nextButton != null)
+				nextButton.onClick.AddListener(DisplayNextPhrase);
+		}
 
-            DisplayNextPhrase();
-        }
+		public event Action OnDialogStart;
+		public event Action OnDialogEnd;
 
-        public void DisplayNextPhrase()
-        {
-            if (phrases.Count == 0)
-            {
-                EndDialog();
-                return;
-            }
+		public void StartDialog(List<string> dialogPhrases)
+		{
+			OnDialogStart?.Invoke();
+			_phrases.Clear();
 
-            if (!dialogPanel.activeSelf)
-                dialogPanel.SetActive(true);
-        
-            string phrase = phrases.Dequeue();
+			foreach (var phrase in dialogPhrases)
+				_phrases.Enqueue(phrase);
 
-            if (typingCoroutine != null)
-                StopCoroutine(typingCoroutine);
+			DisplayNextPhrase();
+		}
 
-            typingCoroutine = StartCoroutine(TypePhrase(phrase));
-        }
+		public void DisplayNextPhrase()
+		{
+			if (_phrases.Count == 0)
+			{
+				EndDialog();
+				return;
+			}
 
-        private IEnumerator TypePhrase(string phrase)
-        {
-            dialogText.text = "";
-            foreach (char c in phrase)
-            {
-                dialogText.text += c;
-                yield return new WaitForSeconds(typingSpeed);
-            }
-        }
+			if (!dialogPanel.activeSelf)
+				dialogPanel.SetActive(true);
 
-        private void EndDialog()
-        {
-            dialogPanel.SetActive(false);
-            dialogText.text = "";
-            Debug.Log("Dialog finished");
-            OnDialogEnd?.Invoke();
-        }
-    }
+			var phrase = _phrases.Dequeue();
+
+			if (_typingCoroutine != null)
+				StopCoroutine(_typingCoroutine);
+
+			_typingCoroutine = StartCoroutine(TypePhrase(phrase));
+		}
+
+		private IEnumerator TypePhrase(string phrase)
+		{
+			dialogText.text = "";
+			foreach (var c in phrase)
+			{
+				dialogText.text += c;
+				yield return new WaitForSeconds(typingSpeed);
+			}
+		}
+
+		private void EndDialog()
+		{
+			dialogPanel.SetActive(false);
+			dialogText.text = "";
+			Debug.Log("Dialog finished");
+			OnDialogEnd?.Invoke();
+		}
+	}
 }

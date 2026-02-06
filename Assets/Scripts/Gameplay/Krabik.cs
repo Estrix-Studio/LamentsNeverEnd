@@ -6,60 +6,60 @@ using Utility;
 
 namespace Gameplay
 {
-    public class Krabik : MonoBehaviour, IInteractableObject, ICompleteEvent
-    {
-        [SerializeField] private EventName EventName;
+	public class Krabik : MonoBehaviour, IInteractableObject, ICompleteEvent
+	{
+		[SerializeField] private EventName eventName;
 
-        [SerializeField] private DialogInfo DialogInfo;
+		[SerializeField] private DialogInfo dialogInfo;
 
-        [SerializeField] private float dissapearSpeed = 0.1f;
-        
-        private bool hasBeenInteracted = false;
+		[SerializeField] private float disappearSpeed = 0.1f;
 
-        private SpriteRenderer _renderer;
+		private SpriteRenderer _renderer;
 
-        private void Awake()
-        {
-            _renderer = GetComponent<SpriteRenderer>();
-        }
+		private bool _hasBeenInteracted;
 
-        public void Interact()
-        {
-            if (hasBeenInteracted)
-                return;
-            Debug.Log("Start Dialog");
-            hasBeenInteracted = true;
-            DialogController.Instance.OnDialogEnd += InstanceOnOnDialogEnd;
-            DialogController.Instance.StartDialog(DialogInfo.Phrases);
-        }
+		private void Awake()
+		{
+			_renderer = GetComponent<SpriteRenderer>();
+		}
 
-        private void OnDestroy()
-        {
-            DialogController.Instance.OnDialogEnd -= InstanceOnOnDialogEnd;
-        }
+		private void OnDestroy()
+		{
+			DialogController.instance.OnDialogEnd -= InstanceOnOnDialogEnd;
+		}
 
-        private void InstanceOnOnDialogEnd()
-        {
-            GameData.Instance.CompleteEvent(EventName);
-        }
+		public void CompleteEvent()
+		{
+			StartCoroutine(Dissapear());
+		}
 
-        public void CompleteEvent()
-        {
-            StartCoroutine(Dissapear());
-        }
+		public void Interact()
+		{
+			if (_hasBeenInteracted)
+				return;
+			Debug.Log("Start Dialog");
+			_hasBeenInteracted = true;
+			DialogController.instance.OnDialogEnd += InstanceOnOnDialogEnd;
+			DialogController.instance.StartDialog(dialogInfo.phrases);
+		}
 
-        private IEnumerator Dissapear()
-        {
-            while (_renderer.color.a != 0)
-            {
-                var newA = _renderer.color.a - Time.deltaTime * dissapearSpeed;
-                if (newA < 0)
-                    newA = 0;
-                _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, newA);
-                yield return null;
-            }
-            Destroy(gameObject);
-        }
-    }
+		private void InstanceOnOnDialogEnd()
+		{
+			GameData.instance.CompleteEvent(eventName);
+		}
 
+		private IEnumerator Dissapear()
+		{
+			while (_renderer.color.a != 0)
+			{
+				var newA = _renderer.color.a - Time.deltaTime * disappearSpeed;
+				if (newA < 0)
+					newA = 0;
+				_renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, newA);
+				yield return null;
+			}
+
+			Destroy(gameObject);
+		}
+	}
 }

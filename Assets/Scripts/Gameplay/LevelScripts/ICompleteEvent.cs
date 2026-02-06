@@ -1,7 +1,7 @@
 ﻿namespace Gameplay.LevelScripts
 {
-    public interface ICompleteEvent
-    {
-        void CompleteEvent();
-    }
+	public interface ICompleteEvent
+	{
+		void CompleteEvent();
+	}
 }

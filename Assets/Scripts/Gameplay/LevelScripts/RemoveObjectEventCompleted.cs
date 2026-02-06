@@ -1,68 +1,55 @@
 ﻿using System.Collections.Generic;
-using Gameplay.Data;
 using UnityEngine;
 
 namespace Gameplay.LevelScripts
 {
-    public class RemoveObjectEventCompleted : MonoBehaviour
-    {
-        [SerializeField] private EventName triggerEvent;
+	public class RemoveObjectEventCompleted : MonoBehaviour
+	{
+		[SerializeField] private EventName triggerEvent;
 
-        private bool wasSubscribed = false;
+		[SerializeField] private List<GameObject> destroyObjects;
+		[SerializeField] private List<GameObject> enableObjects;
+		[SerializeField] private List<GameObject> completeEventObjects;
 
-        [SerializeField] private List<GameObject> destroyObjects;
-        [SerializeField] private List<GameObject> enableObjects;
-        [SerializeField] private List<GameObject> completeEventObjects;
-        private void Awake()
-        {
-            if (GameData.Instance.IsEventCompleted(triggerEvent))
-            {
-                OnEventCompleted();
-                return;
-            }
+		private bool _wasSubscribed;
 
-            foreach (var obj in  enableObjects)
-            {
-                if (obj.activeSelf)
-                    obj.SetActive(false);
-            }
-            
-            GameData.Instance.OnEventCompleted += InstanceOnOnEventCompleted;
-            wasSubscribed = true;
-        }
+		private void Awake()
+		{
+			if (GameData.instance.IsEventCompleted(triggerEvent))
+			{
+				OnEventCompleted();
+				return;
+			}
 
-        private void InstanceOnOnEventCompleted(EventName obj)
-        {
-            if (obj == triggerEvent)
-            {
-                OnEventCompleted();
-            }
-        }
+			foreach (var obj in enableObjects)
+				if (obj.activeSelf)
+					obj.SetActive(false);
 
-        private void OnEventCompleted()
-        {
-            foreach (var obj in  destroyObjects)
-            {
-                Destroy(obj);
-            }
+			GameData.instance.OnEventCompleted += InstanceOnOnEventCompleted;
+			_wasSubscribed = true;
+		}
 
-            foreach (var obj in enableObjects)
-            {
-                obj.SetActive(true);   
-            }
+		private void OnDestroy()
+		{
+			if (_wasSubscribed)
+				GameData.instance.OnEventCompleted -= InstanceOnOnEventCompleted;
+		}
 
-            foreach (var obj in  completeEventObjects)
-            {
-                if (obj.TryGetComponent<ICompleteEvent>(out var completeEvent))
-                    completeEvent.CompleteEvent();
-            }
-            Destroy(gameObject);
-        }
+		private void InstanceOnOnEventCompleted(EventName obj)
+		{
+			if (obj == triggerEvent) OnEventCompleted();
+		}
 
-        private void OnDestroy()
-        {
-           if (wasSubscribed) 
-            GameData.Instance.OnEventCompleted -= InstanceOnOnEventCompleted;
-        }
-    }
+		private void OnEventCompleted()
+		{
+			foreach (var obj in destroyObjects) Destroy(obj);
+
+			foreach (var obj in enableObjects) obj.SetActive(true);
+
+			foreach (var obj in completeEventObjects)
+				if (obj.TryGetComponent<ICompleteEvent>(out var completeEvent))
+					completeEvent.CompleteEvent();
+			Destroy(gameObject);
+		}
+	}
 }

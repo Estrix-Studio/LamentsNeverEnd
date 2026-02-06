@@ -3,11 +3,11 @@ using UnityEngine.SceneManagement;
 
 namespace UI
 {
-    public class LossScreen : MonoBehaviour
-    {
-        public void BacktoMenu()
-        {
-            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-        }
-    }
+	public class LossScreen : MonoBehaviour
+	{
+		public void BacktoMenu()
+		{
+			SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+		}
+	}
 }

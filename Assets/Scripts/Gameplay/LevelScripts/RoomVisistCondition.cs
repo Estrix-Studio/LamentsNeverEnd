@@ -5,35 +5,26 @@ using UnityEngine;
 
 namespace Gameplay.LevelScripts
 {
-    public class RoomVisistCondition : LevelCondition
-    {
-        [SerializeField] private List<CycleZoneID> zonesToVisit;
-        
-        private Dictionary<CycleZoneID, bool> _zonesVisited = new Dictionary<CycleZoneID, bool>();
+	public class RoomVisistCondition : LevelCondition
+	{
+		[SerializeField] private List<CycleZoneID> zonesToVisit;
 
-        private void Start()
-        {
-            foreach (var zone in zonesToVisit)
-            {
-                _zonesVisited.Add(zone, false);
-            }
+		private readonly Dictionary<CycleZoneID, bool> _zonesVisited = new();
 
-            if (_zonesVisited.Count == 0)
-            {
-                CompleteEvent();
-            }
-        }
+		private void Start()
+		{
+			foreach (var zone in zonesToVisit) _zonesVisited.Add(zone, false);
 
-        protected override void InstanceOnOnZoneEntered(CycleZoneID obj)
-        {
-            if (_zonesVisited.ContainsKey(obj))
-            {
-                _zonesVisited[obj] = true;
-                if (_zonesVisited.All(p => p.Value))
-                {
-                    CompleteEvent();
-                }
-            }
-        }
-    }
+			if (_zonesVisited.Count == 0) CompleteEvent();
+		}
+
+		protected override void InstanceOnOnZoneEntered(CycleZoneID obj)
+		{
+			if (_zonesVisited.ContainsKey(obj))
+			{
+				_zonesVisited[obj] = true;
+				if (_zonesVisited.All(p => p.Value)) CompleteEvent();
+			}
+		}
+	}
 }

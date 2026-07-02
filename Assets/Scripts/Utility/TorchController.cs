@@ -36,6 +36,9 @@ namespace Utility
 
 			_animator = GetComponentInParent<Animator>();
 
+			if (topLight == null)
+				Debug.LogWarning("Top Light is not assigned on TorchController.", this);
+
 			isLit = false;
 			Toggle();
 
@@ -47,9 +50,12 @@ namespace Utility
 		public void Toggle()
 		{
 			isLit = !isLit;
-			_torchlight.enabled = isLit;
-			topLight.enabled = isLit;
-			_animator.SetBool(holding, isLit);
+			if (_torchlight != null)
+				_torchlight.enabled = isLit;
+			if (topLight != null)
+				topLight.enabled = isLit;
+			if (_animator != null)
+				_animator.SetBool(holding, isLit);
 		}
 	}
 }

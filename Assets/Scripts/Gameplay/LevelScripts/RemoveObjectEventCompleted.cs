@@ -21,9 +21,16 @@ namespace Gameplay.LevelScripts
 				return;
 			}
 
-			foreach (var obj in enableObjects)
-				if (obj.activeSelf)
-					obj.SetActive(false);
+			if (enableObjects != null)
+			{
+				foreach (var obj in enableObjects)
+				{
+					if (obj == null)
+						continue;
+					if (obj.activeSelf)
+						obj.SetActive(false);
+				}
+			}
 
 			GameData.instance.OnEventCompleted += InstanceOnOnEventCompleted;
 			_wasSubscribed = true;
@@ -42,13 +49,31 @@ namespace Gameplay.LevelScripts
 
 		private void OnEventCompleted()
 		{
-			foreach (var obj in destroyObjects) Destroy(obj);
+			if (destroyObjects != null)
+			{
+				foreach (var obj in destroyObjects)
+					if (obj != null)
+						Destroy(obj);
+			}
 
-			foreach (var obj in enableObjects) obj.SetActive(true);
+			if (enableObjects != null)
+			{
+				foreach (var obj in enableObjects)
+					if (obj != null)
+						obj.SetActive(true);
+			}
 
-			foreach (var obj in completeEventObjects)
-				if (obj.TryGetComponent<ICompleteEvent>(out var completeEvent))
-					completeEvent.CompleteEvent();
+			if (completeEventObjects != null)
+			{
+				foreach (var obj in completeEventObjects)
+				{
+					if (obj == null)
+						continue;
+					if (obj.TryGetComponent<ICompleteEvent>(out var completeEvent))
+						completeEvent.CompleteEvent();
+				}
+			}
+
 			Destroy(gameObject);
 		}
 	}

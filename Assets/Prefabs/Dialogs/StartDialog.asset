@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2111fbc62a2b443ba3f511c67c853e9c, type: 3}
   m_Name: StartDialog
   m_EditorClassIdentifier: 
+  yarnScript: {fileID: 4900000, guid: 4d7f3512f5884b0fbc9b845094d30641, type: 3}
+  yarnNodeName: Start
   Phrases:
   - Oh... Another one. Sleeping Beauty decides to roll outta the dirt. Took you long
     enough.

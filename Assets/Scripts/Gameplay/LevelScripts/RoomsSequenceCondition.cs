@@ -12,11 +12,14 @@ namespace Gameplay.LevelScripts
 
 		private void Start()
 		{
-			if (zonesToVisit.Count == 0) CompleteEvent();
+			if (zonesToVisit == null || zonesToVisit.Count == 0) CompleteEvent();
 		}
 
 		protected override void InstanceOnOnZoneEntered(CycleZoneID obj)
 		{
+			if (zonesToVisit == null || zonesToVisit.Count == 0 || _nextIndexToVisit >= zonesToVisit.Count)
+				return;
+
 			if (zonesToVisit[_nextIndexToVisit] == obj)
 			{
 				_nextIndexToVisit++;

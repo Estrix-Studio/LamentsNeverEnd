@@ -26,7 +26,8 @@ namespace Gameplay
 
 		public void SetFollowPlayer(Player followPlayer)
 		{
-			audioSource.Play();
+			if (audioSource != null)
+				audioSource.Play();
 			_followPlayer = followPlayer;
 			_isFollowing = true;
 		}

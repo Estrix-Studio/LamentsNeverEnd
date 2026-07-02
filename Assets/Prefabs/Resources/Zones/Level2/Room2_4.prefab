@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: ThisZoneID
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2914553223933247510, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
+      propertyPath: thisZoneID
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3034023235434103387, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_TileAssetArray.Array.data[49].m_Data
       value: 

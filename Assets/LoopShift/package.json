@@ -1,0 +1,17 @@
+{
+  "name": "com.endless-seamless-levels.unity",
+  "version": "0.1.0",
+  "displayName": "LoopShift – Seamless Endless Level Transitions",
+  "description": "Lightweight 2D seamless level streaming with no-code ScriptableObject graph authoring, hybrid endless pools, and automatic zone bounds detection.",
+  "unity": "2022.3",
+  "author": {
+    "name": "Laments Never End"
+  },
+  "samples": [
+    {
+      "displayName": "Minimal Top Down",
+      "description": "Minimal setup scene and sample assets for endless seamless level streaming.",
+      "path": "Samples~/MinimalTopDown"
+    }
+  ]
+}

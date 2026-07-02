@@ -24,6 +24,20 @@ namespace Utility
 			if (!_torchlight)
 				_torchlight = GetComponent<Light2D>();
 
+			if (_torchlight == null)
+			{
+				Debug.LogWarning("Light2D component not found on this GameObject.", this);
+				enabled = false;
+				return;
+			}
+
+			if (torchData == null)
+			{
+				Debug.LogWarning("TorchData is not assigned on LightController.", this);
+				enabled = false;
+				return;
+			}
+
 			_torchlight.intensity = torchData.defaultIntensity;
 			// Debug.Log($"Intensity: {_torchlight.intensity}");
 			isRunning = true;
@@ -40,16 +54,20 @@ namespace Utility
 		{
 			while (isRunning)
 			{
-				var cooldown = Random.Range(torchData.flickCooldown.x, torchData.flickCooldown.y);
+				var cooldownMin = Mathf.Min(torchData.flickCooldown.x, torchData.flickCooldown.y);
+				var cooldownMax = Mathf.Max(torchData.flickCooldown.x, torchData.flickCooldown.y);
+				var cooldown = Random.Range(cooldownMin, cooldownMax);
 				yield return new WaitForSeconds(cooldown);
 				// Debug.Log("Coldown finished");
 				// torchData.flickRange = new Vector2( torchData.defaultIntensity - torchData.flickRange.x,
 				//     torchData.defaultIntensity + torchData.flickRange.y);
 
 				// Start of flickering
-				var target = Random.Range(torchData.flickRange.x, torchData.flickRange.y);
+				var minIntensity = Mathf.Min(torchData.flickRange.x, torchData.flickRange.y);
+				var maxIntensity = Mathf.Max(torchData.flickRange.x, torchData.flickRange.y);
+				var target = Random.Range(minIntensity, maxIntensity);
 
-				yield return StartCoroutine(IntensityRandomizer(_torchlight.intensity, target, torchData.flickTime));
+				yield return StartCoroutine(IntensityRandomizer(_torchlight.intensity, target, Mathf.Max(0.01f, torchData.flickTime)));
 
 				// Return to default intensity
 				// yield return StartCoroutine(IntensityRandomizer(_torchlight.intensity, torchData.defaultIntensity,

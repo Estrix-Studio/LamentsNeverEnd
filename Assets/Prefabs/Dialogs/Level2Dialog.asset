@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2111fbc62a2b443ba3f511c67c853e9c, type: 3}
   m_Name: Level2Dialog
   m_EditorClassIdentifier: 
+  yarnScript: {fileID: 4900000, guid: 9fe6460a2fc24f8d91d2762ba5cab8ab, type: 3}
+  yarnNodeName: Start
   Phrases:
   - Look at you. Moving with purpose.
   - "Kinda like a squirrel who just realized it\u2019s not autumn anymore. Still

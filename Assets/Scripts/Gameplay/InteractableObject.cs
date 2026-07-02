@@ -1,18 +1,22 @@
-﻿using System.Collections;
+using System.Collections;
 using Gameplay.LevelScripts;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Gameplay
 {
 	public class InteractableObject : MonoBehaviour, IInteractableObject, ICompleteEvent
 	{
+		[FormerlySerializedAs("EventName")]
 		[SerializeField] private EventName eventName;
 
+		[FormerlySerializedAs("dissapearSpeed")]
 		[SerializeField] private float disappearSpeed = 1f;
 
 		private SpriteRenderer _renderer;
 
 		private bool _hasBeenInteracted;
+		private bool _isDisappearing;
 
 		private void Awake()
 		{
@@ -21,6 +25,10 @@ namespace Gameplay
 
 		public void CompleteEvent()
 		{
+			if (_isDisappearing)
+				return;
+			_isDisappearing = true;
+
 			StartCoroutine(Dissapear());
 		}
 
@@ -35,6 +43,18 @@ namespace Gameplay
 
 		private IEnumerator Dissapear()
 		{
+			if (_renderer == null)
+			{
+				Destroy(gameObject);
+				yield break;
+			}
+
+			if (disappearSpeed <= 0)
+			{
+				Destroy(gameObject);
+				yield break;
+			}
+
 			while (_renderer.color.a != 0)
 			{
 				var newA = _renderer.color.a - Time.deltaTime * disappearSpeed;

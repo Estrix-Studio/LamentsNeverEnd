@@ -13,13 +13,41 @@ namespace Level
 
 		private readonly HashSet<Vector3Int> _transparentTiles = new();
 		private readonly HashSet<TileBase> _treeTiles = new();
+		private Collider2D[] _treeColliders;
 
 		private void Start()
 		{
-			player = GameObject.FindWithTag("Player").transform;
+			if (tilemap == null)
+			{
+				Debug.LogWarning("TilemapTransparency has no tilemap assigned.", this);
+				enabled = false;
+				return;
+			}
+
+			if (player == null)
+			{
+				var playerObject = GameObject.FindWithTag("Player");
+				if (playerObject != null)
+					player = playerObject.transform;
+			}
+
+			if (player == null)
+			{
+				Debug.LogWarning("TilemapTransparency could not find the player.", this);
+				enabled = false;
+				return;
+			}
+
 			playerCollider = player.GetComponent<Collider2D>();
+			if (playerCollider == null)
+			{
+				Debug.LogWarning("TilemapTransparency could not find a player collider.", this);
+				enabled = false;
+				return;
+			}
 
 			FindAllTreeTilesAndPositions();
+			_treeColliders = tilemap.GetComponentsInChildren<Collider2D>();
 		}
 
 		private void Update()
@@ -28,8 +56,7 @@ namespace Level
 				RestoreTransparency(cell);
 			_transparentTiles.Clear();
 
-			var treeColliders = tilemap.GetComponentsInChildren<Collider2D>();
-			foreach (var treeCollider in treeColliders)
+			foreach (var treeCollider in _treeColliders)
 				if (treeCollider != null && treeCollider != playerCollider && playerCollider.IsTouching(treeCollider))
 				{
 					var bounds = treeCollider.bounds;

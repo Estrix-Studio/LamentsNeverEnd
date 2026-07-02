@@ -13,7 +13,11 @@ namespace Gameplay.LevelScripts
 
 		private void Start()
 		{
-			foreach (var zone in zonesToVisit) _zonesVisited.Add(zone, false);
+			if (zonesToVisit != null)
+			{
+				foreach (var zone in zonesToVisit)
+					_zonesVisited[zone] = false;
+			}
 
 			if (_zonesVisited.Count == 0) CompleteEvent();
 		}

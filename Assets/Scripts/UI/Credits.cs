@@ -10,7 +10,8 @@ namespace UI
 		private void Update()
 		{
 			if (!Input.GetKeyDown(KeyCode.Escape)) return;
-			audioSource.Play();
+			if (audioSource != null)
+				audioSource.Play();
 			SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
 		}
 	}

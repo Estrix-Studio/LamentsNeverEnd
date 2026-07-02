@@ -13,7 +13,10 @@ namespace Gameplay
 
 		private void Awake()
 		{
-			if (player == null) Debug.LogWarning($"Player not found. Script: {name}");
+			if (player == null)
+				player = GameObject.FindWithTag("Player");
+
+			if (player == null) Debug.LogWarning($"Player not found. Script: {name}", this);
 		}
 
 		private void LateUpdate()
@@ -24,6 +27,9 @@ namespace Gameplay
 
 		private void CameraSmooth()
 		{
+			if (player == null)
+				return;
+
 			var desiredPosition = player.transform.position + offset;
 			var smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothing * Time.deltaTime);
 			transform.position = smoothedPosition;

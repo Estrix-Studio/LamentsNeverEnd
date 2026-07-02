@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using Utility;
 
 namespace Gameplay
@@ -16,6 +17,7 @@ namespace Gameplay
 
 		[SerializeField] private float movespeed = 5.0f;
 
+		[FormerlySerializedAs("InteractionPrompt")]
 		[SerializeField] private GameObject interactionPrompt;
 
 		private readonly List<IInteractableObject> _currentInteractables = new();
@@ -29,13 +31,13 @@ namespace Gameplay
 
 		private TorchController _torch;
 		private InputAction _uiAction;
-		[SerializeField] private InputSystem_Actions _inputActions;
+		private InputSystem_Actions _inputActions;
 
 		private ZoneSide _lastAnim;
 
 		private Rigidbody2D _rb;
 
-		public bool isTorchLit => _torch.isLit;
+		public bool isTorchLit => _torch != null && _torch.isLit;
 
 		private void Awake()
 		{
@@ -43,6 +45,7 @@ namespace Gameplay
 			_inputActions.Enable();
 
 			_interactAction = _inputActions.Interact.TriggerObject;
+			_inputActions.Interact.Enable();
 			_interactAction.performed += InteractActionOnperformed;
 
 			_toggleAction = _inputActions.Torch.Toggle;
@@ -63,13 +66,22 @@ namespace Gameplay
 
 		private void Start()
 		{
-			_torch = FindFirstObjectByType<TorchController>();
+			_torch = FindAnyObjectByType<TorchController>();
+			if (DialogController.instance == null)
+			{
+				Debug.LogWarning("Player could not find a DialogController. Dialogue movement locks will be skipped.", this);
+				return;
+			}
+
 			DialogController.instance.OnDialogEnd += InstanceOnOnDialogEnd;
 			DialogController.instance.OnDialogStart += InstanceOnOnDialogStart;
 		}
 
 		private void FixedUpdate()
 		{
+			if (_inputActions == null || _rb == null)
+				return;
+
 			if (_isWalking)
 			{
 				var input = _inputActions.Player.Move.ReadValue<Vector2>();
@@ -86,10 +98,25 @@ namespace Gameplay
 
 		private void OnDestroy()
 		{
-			_toggleAction.performed -= ToggleActionOnperformed;
-			_toggleAction.Disable();
-			_interactAction.performed -= InteractActionOnperformed;
-			_inputActions.Disable();
+			if (DialogController.instance != null)
+			{
+				DialogController.instance.OnDialogEnd -= InstanceOnOnDialogEnd;
+				DialogController.instance.OnDialogStart -= InstanceOnOnDialogStart;
+			}
+
+			if (_toggleAction != null)
+			{
+				_toggleAction.performed -= ToggleActionOnperformed;
+				_toggleAction.Disable();
+			}
+
+			if (_interactAction != null)
+				_interactAction.performed -= InteractActionOnperformed;
+
+			if (_inputActions == null)
+				return;
+
+			_inputActions.Interact.Disable();
 
 			_inputActions.UI.Click.performed -= UiActionOnperformed;
 			_inputActions.UI.Click.Disable();
@@ -101,6 +128,9 @@ namespace Gameplay
 			_inputActions.UI.MiddleClick.Disable();
 			_inputActions.UI.Cancel.performed -= UiActionOnperformed;
 			_inputActions.UI.Cancel.Disable();
+
+			_inputActions.Disable();
+			_inputActions.Dispose();
 		}
 
 		private void OnCollisionEnter2D(Collision2D collision)
@@ -114,7 +144,8 @@ namespace Gameplay
 
 			if (collision.TryGetComponent<IInteractableObject>(out var interactable))
 			{
-				_currentInteractables.Add(interactable);
+				if (!_currentInteractables.Contains(interactable))
+					_currentInteractables.Add(interactable);
 				UpdateInteractionPrompt();
 			}
 		}
@@ -130,28 +161,36 @@ namespace Gameplay
 
 		private void UiActionOnperformed(InputAction.CallbackContext obj)
 		{
-			if (!_isWalking) DialogController.instance.DisplayNextPhrase();
+			if (!_isWalking && DialogController.instance != null) DialogController.instance.DisplayNextPhrase();
 		}
 
 		private void InstanceOnOnDialogStart()
 		{
 			_isWalking = false;
+			UpdateInteractionPrompt();
 		}
 
 		private void InstanceOnOnDialogEnd()
 		{
 			_isWalking = true;
+			UpdateInteractionPrompt();
 		}
 
 		private void InteractActionOnperformed(InputAction.CallbackContext obj)
 		{
 			if (!_isWalking)
 				return;
-			foreach (var action in _currentInteractables) action.Interact();
+
+			RemoveMissingInteractables();
+			foreach (var action in _currentInteractables.ToArray()) action.Interact();
+			UpdateInteractionPrompt();
 		}
 
 		private void UpdateAnimation(Vector2 input)
 		{
+			if (_animator == null)
+				return;
+
 			ZoneSide newState;
 			if (input is { x: > 0, y: > 0 })
 			{
@@ -217,7 +256,8 @@ namespace Gameplay
 
 		private void UpdateInteractionPrompt()
 		{
-			if (_currentInteractables.Count > 0)
+			RemoveMissingInteractables();
+			if (_isWalking && _currentInteractables.Count > 0)
 			{
 				if (interactionPrompt)
 					interactionPrompt.SetActive(true);
@@ -229,10 +269,21 @@ namespace Gameplay
 			}
 		}
 
+		private void RemoveMissingInteractables()
+		{
+			_currentInteractables.RemoveAll(interactable => interactable == null || interactable is UnityEngine.Object obj && obj == null);
+		}
+
 		private void ToggleActionOnperformed(InputAction.CallbackContext obj)
 		{
 			if (!_isWalking)
 				return;
+			if (_torch == null)
+			{
+				Debug.LogWarning("Player cannot toggle torch because no TorchController was found.", this);
+				return;
+			}
+
 			_torch.Toggle();
 		}
 	}

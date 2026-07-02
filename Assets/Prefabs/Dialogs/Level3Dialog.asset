@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2111fbc62a2b443ba3f511c67c853e9c, type: 3}
   m_Name: Level3Dialog
   m_EditorClassIdentifier: 
+  yarnScript: {fileID: 4900000, guid: 3c90db5048fb48b9a1098433f0a7a026, type: 3}
+  yarnNodeName: Start
   Phrases:
   - Well, well, look at you. Three steps from freedom, and only mildly psychologically
     shattered. Color me shell-shocked.

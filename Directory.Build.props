@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <!--
+      Unity-generated project files can report MSB3277 for compatibility assemblies
+      bundled by packages like Yarn Spinner. Unity resolves these assemblies when it
+      compiles the project, so keep local dotnet builds quiet about this known clash.
+    -->
+    <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);MSB3277</MSBuildWarningsAsMessages>
+  </PropertyGroup>
+</Project>

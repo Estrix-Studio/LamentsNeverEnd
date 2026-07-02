@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup Condition="'$(AssemblyName)' != 'Assembly-CSharp' And '$(AssemblyName)' != 'Assembly-CSharp-Editor'">
+    <!-- Keep package-cache warnings out of local builds while leaving game-code warnings visible. -->
+    <NoWarn>$(NoWarn);CS0109;CS0618;UAC1001;UAC1009;UAC1010</NoWarn>
+  </PropertyGroup>
+</Project>

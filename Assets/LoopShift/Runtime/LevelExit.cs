@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace EndlessSeamlessLevels
+namespace LoopShift.Runtime
 {
 	[DisallowMultipleComponent]
 	[RequireComponent(typeof(Collider2D))]

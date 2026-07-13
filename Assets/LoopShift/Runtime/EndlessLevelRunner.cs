@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EndlessSeamlessLevels
+namespace LoopShift.Runtime
 {
 	[DisallowMultipleComponent]
 	public class EndlessLevelRunner : MonoBehaviour

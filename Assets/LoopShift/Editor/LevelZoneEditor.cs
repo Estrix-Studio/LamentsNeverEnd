@@ -1,8 +1,8 @@
-using EndlessSeamlessLevels;
+using LoopShift.Runtime;
 using UnityEditor;
 using UnityEngine;
 
-namespace EndlessSeamlessLevels.Editor
+namespace LoopShift.Editor
 {
 	[CustomEditor(typeof(LevelZone))]
 	public class LevelZoneEditor : UnityEditor.Editor

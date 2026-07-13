@@ -1,4 +1,4 @@
-namespace EndlessSeamlessLevels
+namespace LoopShift.Runtime
 {
 	public enum LevelDirection
 	{

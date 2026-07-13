@@ -1,14 +1,14 @@
 using System.Collections.Generic;
-using EndlessSeamlessLevels;
+using LoopShift.Runtime;
 using UnityEditor;
 using UnityEngine;
 
-namespace EndlessSeamlessLevels.Editor
+namespace LoopShift.Editor
 {
 	public class EndlessLevelWizard : EditorWindow
 	{
 		private string _graphName = "LevelGraph";
-		private string _folder = "Assets/EndlessSeamlessLevels/Demo";
+		private string _folder = "Assets/LoopShift/Demo";
 
 		[MenuItem("Tools/Endless Seamless Levels/Wizard")]
 		public static void Open()

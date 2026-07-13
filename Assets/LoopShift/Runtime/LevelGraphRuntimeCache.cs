@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EndlessSeamlessLevels
+namespace LoopShift.Runtime
 {
 	internal sealed class LevelGraphRuntimeCache
 	{

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace EndlessSeamlessLevels
+namespace LoopShift.Runtime
 {
 	[Serializable]
 	public class LevelSpawnSettings

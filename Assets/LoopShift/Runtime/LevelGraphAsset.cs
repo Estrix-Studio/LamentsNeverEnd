@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EndlessSeamlessLevels
+namespace LoopShift.Runtime
 {
 	[CreateAssetMenu(fileName = "LevelGraph", menuName = "Endless Seamless Levels/Level Graph")]
 	public class LevelGraphAsset : ScriptableObject

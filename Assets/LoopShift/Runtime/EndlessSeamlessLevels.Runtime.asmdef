@@ -1,6 +1,6 @@
 {
-  "name": "EndlessSeamlessLevels.Runtime",
-  "rootNamespace": "EndlessSeamlessLevels",
+  "name": "LoopShift.Runtime",
+  "rootNamespace": "LoopShift",
   "references": [],
   "includePlatforms": [],
   "excludePlatforms": [],

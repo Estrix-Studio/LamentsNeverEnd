@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EndlessSeamlessLevels
+namespace LoopShift.Runtime
 {
 	public readonly struct LevelZoneEvent
 	{

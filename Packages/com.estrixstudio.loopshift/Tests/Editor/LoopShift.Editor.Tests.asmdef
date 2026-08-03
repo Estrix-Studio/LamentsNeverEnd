@@ -1,0 +1,14 @@
+{
+  "name": "LoopShift.Editor.Tests",
+  "rootNamespace": "LoopShift.Tests",
+  "references": [
+    "LoopShift.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "autoReferenced": false
+}

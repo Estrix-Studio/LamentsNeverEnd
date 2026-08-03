@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d300354d294eb85449633dad3abdd997, type: 3}
+  m_Name: MinimalTopDownGraph
+  m_EditorClassIdentifier: LoopShift.Runtime::LoopShift.Runtime.LevelGraphAsset
+  startZoneId: sample-zone
+  zones:
+  - prefab: {fileID: 5895063658805185092, guid: bdb32a3dd48d27f40baef8aa613367ac, type: 3}
+    zoneIdOverride: 
+    weight: 1
+    tags: []
+  fixedConnections: []
+  pools:
+  - poolId: Default
+    allowImmediateRepeat: 1
+    entries:
+    - prefab: {fileID: 5895063658805185092, guid: bdb32a3dd48d27f40baef8aa613367ac, type: 3}
+      zoneIdOverride: 
+      weight: 1
+      tags: []
+  poolRules:
+  - direction: 5
+    fromExitTag: Default
+    poolId: Default
+    requiredTargetExitTag: Default
+  - direction: 3
+    fromExitTag: Default
+    poolId: Default
+    requiredTargetExitTag: Default

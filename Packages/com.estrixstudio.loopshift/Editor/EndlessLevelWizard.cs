@@ -8,9 +8,9 @@ namespace LoopShift.Editor
 	public class EndlessLevelWizard : EditorWindow
 	{
 		private string _graphName = "LevelGraph";
-		private string _folder = "Assets/LoopShift/Demo";
+		private string _folder = "Assets";
 
-		[MenuItem("Tools/Endless Seamless Levels/Wizard")]
+		[MenuItem("Tools/LoopShift/Level Graph Wizard")]
 		public static void Open()
 		{
 			GetWindow<EndlessLevelWizard>("Endless Levels");
@@ -18,7 +18,7 @@ namespace LoopShift.Editor
 
 		private void OnGUI()
 		{
-			EditorGUILayout.LabelField("Endless Seamless Level System", EditorStyles.boldLabel);
+			EditorGUILayout.LabelField("LoopShift Level Graph", EditorStyles.boldLabel);
 			_graphName = EditorGUILayout.TextField("Graph Name", _graphName);
 			_folder = EditorGUILayout.TextField("Output Folder", _folder);
 

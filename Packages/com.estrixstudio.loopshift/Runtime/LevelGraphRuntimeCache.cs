@@ -56,16 +56,16 @@ namespace LoopShift.Runtime
 			return _zonesById.TryGetValue(zoneId, out entry);
 		}
 
-		public bool TryResolve(LevelZone currentZone, LevelExit exit, System.Random random, string lastZoneId, out LevelZoneEntry nextEntry, out string requiredTargetExitTag)
+		public bool TryResolve(string currentZoneId, LevelExit exit, System.Random random, string lastZoneId, out LevelZoneEntry nextEntry, out string requiredTargetExitTag)
 		{
 			nextEntry = null;
 			requiredTargetExitTag = string.Empty;
-			if (currentZone == null || exit == null)
+			if (string.IsNullOrWhiteSpace(currentZoneId) || exit == null)
 				return false;
 
-			var key = ConnectionKey(currentZone.ZoneId, exit.Direction, exit.ExitTag);
+			var key = ConnectionKey(currentZoneId, exit.Direction, exit.ExitTag);
 			if (_connectionsByKey.TryGetValue(key, out var connection) ||
-			    _connectionsByKey.TryGetValue(ConnectionKey(currentZone.ZoneId, exit.Direction, string.Empty), out connection))
+			    _connectionsByKey.TryGetValue(ConnectionKey(currentZoneId, exit.Direction, string.Empty), out connection))
 			{
 				requiredTargetExitTag = connection.toExitTag;
 				return TryGetZone(connection.toZoneId, out nextEntry);

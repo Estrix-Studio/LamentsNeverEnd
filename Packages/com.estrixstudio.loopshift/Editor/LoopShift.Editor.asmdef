@@ -1,8 +1,12 @@
 {
-  "name": "LoopShift.Runtime",
-  "rootNamespace": "LoopShift",
-  "references": [],
-  "includePlatforms": [],
+  "name": "LoopShift.Editor",
+  "rootNamespace": "LoopShift.Editor",
+  "references": [
+    "LoopShift.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
   "excludePlatforms": [],
   "allowUnsafeCode": false,
   "overrideReferences": false,

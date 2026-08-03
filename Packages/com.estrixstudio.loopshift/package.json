@@ -5,6 +5,8 @@
   "description": "Lightweight 2D seamless level streaming with no-code ScriptableObject graph authoring, hybrid endless pools, and automatic zone bounds detection.",
   "unity": "2022.3",
   "dependencies": {
+    "com.unity.2d.sprite": "1.0.0",
+    "com.unity.modules.imgui": "1.0.0",
     "com.unity.modules.physics2d": "1.0.0"
   },
   "author": {

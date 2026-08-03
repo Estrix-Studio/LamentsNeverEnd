@@ -5,11 +5,13 @@
 - Converted the project copy into a proper embedded UPM package.
 - Unified runtime, editor assembly, namespace, menu, and file identities under LoopShift.
 - Corrected the declared sample path and added a functional Minimal Top Down sample.
+- Added a guided sample overlay, camera follow, visible exits, live runner state, and an asset-by-asset walkthrough.
 - Made the graph wizard output to a consumer-owned `Assets` folder by default.
 - Fixed graph connections when a zone entry uses `zoneIdOverride`.
 - Fixed target-parent restoration when stopping or restarting a runner.
 - Fixed preload radius expanding one grid step too far.
 - Added package documentation and editor tests.
+- Made test compilation conditional on the Unity Test Framework package.
 
 ## 0.1.0 - 2026-07-13
 

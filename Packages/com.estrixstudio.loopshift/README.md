@@ -76,6 +76,6 @@ The runner also exposes `ZoneSpawned`, `ZoneBecameCenter`, and `ZoneDespawned`, 
 
 ## Sample
 
-Import **Minimal Top Down** from the Package Manager's Samples tab. Open `Scenes/MinimalTopDown`, enter Play mode, and move with WASD or the arrow keys.
+Import **Minimal Top Down** from the Package Manager's Samples tab. Open `Scenes/MinimalTopDown`, enter Play mode, and follow its guided overlay. The scene labels exits visually, follows the player across streamed zones, and displays live runner events and active-zone state.
 
 See [Documentation~/index.md](Documentation~/index.md) for authoring details and troubleshooting.

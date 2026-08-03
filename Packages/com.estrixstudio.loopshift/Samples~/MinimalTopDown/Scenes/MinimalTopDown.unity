@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1138257395}
   - component: {fileID: 1138257394}
+  - component: {fileID: 1138257396}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -202,6 +203,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1138257396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138257393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d13deefcf8b784cab0513278bd2729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LoopShift.Samples.MinimalTopDown.SampleCameraFollow
+  target: {fileID: 1594195794}
+  smoothTime: 0.12
 --- !u!1 &1594195793
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +246,7 @@ Transform:
   m_GameObject: {fileID: 1594195793}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -360,9 +375,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 284602f4dd226f6458957146ede681c6, type: 3}
   m_Color: {r: 1, g: 0.72, b: 0.22, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -370,7 +385,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!1 &1662381562
@@ -383,6 +398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1662381564}
   - component: {fileID: 1662381563}
+  - component: {fileID: 1662381565}
   m_Layer: 0
   m_Name: LoopShift Runner
   m_TagString: Untagged
@@ -430,10 +446,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1662381565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662381562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72d500eedf08624a8fc5b56d7c63249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LoopShift.Samples.MinimalTopDown.SampleTutorialUI
+  runner: {fileID: 1662381563}
+  player: {fileID: 1594195794}
+--- !u!1 &1683839635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1683839636}
+  m_Layer: 0
+  m_Name: "README FIRST \u2014 Guided sample instructions appear in Play mode"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1683839636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683839635}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1683839636}
   - {fileID: 1138257395}
   - {fileID: 1594195794}
   - {fileID: 1662381564}

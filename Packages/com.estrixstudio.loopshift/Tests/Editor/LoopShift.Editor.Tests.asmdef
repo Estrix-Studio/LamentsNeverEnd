@@ -10,5 +10,15 @@
   "optionalUnityReferences": [
     "TestAssemblies"
   ],
+  "defineConstraints": [
+    "LOOPSHIFT_INCLUDE_TESTS"
+  ],
+  "versionDefines": [
+    {
+      "name": "com.unity.test-framework",
+      "expression": "1.1.0",
+      "define": "LOOPSHIFT_INCLUDE_TESTS"
+    }
+  ],
   "autoReferenced": false
 }

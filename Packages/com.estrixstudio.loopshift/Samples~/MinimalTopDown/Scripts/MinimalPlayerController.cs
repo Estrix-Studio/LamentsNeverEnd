@@ -20,7 +20,11 @@ namespace LoopShift.Samples.MinimalTopDown
 
 		private void FixedUpdate()
 		{
+#if UNITY_6000_0_OR_NEWER
+			_body.linearVelocity = ReadMovement() * speed;
+#else
 			_body.velocity = ReadMovement() * speed;
+#endif
 		}
 
 		private static Vector2 ReadMovement()

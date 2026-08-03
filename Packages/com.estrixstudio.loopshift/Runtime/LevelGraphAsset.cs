@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LoopShift.Runtime
 {
-	[CreateAssetMenu(fileName = "LevelGraph", menuName = "Endless Seamless Levels/Level Graph")]
+	[CreateAssetMenu(fileName = "LevelGraph", menuName = "LoopShift/Level Graph")]
 	public class LevelGraphAsset : ScriptableObject
 	{
 		[SerializeField] private string startZoneId;

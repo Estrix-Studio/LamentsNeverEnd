@@ -14,6 +14,7 @@ namespace LoopShift.Runtime
 
 		private readonly Dictionary<Vector2Int, ActiveZone> _activeZones = new();
 		private readonly Dictionary<LevelZone, Stack<LevelZone>> _pool = new();
+		private readonly Dictionary<Transform, Transform> _targetOriginalParents = new();
 		private LevelGraphRuntimeCache _cache;
 		private System.Random _random;
 		private Vector2Int _currentCell;
@@ -44,6 +45,7 @@ namespace LoopShift.Runtime
 		public void StartRunner()
 		{
 			StopRunner();
+			CaptureTargetParents();
 			if (graph == null)
 			{
 				ReportError("Cannot start endless level runner: graph is not assigned.", this);
@@ -63,7 +65,6 @@ namespace LoopShift.Runtime
 			_cache = new LevelGraphRuntimeCache(graph);
 			_random = new System.Random(spawnSettings.useDeterministicSeed ? spawnSettings.seed : Environment.TickCount);
 			_currentCell = Vector2Int.zero;
-			_isRunning = true;
 
 			if (!_cache.TryGetZone(graph.StartZoneId, out var startEntry))
 			{
@@ -75,12 +76,14 @@ namespace LoopShift.Runtime
 			if (startZone == null)
 				return;
 
+			_isRunning = true;
 			MakeCenter(_currentCell);
 			PreloadAround(_currentCell);
 		}
 
 		public void StopRunner()
 		{
+			RestoreTargetParents();
 			foreach (var active in _activeZones.Values)
 				Release(active);
 			_activeZones.Clear();
@@ -90,11 +93,17 @@ namespace LoopShift.Runtime
 		public void AddTarget(Transform target)
 		{
 			if (target != null && !targets.Contains(target))
+			{
 				targets.Add(target);
+				_targetOriginalParents[target] = target.parent;
+			}
 		}
 
 		public void RemoveTarget(Transform target)
 		{
+			if (target != null && _targetOriginalParents.TryGetValue(target, out var originalParent))
+				target.SetParent(originalParent, true);
+			_targetOriginalParents.Remove(target);
 			targets.Remove(target);
 		}
 
@@ -110,7 +119,7 @@ namespace LoopShift.Runtime
 			var nextCell = _currentCell + LevelDirectionUtility.ToCellOffset(exit.Direction);
 			if (!_activeZones.ContainsKey(nextCell))
 			{
-				if (!_cache.TryResolve(sourceZone, exit, _random, _lastGeneratedZoneId, out var nextEntry, out var requiredTargetExitTag))
+				if (!_cache.TryResolve(current.ZoneId, exit, _random, _lastGeneratedZoneId, out var nextEntry, out var requiredTargetExitTag))
 				{
 					ReportError($"No zone could be resolved from '{sourceZone.ZoneId}' through {exit.Direction}.", sourceZone);
 					return;
@@ -214,7 +223,7 @@ namespace LoopShift.Runtime
 		private void PreloadAround(Vector2Int centerCell)
 		{
 			var radius = Mathf.Max(0, spawnSettings.preloadRadius);
-			for (var depth = 0; depth <= radius; depth++)
+			for (var depth = 0; depth < radius; depth++)
 			{
 				var cells = new List<Vector2Int>(_activeZones.Keys);
 				foreach (var cell in cells)
@@ -240,7 +249,7 @@ namespace LoopShift.Runtime
 				if (_activeZones.ContainsKey(targetCell))
 					continue;
 
-				if (!_cache.TryResolve(center.Zone, exit, _random, _lastGeneratedZoneId, out var nextEntry, out var requiredTargetExitTag))
+				if (!_cache.TryResolve(center.ZoneId, exit, _random, _lastGeneratedZoneId, out var nextEntry, out var requiredTargetExitTag))
 					continue;
 
 				SpawnZone(nextEntry, targetCell, EstimatePosition(center.Zone, nextEntry.prefab, exit.Direction), exit, requiredTargetExitTag);
@@ -306,6 +315,22 @@ namespace LoopShift.Runtime
 			}
 
 			return false;
+		}
+
+		private void CaptureTargetParents()
+		{
+			_targetOriginalParents.Clear();
+			foreach (var target in targets)
+				if (target != null)
+					_targetOriginalParents[target] = target.parent;
+		}
+
+		private void RestoreTargetParents()
+		{
+			foreach (var pair in _targetOriginalParents)
+				if (pair.Key != null)
+					pair.Key.SetParent(pair.Value, true);
+			_targetOriginalParents.Clear();
 		}
 
 		private IReadOnlyDictionary<Vector2Int, LevelZone> BuildActiveZoneSnapshot()

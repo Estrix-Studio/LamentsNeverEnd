@@ -1,0 +1,29 @@
+[
+  {
+    "consumer": "Z:\\source\\LamentsNeverEnd\\Build\\LoopShift\\Consumer-20261006-UPM",
+    "sha256": "B0A87075ECFE06BC3DC5279B991330618078E57F26B7A45318B5AE9B06867E6C",
+    "editor": "m_EditorVersion: 6000.7.0b1\nm_EditorVersionWithRevision: 6000.7.0b1 (6f112f2bea37)",
+    "suites": {
+      "playmode": 26,
+      "editmode": 48,
+      "reloadmodes": 2
+    },
+    "archive": "Z:/source/LamentsNeverEnd/Build/LoopShift/com.estrixstudio.loopshift-0.1.0.tgz",
+    "playerSmokePassed": true,
+    "visualInspectionPassed": false,
+    "format": "UPM"
+  },
+  {
+    "editor": "m_EditorVersion: 6000.7.0b1\nm_EditorVersionWithRevision: 6000.7.0b1 (6f112f2bea37)",
+    "suites": {
+      "playmode": 1,
+      "reloadmodes": 2
+    },
+    "format": "UnityPackage",
+    "sha256": "7BF3D4BD2478DAD73F15C5636C0565F17F89EDB125DEF7BF4B0E82BE5B06EAF0",
+    "playerSmokePassed": true,
+    "visualInspectionPassed": false,
+    "consumer": "Z:\\source\\LamentsNeverEnd\\Build\\LoopShift\\Consumer-20261006-UnityPackage",
+    "archive": "Z:/source/LamentsNeverEnd/Build/LoopShift/LoopShift-0.1.0.unitypackage"
+  }
+]

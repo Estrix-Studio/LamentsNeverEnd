@@ -1,0 +1,15 @@
+{
+  "urpVersion": "",
+  "sha256": "46CFF3ECC5614B20EC08813F49250B83326A6EB140327EE728647066BEEB6AF0",
+  "visualInspectionPassed": false,
+  "consumer": "Z:\\source\\LamentsNeverEnd\\Build\\G63",
+  "format": "UPM",
+  "playerSmokePassed": true,
+  "suites": {
+    "reloadmodes": 2,
+    "editmode": 50,
+    "playmode": 26
+  },
+  "archive": "Z:/source/LamentsNeverEnd/Build/LoopShift/com.estrixstudio.loopshift-0.1.0.tgz",
+  "editor": "m_EditorVersion: 6000.3.25f1\nm_EditorVersionWithRevision: 6000.3.25f1 (e1dba0a9aba4)"
+}

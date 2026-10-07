@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-07 09:10:53Z" end-time="2026-10-07 09:11:03Z" duration="9.6933734">
+  <test-suite type="TestSuite" id="1000" name="R63" fullname="R63" runstate="Runnable" testcasecount="51" result="Passed" start-time="2026-10-07 09:10:53Z" end-time="2026-10-07 09:11:03Z" duration="9.693373" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1004" name="LoopShift.Consumer.Editor.Tests.dll" fullname="Z:/source/LamentsNeverEnd/Build/R63/Library/ScriptAssemblies/LoopShift.Consumer.Editor.Tests.dll" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-07 09:10:53Z" end-time="2026-10-07 09:11:03Z" duration="9.681686" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="3184" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1005" name="LoopShift" fullname="LoopShift" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-07 09:10:53Z" end-time="2026-10-07 09:11:03Z" duration="9.681128" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1006" name="ConsumerTests" fullname="LoopShift.ConsumerTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-07 09:10:53Z" end-time="2026-10-07 09:11:03Z" duration="9.680941" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="ReloadModeChecks" fullname="LoopShift.ConsumerTests.ReloadModeChecks" classname="LoopShift.ConsumerTests.ReloadModeChecks" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-07 09:10:53Z" end-time="2026-10-07 09:11:03Z" duration="9.679749" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1003" name="DomainAndSceneReloadDisabledSupportConsecutiveRuns" fullname="LoopShift.ConsumerTests.ReloadModeChecks.DomainAndSceneReloadDisabledSupportConsecutiveRuns" methodname="DomainAndSceneReloadDisabledSupportConsecutiveRuns" classname="LoopShift.ConsumerTests.ReloadModeChecks" runstate="Runnable" seed="2025854190" result="Passed" start-time="2026-10-07 09:10:53Z" end-time="2026-10-07 09:10:58Z" duration="4.918685" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="DomainReloadDisabledSupportsConsecutiveRuns" fullname="LoopShift.ConsumerTests.ReloadModeChecks.DomainReloadDisabledSupportsConsecutiveRuns" methodname="DomainReloadDisabledSupportsConsecutiveRuns" classname="LoopShift.ConsumerTests.ReloadModeChecks" runstate="Runnable" seed="1488000113" result="Passed" start-time="2026-10-07 09:10:58Z" end-time="2026-10-07 09:11:03Z" duration="4.743350" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/neo/AppData/LocalLow/DefaultCompany/R63\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

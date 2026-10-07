@@ -22,8 +22,8 @@ namespace Utility
 		private Light2D _torchlight;
 		public bool isLit { get; private set; } = true;
 
-		// Start is called once before the first execution of Update after the MonoBehaviour is created
-		private void Start()
+		// Supply light configuration before LightController.Start consumes it.
+		private void Awake()
 		{
 			if (!_torchlight)
 				_torchlight = GetComponent<Light2D>();

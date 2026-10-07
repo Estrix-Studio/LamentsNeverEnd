@@ -1,0 +1,46 @@
+{
+  "visualPlaythroughVerified": false,
+  "logs": [
+    {
+      "path": "Logs/project-checks.log",
+      "sha256": "54106D9165DAEE43726C11A33006CCC48D1BDE16F7038B9EEA4393F716E37075"
+    },
+    {
+      "path": "Logs/loopshift-authoring.log",
+      "sha256": "831733553256939325A254D7BF8B9C1468A89C271160D11B93EFAA6DEAFC48B8"
+    },
+    {
+      "path": "Logs/loopshift-playmode-current.log",
+      "sha256": "CCC36ECB408A0000BF8716C87E4DB843A25A9CDC1BE2AAFD9FEC68FA4C57A215"
+    },
+    {
+      "path": "Logs/loopshift-game-checks.log",
+      "sha256": "3390720135F950A46AE2985D06497D91C705E277478479831ADDE90FD3E352A7"
+    }
+  ],
+  "projectChecks": 100,
+  "editModePassed": 48,
+  "playModePassed": 25,
+  "sourceHashes": [
+    {
+      "path": "Assets/LoopShift/Runtime/LevelZone.cs",
+      "sha256": "16E41620ADEA0C4B87409F487ACFBC521D4076BD50E38AA71B6463399EED5279"
+    },
+    {
+      "path": "Assets/LoopShift/Editor/Graph/LevelGraphWindow.cs",
+      "sha256": "CEFB66E150242F043F4FE95EE286042FB21F0F3AF39C8ACA8CAAF0F8F202965D"
+    },
+    {
+      "path": "Assets/LoopShift/Tests/Editor/GraphAuthoringTests.cs",
+      "sha256": "6825F8C6FFC49CACD106EFB20DE8EC5C074E8124AAE20444C39666C85DECB71D"
+    },
+    {
+      "path": "Assets/LoopShift/Tests/Editor/ZoneAuthoringTests.cs",
+      "sha256": "229C99812067F9526261E7846328E55C3B91F0D8A2AC198CD17BEC945D5D0AAB"
+    }
+  ],
+  "gameIntegrationAssertions": 107,
+  "date": "2026-10-06",
+  "otherEditorVersionsVerified": false,
+  "editor": "6000.7.0b1"
+}

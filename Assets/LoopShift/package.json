@@ -11,7 +11,11 @@
     {
       "displayName": "Minimal Top Down",
       "description": "Minimal setup scene and sample assets for endless seamless level streaming.",
-      "path": "Samples/MinimalTopDown"
+      "path": "Demo/MinimalTopDown"
     }
-  ]
+  ],
+  "dependencies": {
+    "com.unity.modules.imgui": "1.0.0",
+    "com.unity.modules.physics2d": "1.0.0"
+  }
 }

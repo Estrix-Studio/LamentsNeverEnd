@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Gameplay.Data
 {
@@ -107,7 +107,7 @@ namespace Gameplay.Data
 			new(CycleZoneID.Room3_5)
 			{
 				Left = CycleZoneID.None,
-				Top = CycleZoneID.Finish,
+				Top = CycleZoneID.None,
 				Right = CycleZoneID.None,
 				Bottom = CycleZoneID.None
 			}

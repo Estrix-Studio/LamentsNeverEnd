@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e3c4acae31a91408567db6ce09f885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventName: 0
+  EventName: 1
   DialogInfo: {fileID: 11400000, guid: 79ddda8e2a8881d46861f0aa88fb1572, type: 2}
   dissapearSpeed: 1
 --- !u!212 &4642737306093173483

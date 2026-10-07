@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="19" result="Passed" total="19" passed="19" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-02 01:02:58Z" end-time="2026-10-02 01:03:06Z" duration="7.70518">
+  <test-suite type="TestSuite" id="1027" name="Consumer-UPM" fullname="Consumer-UPM" runstate="Runnable" testcasecount="19" result="Passed" start-time="2026-10-02 01:02:58Z" end-time="2026-10-02 01:03:06Z" duration="7.705180" total="19" passed="19" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1003" name="LoopShift.Consumer.Tests.dll" fullname="Z:/source/LamentsNeverEnd/Build/LoopShift/Consumer-UPM/Library/ScriptAssemblies/LoopShift.Consumer.Tests.dll" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-02 01:02:59Z" end-time="2026-10-02 01:03:06Z" duration="7.427676" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="14088" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestFixture" id="1001" name="LoopShiftSampleSmokeTests" fullname="LoopShiftSampleSmokeTests" classname="LoopShiftSampleSmokeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-02 01:02:59Z" end-time="2026-10-02 01:03:06Z" duration="7.422736" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1002" name="ExportedSampleTraversesMultipleRoomsAndRestarts" fullname="LoopShiftSampleSmokeTests.ExportedSampleTraversesMultipleRoomsAndRestarts" methodname="ExportedSampleTraversesMultipleRoomsAndRestarts" classname="LoopShiftSampleSmokeTests" runstate="Runnable" seed="1086512117" result="Passed" start-time="2026-10-02 01:02:59Z" end-time="2026-10-02 01:03:06Z" duration="7.386913" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1023" name="LoopShift.Tests.PlayMode.dll" fullname="Z:/source/LamentsNeverEnd/Build/LoopShift/Consumer-UPM/Library/ScriptAssemblies/LoopShift.Tests.PlayMode.dll" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.204195" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="14088" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1024" name="LoopShift" fullname="LoopShift" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.203452" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1025" name="Tests" fullname="LoopShift.Tests" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.203178" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1004" name="RunnerLifecycleTests" fullname="LoopShift.Tests.RunnerLifecycleTests" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.202750" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1014" name="ActivationSeesFinalAlignedPositionAndLifecycleResetsPooledState" fullname="LoopShift.Tests.RunnerLifecycleTests.ActivationSeesFinalAlignedPositionAndLifecycleResetsPooledState" methodname="ActivationSeesFinalAlignedPositionAndLifecycleResetsPooledState" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="416308180" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.013249" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1013" name="AncestorColliderIsNotAcceptedForARegisteredChild" fullname="LoopShift.Tests.RunnerLifecycleTests.AncestorColliderIsNotAcceptedForARegisteredChild" methodname="AncestorColliderIsNotAcceptedForARegisteredChild" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="1497258348" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.001456" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1021" name="CompoundActorMustFullyLeaveTheArrivalSeam" fullname="LoopShift.Tests.RunnerLifecycleTests.CompoundActorMustFullyLeaveTheArrivalSeam" methodname="CompoundActorMustFullyLeaveTheArrivalSeam" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="268293850" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.022031" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="DestroyingRunnerCleansExternalInstancesButPreservesTargets" fullname="LoopShift.Tests.RunnerLifecycleTests.DestroyingRunnerCleansExternalInstancesButPreservesTargets" methodname="DestroyingRunnerCleansExternalInstancesButPreservesTargets" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="1569553023" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.003845" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1017" name="DisabledComponentStopsAndRestoresTargets" fullname="LoopShift.Tests.RunnerLifecycleTests.DisabledComponentStopsAndRestoresTargets" methodname="DisabledComponentStopsAndRestoresTargets" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="948801613" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.001424" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1016" name="GlobalPoolLimitAppliesAcrossDifferentPrefabs" fullname="LoopShift.Tests.RunnerLifecycleTests.GlobalPoolLimitAppliesAcrossDifferentPrefabs" methodname="GlobalPoolLimitAppliesAcrossDifferentPrefabs" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="614642176" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.001296" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1019" name="LandingSeamBlocksBounceUntilAllActorCollidersLeave" fullname="LoopShift.Tests.RunnerLifecycleTests.LandingSeamBlocksBounceUntilAllActorCollidersLeave" methodname="LandingSeamBlocksBounceUntilAllActorCollidersLeave" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="222646938" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.032893" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="NestedTargetsPreserveTheirHierarchy" fullname="LoopShift.Tests.RunnerLifecycleTests.NestedTargetsPreserveTheirHierarchy" methodname="NestedTargetsPreserveTheirHierarchy" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="1700976549" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.001370" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1012" name="NoTargetsDoesNotAcceptArbitraryColliders" fullname="LoopShift.Tests.RunnerLifecycleTests.NoTargetsDoesNotAcceptArbitraryColliders" methodname="NoTargetsDoesNotAcceptArbitraryColliders" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="321212716" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.001018" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1018" name="OccupiedCellNeverOverridesAnAuthoredRoute" fullname="LoopShift.Tests.RunnerLifecycleTests.OccupiedCellNeverOverridesAnAuthoredRoute" methodname="OccupiedCellNeverOverridesAnAuthoredRoute" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="105491633" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.017978" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1020" name="PhysicsTriggerAutomaticallyTraverses" fullname="LoopShift.Tests.RunnerLifecycleTests.PhysicsTriggerAutomaticallyTraverses" methodname="PhysicsTriggerAutomaticallyTraverses" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="1212879969" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.039245" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1015" name="PooledInstanceGetsAnotherLifecycleCallOnReuse" fullname="LoopShift.Tests.RunnerLifecycleTests.PooledInstanceGetsAnotherLifecycleCallOnReuse" methodname="PooledInstanceGetsAnotherLifecycleCallOnReuse" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="1180913840" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.002438" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="RemovingAParentedTargetRestoresItsOriginalParent" fullname="LoopShift.Tests.RunnerLifecycleTests.RemovingAParentedTargetRestoresItsOriginalParent" methodname="RemovingAParentedTargetRestoresItsOriginalParent" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="9232007" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.001159" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1010" name="StartFromCallbackIsDeferredAndDoesNotRecurse" fullname="LoopShift.Tests.RunnerLifecycleTests.StartFromCallbackIsDeferredAndDoesNotRecurse" methodname="StartFromCallbackIsDeferredAndDoesNotRecurse" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="1455498986" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.002445" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="StopFromSpawnCallbackAbortsCleanly" fullname="LoopShift.Tests.RunnerLifecycleTests.StopFromSpawnCallbackAbortsCleanly" methodname="StopFromSpawnCallbackAbortsCleanly" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="1431092339" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.001220" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="StopRestoresTargetParentAndWorldPoseBeforePooling" fullname="LoopShift.Tests.RunnerLifecycleTests.StopRestoresTargetParentAndWorldPoseBeforePooling" methodname="StopRestoresTargetParentAndWorldPoseBeforePooling" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="1383887143" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.001724" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1011" name="ThrowingSubscriberStopsWithoutLeakingActiveRooms" fullname="LoopShift.Tests.RunnerLifecycleTests.ThrowingSubscriberStopsWithoutLeakingActiveRooms" methodname="ThrowingSubscriberStopsWithoutLeakingActiveRooms" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="412021382" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.012917" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[InvalidOperationException: Expected subscriber failure
+LoopShift.Tests.RunnerLifecycleTests+<>c.<ThrowingSubscriberStopsWithoutLeakingActiveRooms>b__14_0 (LoopShift.Runtime.LevelZoneEvent _) (at ./Library/PackageCache/com.estrixstudio.loopshift@1bc02b9421d2/Tests/PlayMode/RunnerLifecycleTests.cs:136)
+LoopShift.Runtime.EndlessLevelRunner.Publish (System.Action`1[T] callback, LoopShift.Runtime.EndlessLevelRunner+ActiveZone active) (at ./Library/PackageCache/com.estrixstudio.loopshift@1bc02b9421d2/Runtime/EndlessLevelRunner.cs:445)
+UnityEngine.Debug:LogException(Exception, Object)
+LoopShift.Runtime.EndlessLevelRunner:Abort(Exception) (at ./Library/PackageCache/com.estrixstudio.loopshift@1bc02b9421d2/Runtime/EndlessLevelRunner.cs:453)
+LoopShift.Runtime.EndlessLevelRunner:Publish(Action`1, ActiveZone) (at ./Library/PackageCache/com.estrixstudio.loopshift@1bc02b9421d2/Runtime/EndlessLevelRunner.cs:446)
+LoopShift.Runtime.EndlessLevelRunner:SpawnZone(LevelZoneEntry, Vector2Int, Vector3, LevelExit, String) (at ./Library/PackageCache/com.estrixstudio.loopshift@1bc02b9421d2/Runtime/EndlessLevelRunner.cs:298)
+LoopShift.Runtime.EndlessLevelRunner:StartRunner() (at ./Library/PackageCache/com.estrixstudio.loopshift@1bc02b9421d2/Runtime/EndlessLevelRunner.cs:134)
+LoopShift.Tests.RunnerLifecycleTests:ThrowingSubscriberStopsWithoutLeakingActiveRooms() (at ./Library/PackageCache/com.estrixstudio.loopshift@1bc02b9421d2/Tests/PlayMode/RunnerLifecycleTests.cs:137)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.MethodWrapper:Invoke(Object, Object[])
+NUnit.Framework.Internal.Commands.TestMethodCommand:RunNonAsyncTestMethod(ITestExecutionContext)
+NUnit.Framework.Internal.Commands.TestMethodCommand:RunTestMethod(ITestExecutionContext)
+NUnit.Framework.Internal.Commands.TestMethodCommand:Execute(ITestExecutionContext)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+            </test-case>
+            <test-case id="1022" name="WarmedCompleteTransitionsAllocateNoManagedMemory" fullname="LoopShift.Tests.RunnerLifecycleTests.WarmedCompleteTransitionsAllocateNoManagedMemory" methodname="WarmedCompleteTransitionsAllocateNoManagedMemory" classname="LoopShift.Tests.RunnerLifecycleTests" runstate="Runnable" seed="636301720" result="Passed" start-time="2026-10-02 01:03:06Z" end-time="2026-10-02 01:03:06Z" duration="0.040541" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[128 warmed transitions: 0 managed bytes; mean 44.75078125 microseconds.
+Saving results to: Z:\source\LamentsNeverEnd\Build\LoopShift\Consumer-UPM/playmode.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

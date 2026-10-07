@@ -1,0 +1,15 @@
+{
+  "name": "LoopShift.Tests.Editor",
+  "rootNamespace": "LoopShift.Tests",
+  "references": [
+    "LoopShift.Runtime",
+    "LoopShift.Tests.Shared", "EndlessSeamlessLevels.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "autoReferenced": false
+}

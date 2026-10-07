@@ -1,133 +1,183 @@
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace LoopShift.Runtime
 {
+	/// <summary>Compiles validated authoring data once. Resolution does not allocate.</summary>
 	internal sealed class LevelGraphRuntimeCache
 	{
-		private readonly Dictionary<string, LevelZoneEntry> _zonesById = new();
-		private readonly Dictionary<string, LevelConnection> _connectionsByKey = new();
-		private readonly Dictionary<string, LevelZonePool> _poolsById = new();
-		private readonly List<LevelPoolRule> _poolRules = new();
+		private readonly Dictionary<string, LevelZoneEntry> _zonesById = new(StringComparer.Ordinal);
+		private readonly Dictionary<LevelRouteKey, Route> _connections = new();
+		private readonly List<PoolRule> _poolRules = new();
 
 		public LevelGraphRuntimeCache(LevelGraphAsset graph)
 		{
-			foreach (var zone in graph.Zones)
+			if (graph == null)
+				throw new ArgumentNullException(nameof(graph));
+
+			foreach (var entry in graph.Zones)
+				RegisterZone(entry);
+			foreach (var pool in graph.Pools)
 			{
-				if (zone?.prefab == null || string.IsNullOrWhiteSpace(zone.ZoneId))
+				if (pool?.entries == null)
 					continue;
-				_zonesById[zone.ZoneId] = zone;
+				foreach (var entry in pool.entries)
+					RegisterZone(entry);
 			}
 
 			foreach (var connection in graph.FixedConnections)
 			{
 				if (connection == null)
 					continue;
-				_connectionsByKey[ConnectionKey(connection.fromZoneId, connection.direction, connection.fromExitTag)] = connection;
+				AddRoute(connection.fromZoneId, connection.direction, connection.fromExitTag,
+					connection.toZoneId, connection.toExitTag);
 				if (connection.bidirectional)
-				{
-					var reverse = new LevelConnection
-					{
-						fromZoneId = connection.toZoneId,
-						direction = LevelDirectionUtility.Opposite(connection.direction),
-						fromExitTag = connection.toExitTag,
-						toZoneId = connection.fromZoneId,
-						toExitTag = connection.fromExitTag,
-						bidirectional = false
-					};
-					_connectionsByKey[ConnectionKey(reverse.fromZoneId, reverse.direction, reverse.fromExitTag)] = reverse;
-				}
+					AddRoute(connection.toZoneId, LevelDirectionUtility.Opposite(connection.direction),
+						connection.toExitTag, connection.fromZoneId, connection.fromExitTag);
 			}
 
+			var pools = new Dictionary<string, LevelZonePool>(StringComparer.Ordinal);
 			foreach (var pool in graph.Pools)
-			{
-				if (pool == null || string.IsNullOrWhiteSpace(pool.poolId))
-					continue;
-				_poolsById[pool.poolId] = pool;
-			}
+				if (pool != null && !string.IsNullOrWhiteSpace(pool.poolId))
+					pools[pool.poolId] = pool;
 
 			foreach (var rule in graph.PoolRules)
-				if (rule != null)
-					_poolRules.Add(rule);
+			{
+				if (rule == null || string.IsNullOrWhiteSpace(rule.poolId) ||
+				    !pools.TryGetValue(rule.poolId, out var pool) || pool.entries == null)
+					continue;
+				var candidates = new List<Candidate>(pool.entries.Count);
+				foreach (var entry in pool.entries)
+				{
+					if (entry?.prefab == null || !entry.prefab.TryGetExit(
+						    LevelDirectionUtility.Opposite(rule.direction), rule.requiredTargetExitTag, out _))
+						continue;
+					candidates.Add(new Candidate(_zonesById[entry.ZoneId], Math.Max(1, entry.weight)));
+				}
+				_poolRules.Add(new PoolRule(rule, pool.allowImmediateRepeat, candidates.ToArray()));
+			}
 		}
 
 		public bool TryGetZone(string zoneId, out LevelZoneEntry entry)
 		{
-			return _zonesById.TryGetValue(zoneId, out entry);
+			entry = null;
+			return !string.IsNullOrWhiteSpace(zoneId) && _zonesById.TryGetValue(zoneId, out entry);
 		}
 
-		public bool TryResolve(LevelZone currentZone, LevelExit exit, System.Random random, string lastZoneId, out LevelZoneEntry nextEntry, out string requiredTargetExitTag)
+		// The caller must use the active entry's logical ID, which may override its prefab ID.
+		public bool TryResolve(string currentZoneId, LevelExit exit, Random random, string previousZoneId,
+			out LevelZoneEntry nextEntry, out string requiredTargetExitTag)
 		{
 			nextEntry = null;
 			requiredTargetExitTag = string.Empty;
-			if (currentZone == null || exit == null)
+			if (string.IsNullOrWhiteSpace(currentZoneId) || exit == null || random == null)
 				return false;
 
-			var key = ConnectionKey(currentZone.ZoneId, exit.Direction, exit.ExitTag);
-			if (_connectionsByKey.TryGetValue(key, out var connection) ||
-			    _connectionsByKey.TryGetValue(ConnectionKey(currentZone.ZoneId, exit.Direction, string.Empty), out connection))
+			if (_connections.TryGetValue(new LevelRouteKey(currentZoneId, exit.Direction, exit.ExitTag), out var route) ||
+			    _connections.TryGetValue(new LevelRouteKey(currentZoneId, exit.Direction, null), out route))
 			{
-				requiredTargetExitTag = connection.toExitTag;
-				return TryGetZone(connection.toZoneId, out nextEntry);
+				requiredTargetExitTag = route.TargetTag;
+				return TryGetZone(route.TargetId, out nextEntry);
 			}
 
-			if (!string.IsNullOrWhiteSpace(exit.FixedTargetZoneId) && TryGetZone(exit.FixedTargetZoneId, out nextEntry))
-				return true;
+			if (!string.IsNullOrWhiteSpace(exit.FixedTargetZoneId))
+				return TryGetZone(exit.FixedTargetZoneId, out nextEntry);
 
 			foreach (var rule in _poolRules)
 			{
-				if (rule.direction != exit.Direction)
+				if (rule.Direction != exit.Direction || !LevelZone.TagsCompatible(exit.ExitTag, rule.SourceTag))
 					continue;
-				if (!LevelZone.TagsCompatible(exit.ExitTag, rule.fromExitTag))
+				nextEntry = rule.Pick(random, previousZoneId);
+				if (nextEntry == null)
 					continue;
-				if (!_poolsById.TryGetValue(rule.poolId, out var pool))
-					continue;
-
-				requiredTargetExitTag = rule.requiredTargetExitTag;
-				nextEntry = PickFromPool(pool, random, lastZoneId);
-				return nextEntry != null;
+				requiredTargetExitTag = rule.TargetTag;
+				return true;
 			}
-
 			return false;
 		}
 
-		private static string ConnectionKey(string zoneId, LevelDirection direction, string exitTag)
+		private void RegisterZone(LevelZoneEntry entry)
 		{
-			return $"{zoneId}|{direction}|{exitTag}";
+			if (entry?.prefab == null || string.IsNullOrWhiteSpace(entry.ZoneId) || _zonesById.ContainsKey(entry.ZoneId))
+				return;
+			// Snapshot identity so Inspector edits cannot mutate an already compiled route table.
+			_zonesById.Add(entry.ZoneId, new LevelZoneEntry
+			{
+				prefab = entry.prefab,
+				zoneIdOverride = entry.ZoneId,
+				weight = entry.weight
+			});
 		}
 
-		private static LevelZoneEntry PickFromPool(LevelZonePool pool, System.Random random, string lastZoneId)
+		private void AddRoute(string source, LevelDirection direction, string sourceTag, string target, string targetTag)
 		{
-			if (pool.entries == null || pool.entries.Count == 0)
-				return null;
+			_connections[new LevelRouteKey(source, direction, sourceTag)] = new Route(target, targetTag);
+		}
 
-			var totalWeight = 0;
-			foreach (var entry in pool.entries)
+		private readonly struct Route
+		{
+			public readonly string TargetId;
+			public readonly string TargetTag;
+			public Route(string targetId, string targetTag)
 			{
-				if (entry?.prefab == null)
-					continue;
-				if (!pool.allowImmediateRepeat && entry.ZoneId == lastZoneId && pool.entries.Count > 1)
-					continue;
-				totalWeight += Mathf.Max(1, entry.weight);
+				TargetId = targetId;
+				TargetTag = targetTag;
+			}
+		}
+
+		private readonly struct Candidate
+		{
+			public readonly LevelZoneEntry Entry;
+			public readonly int Weight;
+			public Candidate(LevelZoneEntry entry, int weight)
+			{
+				Entry = entry;
+				Weight = weight;
+			}
+		}
+
+		private sealed class PoolRule
+		{
+			public readonly LevelDirection Direction;
+			public readonly string SourceTag;
+			public readonly string TargetTag;
+			private readonly bool _allowRepeat;
+			private readonly Candidate[] _candidates;
+			private readonly long _totalWeight;
+
+			public PoolRule(LevelPoolRule rule, bool allowRepeat, Candidate[] candidates)
+			{
+				Direction = rule.direction;
+				SourceTag = rule.fromExitTag;
+				TargetTag = rule.requiredTargetExitTag;
+				_allowRepeat = allowRepeat;
+				_candidates = candidates;
+				foreach (var candidate in candidates)
+					_totalWeight += candidate.Weight;
 			}
 
-			if (totalWeight <= 0)
-				return null;
-
-			var roll = random.Next(0, totalWeight);
-			foreach (var entry in pool.entries)
+			public LevelZoneEntry Pick(Random random, string previousId)
 			{
-				if (entry?.prefab == null)
-					continue;
-				if (!pool.allowImmediateRepeat && entry.ZoneId == lastZoneId && pool.entries.Count > 1)
-					continue;
+				var total = _totalWeight;
+				if (!_allowRepeat)
+					foreach (var candidate in _candidates)
+						if (candidate.Entry.ZoneId == previousId)
+							total -= candidate.Weight;
+				if (total <= 0)
+					return null;
 
-				roll -= Mathf.Max(1, entry.weight);
-				if (roll < 0)
-					return entry;
+				// A 64-bit accumulator prevents overflow from large user-authored weights.
+				var roll = (long)(random.NextDouble() * total);
+				foreach (var candidate in _candidates)
+				{
+					if (!_allowRepeat && candidate.Entry.ZoneId == previousId)
+						continue;
+					roll -= candidate.Weight;
+					if (roll < 0)
+						return candidate.Entry;
+				}
+				return null;
 			}
-
-			return null;
 		}
 	}
 }

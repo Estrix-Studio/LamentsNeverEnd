@@ -1,0 +1,6 @@
+{
+  "name": "LoopShift.Tests.PlayMode",
+  "references": ["LoopShift.Runtime", "LoopShift.Tests.Shared"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": false
+}

@@ -1,0 +1,15 @@
+LoopShift — dependency and content notices
+
+LoopShift source is supplied under the included LICENSE file.
+The included demo texture and room visuals are original geometric content produced by the repository's sample-generation tooling.
+
+No third-party fonts, audio, models, artwork or runtime libraries are bundled with this package.
+
+External dependencies:
+- Unity Engine, including its built-in IMGUI and 2D physics modules, is provided by Unity under its own license.
+- The sample shader includes UnityCG.cginc from the installed Unity Editor. That engine include is not redistributed here.
+- Optional package tests reference Unity Test Framework/NUnit supplied through Unity's package system. Their binaries and source are not bundled.
+- Universal Render Pipeline is installed separately when used by the consumer project. LoopShift does not bundle URP.
+
+The host game's art, dialogue, fonts and third-party packages are excluded from LoopShift distribution.
+This notice describes the inspected package content; it does not replace the applicable Unity or Asset Store agreements.

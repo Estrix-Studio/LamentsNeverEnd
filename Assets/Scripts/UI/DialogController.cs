@@ -69,6 +69,7 @@ namespace UI
 
 		public void StartDialog(List<string> dialogPhrases)
 		{
+			StopTyping();
 			_isYarnDialogRunning = false;
 			_yarnDialogue = null;
 			_isDialogOpen = true;
@@ -118,7 +119,7 @@ namespace UI
 				yield break;
 
 			dialogText.text = "";
-			foreach (var c in phrase)
+			foreach (var c in phrase ?? string.Empty)
 			{
 				dialogText.text += c;
 				yield return new WaitForSeconds(typingSpeed);
@@ -130,6 +131,9 @@ namespace UI
 			if (!_isDialogOpen)
 				return;
 
+			StopTyping();
+			_phrases.Clear();
+			_yarnDialogue = null;
 			_isYarnDialogRunning = false;
 			_isDialogOpen = false;
 			if (dialogPanel != null)
@@ -138,6 +142,23 @@ namespace UI
 				dialogText.text = "";
 			Debug.Log("Dialog finished");
 			OnDialogEnd?.Invoke();
+		}
+
+		private void StopTyping()
+		{
+			if (_typingCoroutine == null)
+				return;
+			StopCoroutine(_typingCoroutine);
+			_typingCoroutine = null;
+		}
+
+		private void OnDestroy()
+		{
+			StopTyping();
+			if (nextButton != null)
+				nextButton.onClick.RemoveListener(DisplayNextPhrase);
+			if (instance == this)
+				instance = null;
 		}
 
 		private bool TryStartYarnDialog(DialogInfo dialogInfo)
@@ -164,22 +185,24 @@ namespace UI
 			_yarnDialogue.OptionsHandler = HandleYarnOptions;
 			_yarnDialogue.DialogueCompleteHandler = EndDialog;
 
-			_phrases.Clear();
-			_isYarnDialogRunning = true;
-			_isDialogOpen = true;
-			OnDialogStart?.Invoke();
 			try
 			{
 				_yarnDialogue.SetNode(dialogInfo.YarnNodeName);
-				ContinueYarnDialog();
-				return true;
 			}
 			catch (Exception exception)
 			{
 				Debug.LogError($"Could not start Yarn node '{dialogInfo.YarnNodeName}' from {dialogInfo.name}: {exception.Message}", dialogInfo);
-				EndDialog();
+				_yarnDialogue = null;
 				return false;
 			}
+
+			StopTyping();
+			_phrases.Clear();
+			_isYarnDialogRunning = true;
+			_isDialogOpen = true;
+			OnDialogStart?.Invoke();
+			ContinueYarnDialog();
+			return true;
 		}
 
 		private void ContinueYarnDialog()

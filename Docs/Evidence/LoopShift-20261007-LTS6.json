@@ -1,0 +1,14 @@
+{
+  "archive": "Z:/source/LamentsNeverEnd/Build/LoopShift/com.estrixstudio.loopshift-0.1.0.tgz",
+  "consumer": "Z:\\source\\LamentsNeverEnd\\Build\\LoopShift\\Consumer-20261007-LTS6",
+  "suites": {
+    "editmode": 48,
+    "playmode": 26,
+    "reloadmodes": 2
+  },
+  "editor": "m_EditorVersion: 6000.3.25f1\nm_EditorVersionWithRevision: 6000.3.25f1 (e1dba0a9aba4)",
+  "playerSmokePassed": true,
+  "format": "UPM",
+  "visualInspectionPassed": false,
+  "sha256": "5676782640C00FCB7B4823222587A2E8D003C53686E07A2AE76458BDAC0C0D49"
+}

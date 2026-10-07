@@ -1,0 +1,384 @@
+{
+  "validation_settings": {
+    "category": "Tools/Level Design",
+    "validation_type": "UnityPackage",
+    "validation_paths": [
+      "Assets"
+    ]
+  },
+  "validation_results": {
+    "validation_status": "RanToCompletion",
+    "test_results": {
+      "1": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "Demo scenes found",
+            "message_objects": [
+              {
+                "object_global_id": "GlobalObjectId_V1-1-f1e67a6caabb27f4d8b9aa788c54df8e-102900000-0"
+              }
+            ],
+            "click_action": null
+          }
+        ]
+      },
+      "2": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All found prefabs have meshes!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "3": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All found prefabs were reset!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "4": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All found prefabs have colliders!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "5": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No empty prefabs were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "6": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "Found documentation files",
+            "message_objects": [
+              {
+                "object_global_id": "GlobalObjectId_V1-1-3dda3743715acd04f81cdfc92fe3e4d2-4900000-0"
+              }
+            ],
+            "click_action": null
+          }
+        ]
+      },
+      "7": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All found models are facing the right way!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "8": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No JPG/JPEG textures were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "9": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No assets have missing components!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "10": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No missing components were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "11": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No UnityScript / JS files were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "12": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No lossy audio files were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "13": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No video files were found, looking good!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "14": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No executable files were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "15": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No Mixamo files were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "16": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No SpeedTree assets have been found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "17": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All found prefabs are meeting the LOD requirements!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "18": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All found Shaders have no compilation errors!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "19": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All scripts contain valid namespaces!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "20": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No scripts with inconsistent line endings were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "21": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No MenuItems with invalid names were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "22": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No archives were found in the package content!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "23": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All models are of allowed formats!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "24": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All texture dimensions are a power of 2!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "25": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No Particle Systems without Prefabs were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "26": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All normal map textures have the correct texture type!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "27": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No clipping audio files were detected.",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "28": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All package content matches the path limit criteria!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "29": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All scripts in the project compiled successfully!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "30": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "Your package does not exceed the maximum allowed package size!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "31": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No animation clips with invalid names were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "32": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No issues were detected when importing your models!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "33": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All package asset names are valid!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "34": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No common assets that might cause asset clashing were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "35": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "No static variables or events were found!",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      },
+      "118": {
+        "status": "Pass",
+        "messages": [
+          {
+            "text": "All shaders used by package materials and all shader files in the package are SRP-compatible.",
+            "message_objects": [],
+            "click_action": null
+          }
+        ]
+      }
+    },
+    "project_path": "Z:/source/LamentsNeverEnd/Build/LoopShift/AssetStoreAudit-20261006",
+    "had_compilation_errors": false
+  }
+}

@@ -13,6 +13,7 @@ namespace LoopShift.Editor
 
 			var graph = (LevelGraphAsset)target;
 			EditorGUILayout.Space();
+            if (GUILayout.Button("Open Visual Editor")) LevelGraphWindow.Open(graph);
 			if (GUILayout.Button("Validate Graph"))
 				PrintValidation(graph);
 		}

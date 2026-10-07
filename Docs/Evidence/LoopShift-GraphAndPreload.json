@@ -1,0 +1,79 @@
+{
+  "editor": "6000.7.0b1",
+  "platform": "Windows Editor EditMode",
+  "assembly": "LoopShift.Tests.Editor",
+  "results": "LoopShift-GraphAndPreload.xml",
+  "passed": 28,
+  "failed": 0,
+  "scope": "Routing, validation, bounded preload, active-view access; no PlayMode or visual-editor claim",
+  "sources": [
+    {
+      "path": "Assets\\LoopShift\\Runtime\\AssemblyInfo.cs",
+      "sha256": "735F62A3C7779C273AA4FB7BC9BC40640015E67E9C5B786FCE54FEC01FD7A980"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\EndlessLevelRunner.cs",
+      "sha256": "CD4D6C10EC4C7B57755338B3FA9A808809F907D51817B4633100F7DBBF57C769"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\EndlessSeamlessLevels.Runtime.asmdef",
+      "sha256": "49932F61CE4D7C94CC157237DAB0732114CC4224B821DF23712402D6D288E68D"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\LevelBoundsMode.cs",
+      "sha256": "F13E999687387D8F87C13288619B4EC143824D9DEBBD04AD2C5153514B0200C7"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\LevelDirection.cs",
+      "sha256": "08BE4EFC0422BC43D052A5CB8384D634F506354AE610341EA0D3EB262F0BF5DB"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\LevelDirectionUtility.cs",
+      "sha256": "BC226F1D2F1DB9F3826B83CD213C69D636F472ED4764B4204B477A41F2B60278"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\LevelExit.cs",
+      "sha256": "3C81987870F0D1D1DADA1AA53D7938F98C4E1566D311BDE796332600970637D8"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\LevelGraphAsset.cs",
+      "sha256": "6ED790659959EDC766A89019954112E6E70239B3402220128A9F1C784FC1A999"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\LevelGraphRuntimeCache.cs",
+      "sha256": "FABD6C2CD884E7CB57DA09F94E6EBD42E74C5672B94B5CFBF8031CB2CAB71D2E"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\LevelGraphValidator.cs",
+      "sha256": "1E93A12593260AEEA86B5B8CDBBBC89A35A6E1498A2503136BDF087D8AA9F7B0"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\LevelRouteKey.cs",
+      "sha256": "A57273F738F061073BC3CD22B452CD8B9D0BC21142201DE948D422C71CC6CE58"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\LevelRuntimeEventArgs.cs",
+      "sha256": "006F1B66E738C78CE477DFAFFBC2467430DEBD04DF6B9D0C78BF2A4042670B9B"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\LevelSpawnSettings.cs",
+      "sha256": "0242BDAEDDE8B9A7F9D7AA37D0F583768778B3DFE9A5A01E6DAF50B311A51BC4"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\LevelValidationMessage.cs",
+      "sha256": "65FC4AF32A87EB3C3EE0E15F49DD495C354402080290F3400FE0AAD5CD681B40"
+    },
+    {
+      "path": "Assets\\LoopShift\\Runtime\\LevelZone.cs",
+      "sha256": "70B2B5957D3E73A93CF9B81882BB4B7F5CAC0D7D484557D28537FE4222774341"
+    },
+    {
+      "path": "Assets\\LoopShift\\Tests\\Editor\\GraphRoutingTests.cs",
+      "sha256": "6D4E5B8F464AF0DA7461C2F60D3A3DCD6C5DA04102DDFC3EC4BB9B23AF9DD8BF"
+    },
+    {
+      "path": "Assets\\LoopShift\\Tests\\Editor\\LoopShift.Tests.Editor.asmdef",
+      "sha256": "83F9470CC853BBA0B6063B0674F4C9DB62A5F15DA9322EB219D9C7AF4F65D8D3"
+    }
+  ]
+}

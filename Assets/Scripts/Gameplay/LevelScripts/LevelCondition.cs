@@ -1,4 +1,4 @@
-﻿using Gameplay.Data;
+using Gameplay.Data;
 using UnityEngine;
 
 namespace Gameplay.LevelScripts
@@ -11,13 +11,14 @@ namespace Gameplay.LevelScripts
 
 		private void Awake()
 		{
-			if (!GameData.instance.spawnedConditions.Contains(conditionName))
+			if (!GameData.instance.TryRegisterCondition(conditionName))
 			{
+				enabled = false;
 				Destroy(gameObject);
 				return;
 			}
 
-			GameData.instance.spawnedConditions.Add(conditionName);
+			// This condition owns the subscription for the rest of this run.
 			GameData.instance.OnObjectInteracted += InstanceOnOnObjectInteracted;
 			GameData.instance.OnZoneEntered += InstanceOnOnZoneEntered;
 			_wasStarted = true;

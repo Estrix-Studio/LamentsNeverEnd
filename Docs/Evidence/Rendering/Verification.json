@@ -1,0 +1,9 @@
+{
+  "pixelCheck": "106110 colored pixels; 144 white actor pixels; zero magenta error pixels in both renders",
+  "date": "2026-10-06",
+  "logSha256": "702466F7722366220C9DCEBF7EEAB2C3C76D5B89900B62A7C6EF80C8C0EEF182",
+  "scope": "Camera-rendered sample scene; images visually inspected; not an editor UI or interactive gameplay verification",
+  "editor": "6000.7.0b1",
+  "urp": "17.7.0",
+  "shaderSha256": "740C9220A3EB019A5E384007626CD5682F255303A46AA203B1A06D1D71A8E20A"
+}

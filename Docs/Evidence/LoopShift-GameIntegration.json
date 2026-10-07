@@ -1,0 +1,59 @@
+{
+  "dialogueVerified": false,
+  "date": "2026-10-02",
+  "lossResetByMethod": true,
+  "integrationLogSha256": "18554390DA886E544EC4194A99EF75AA669323132E931B6F70342E859E1996E8",
+  "editor": "6000.7.0b1",
+  "physicalVictory": true,
+  "testedTourTransitions": 14,
+  "menuEntry": true,
+  "physicalNavigationVerified": false,
+  "sourceHashes": [
+    {
+      "path": "Assets/Scenes/Gameplay.unity",
+      "sha256": "78A0BB74F0DBE9D8F168DB730A2C79A71D2F7C076C586205A182EFF3EA325EDD"
+    },
+    {
+      "path": "Assets/Prefabs/LoopShiftGame/GameRooms.asset",
+      "sha256": "AEDAB9EDA36149391C038176AC59A017A031F12463F3F2FB95F5DFFAED33D770"
+    },
+    {
+      "path": "Assets/Scripts/Gameplay/GameLevelRunner.cs",
+      "sha256": "65F68F48E61569B8C002D6BBEFA281AB8F2FD3C2A4DE276064588A4A6A46B58E"
+    },
+    {
+      "path": "Assets/Scripts/Gameplay/Enemy.cs",
+      "sha256": "059DC95DBCE46495CF852FC496B8563AAF4198F952426B7DD4044AC9D0A6FD7E"
+    },
+    {
+      "path": "Assets/Scripts/Gameplay/InteractableObject.cs",
+      "sha256": "48CCB380AB05A3D4ACD381275168FC96B5C81C018D7A850296C9E1E5112690EE"
+    },
+    {
+      "path": "Assets/Scripts/Gameplay/Krabik.cs",
+      "sha256": "E59E2386656B8F7BFDD836418066A24D6C00E76229A62A82DD612F00C7FE39A7"
+    },
+    {
+      "path": "Assets/LoopShift/Runtime/EndlessLevelRunner.cs",
+      "sha256": "A6037772352AAC815579F8CFCD237AA326A1E51C19F6AA1C526BCEA6228073CD"
+    },
+    {
+      "path": "Assets/LoopShift/Runtime/LevelInstancePool.cs",
+      "sha256": "E777D7446D5821E9B425C21490F87C9691322015BFC1A4B75318A250E442C1EC"
+    },
+    {
+      "path": "Assets/LoopShift/Runtime/LevelTargetRegistry.cs",
+      "sha256": "70735634AD28BCFA8E6B2F89652E8F5D59D19FBB991153563F2BA95A6B0B3297"
+    },
+    {
+      "path": "Assets/Editor/Validation/LoopShiftGameChecks.cs",
+      "sha256": "9ADABCC138057535E318F3785DC81ED8D1AAE37FD6B8B35B79472A02EBB0F9FF"
+    }
+  ],
+  "runtimeTestsPassed": 25,
+  "projectChecksPassed": 100,
+  "bothRestartCycles": true,
+  "migrationRooms": 15,
+  "gameChecksPassed": 107,
+  "migrationRoutes": 43
+}

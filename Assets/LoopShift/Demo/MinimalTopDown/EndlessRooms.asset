@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d300354d294eb85449633dad3abdd997, type: 3}
+  m_Name: EndlessRooms
+  m_EditorClassIdentifier: LoopShift.Runtime::LoopShift.Runtime.LevelGraphAsset
+  startZoneId: Atrium
+  zones:
+  - editorPosition: {x: 0, y: 0}
+    hasEditorPosition: 1
+    prefab: {fileID: 1349874383080358926, guid: d9339f18c70c9064ea441ca8b5f9f9b8, type: 3}
+    zoneIdOverride: Atrium
+    weight: 1
+    tags: []
+  - editorPosition: {x: 330, y: 0}
+    hasEditorPosition: 1
+    prefab: {fileID: 4235827996074314831, guid: 68161b3434326b64daf313a0558a2d21, type: 3}
+    zoneIdOverride: Gallery
+    weight: 1
+    tags: []
+  - editorPosition: {x: 660, y: 0}
+    hasEditorPosition: 1
+    prefab: {fileID: 1815462310919967117, guid: ca5b13034d0e27649b51232217eb2f4c, type: 3}
+    zoneIdOverride: Garden
+    weight: 1
+    tags: []
+  fixedConnections:
+  - fromZoneId: Atrium
+    direction: 3
+    fromExitTag: Default
+    toZoneId: Gallery
+    toExitTag: Default
+    bidirectional: 1
+  pools:
+  - editorPosition: {x: 330, y: 290}
+    hasEditorPosition: 1
+    poolId: Endless
+    allowImmediateRepeat: 1
+    entries:
+    - editorPosition: {x: 0, y: 0}
+      hasEditorPosition: 1
+      prefab: {fileID: 1349874383080358926, guid: d9339f18c70c9064ea441ca8b5f9f9b8, type: 3}
+      zoneIdOverride: Atrium
+      weight: 1
+      tags: []
+    - editorPosition: {x: 330, y: 0}
+      hasEditorPosition: 1
+      prefab: {fileID: 4235827996074314831, guid: 68161b3434326b64daf313a0558a2d21, type: 3}
+      zoneIdOverride: Gallery
+      weight: 1
+      tags: []
+    - editorPosition: {x: 660, y: 0}
+      hasEditorPosition: 1
+      prefab: {fileID: 1815462310919967117, guid: ca5b13034d0e27649b51232217eb2f4c, type: 3}
+      zoneIdOverride: Garden
+      weight: 2
+      tags: []
+  poolRules:
+  - direction: 2
+    fromExitTag: 
+    poolId: Endless
+    requiredTargetExitTag: 
+  - direction: 3
+    fromExitTag: 
+    poolId: Endless
+    requiredTargetExitTag: 
+  - direction: 4
+    fromExitTag: 
+    poolId: Endless
+    requiredTargetExitTag: 
+  - direction: 5
+    fromExitTag: 
+    poolId: Endless
+    requiredTargetExitTag: 

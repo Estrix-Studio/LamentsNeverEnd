@@ -1,0 +1,15 @@
+{
+  "suites": {
+    "reloadmodes": 2,
+    "editmode": 49,
+    "playmode": 26
+  },
+  "archive": "Z:/source/LamentsNeverEnd/Build/LoopShift/com.estrixstudio.loopshift-0.1.0.tgz",
+  "urpVersion": "",
+  "format": "UPM",
+  "visualInspectionPassed": false,
+  "playerSmokePassed": true,
+  "editor": "m_EditorVersion: 2022.3.62f3\nm_EditorVersionWithRevision: 2022.3.62f3 (96770f904ca7)",
+  "sha256": "CBA09B6C6487751CBB0E0C9F73A28C71AB6B76A4E547E453B404E53EEE632FAC",
+  "consumer": "Z:\\source\\LamentsNeverEnd\\Build\\R22"
+}

@@ -1,0 +1,3 @@
+# Consistent script line endings in the distributable package.
+Assets/LoopShift/**/*.cs text eol=lf
+Assets/LoopShift/**/*.shader text eol=lf

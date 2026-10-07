@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 namespace LoopShift.Runtime
@@ -13,329 +14,489 @@ namespace LoopShift.Runtime
 		[SerializeField] private bool playOnAwake = true;
 
 		private readonly Dictionary<Vector2Int, ActiveZone> _activeZones = new();
-		private readonly Dictionary<LevelZone, Stack<LevelZone>> _pool = new();
+		private readonly Dictionary<Vector2Int, LevelZone> _publicZones = new();
+		private readonly Dictionary<LevelExit, Vector2Int> _exitOwners = new();
+		private readonly Dictionary<LevelExit, ResolvedRoute> _routes = new();
+		private readonly List<Vector2Int> _preloadQueue = new();
+		private readonly HashSet<Vector2Int> _queuedCells = new();
+		private readonly List<Vector2Int> _releaseCells = new();
+		private readonly List<ActiveZone> _stopBuffer = new();
+		private readonly List<Collider2D> _arrivalColliders = new();
+		private ReadOnlyDictionary<Vector2Int, LevelZone> _activeZoneView;
 		private LevelGraphRuntimeCache _cache;
+		private LevelInstancePool _pool;
+		private LevelTargetRegistry _targetRegistry;
 		private System.Random _random;
 		private Vector2Int _currentCell;
-		private string _lastGeneratedZoneId;
+		private LevelExit _arrivalExit;
+		private Collider2D _arrivalTrigger;
 		private bool _isRunning;
+		private bool _isMutating;
+		private bool _isDestroying;
+		private Command _pendingCommand;
+		private int _lastTransitionFrame = -1;
+
+		private enum Command { None, Start, Stop }
 
 		public event Action<LevelZoneEvent> ZoneSpawned;
 		public event Action<LevelZoneEvent> ZoneEntered;
 		public event Action<LevelZoneEvent> ZoneBecameCenter;
 		public event Action<LevelZoneEvent> ZoneDespawned;
 		public event Action<LevelRuntimeMessage> RuntimeError;
+        /// <summary>World-space offset applied to active rooms and registered targets during recentering.</summary>
+        public event Action<Vector3> WorldShifted;
 
 		public LevelGraphAsset Graph => graph;
-		public LevelSpawnSettings SpawnSettings => spawnSettings;
-		public IReadOnlyDictionary<Vector2Int, LevelZone> ActiveZones => BuildActiveZoneSnapshot();
+		public LevelSpawnSettings SpawnSettings => spawnSettings ??= new LevelSpawnSettings();
+		public bool IsRunning => _isRunning;
+		public Vector2Int CurrentCell => _currentCell;
+		public int PooledZoneCount => _pool?.PooledCount ?? 0;
+		public int OwnedZoneCount => _pool?.OwnedCount ?? 0;
 
-		private void Awake()
+		/// <summary>Live read-only view; copy explicitly if a historical snapshot is needed.</summary>
+		public IReadOnlyDictionary<Vector2Int, LevelZone> ActiveZones =>
+			_activeZoneView ??= new ReadOnlyDictionary<Vector2Int, LevelZone>(_publicZones);
+
+		private void OnEnable()
 		{
-			if (playOnAwake)
+			if (Application.isPlaying && playOnAwake)
 				StartRunner();
 		}
 
+		private void OnDisable() => StopRunner();
+
 		private void OnDestroy()
 		{
+			_isDestroying = true;
 			StopRunner();
 		}
 
+		private void LateUpdate()
+		{
+			// Defer callback-requested restarts rather than recursing into user callbacks.
+			if (_pendingCommand != Command.Start || _isMutating || _isDestroying)
+				return;
+			_pendingCommand = Command.None;
+			StartRunner();
+		}
+
+		private void FixedUpdate()
+		{
+			if (_arrivalExit == null || _arrivalTrigger == null)
+				return;
+			for (var i = 0; i < _arrivalColliders.Count; i++)
+			{
+				var collider = _arrivalColliders[i];
+				if (collider != null && collider.enabled && collider.gameObject.activeInHierarchy &&
+				    _arrivalTrigger.Distance(collider).isOverlapped)
+					return;
+			}
+			ClearArrivalGate();
+		}
+
+		/// <summary>Starts a fresh seeded run. Calls made from callbacks are deferred.</summary>
 		public void StartRunner()
 		{
-			StopRunner();
-			if (graph == null)
+			if (_isDestroying || !isActiveAndEnabled)
+				return;
+			if (_isMutating)
 			{
-				ReportError("Cannot start endless level runner: graph is not assigned.", this);
+				_pendingCommand = Command.Start;
+				_isRunning = false;
 				return;
 			}
-
-			var validation = graph.ValidateGraph();
-			foreach (var message in validation)
+			_isMutating = true;
+			_pendingCommand = Command.None;
+			try
 			{
-				if (message.Severity == LevelValidationSeverity.Error)
+				EnsureRuntime();
+				StopCore();
+				if (_pendingCommand != Command.None || _isDestroying)
+					return;
+				if (graph == null)
 				{
+					ReportError("Cannot start endless level runner: graph is not assigned.", this);
+					return;
+				}
+				foreach (var message in graph.ValidateGraph())
+				{
+					if (message.Severity != LevelValidationSeverity.Error)
+						continue;
 					ReportError(message.Message, message.Context);
 					return;
 				}
+
+				_cache = new LevelGraphRuntimeCache(graph);
+				_random = new System.Random(SpawnSettings.useDeterministicSeed ? SpawnSettings.seed : Environment.TickCount);
+				_currentCell = Vector2Int.zero;
+				_lastTransitionFrame = -1;
+				if (!_cache.TryGetZone(graph.StartZoneId, out var entry))
+					return;
+				_isRunning = true;
+				if (SpawnZone(entry, _currentCell, transform.position, null, null) == null || !CanContinue)
+					return;
+				MakeCenter();
+				if (CanContinue)
+					PreloadAround(_currentCell);
 			}
-
-			_cache = new LevelGraphRuntimeCache(graph);
-			_random = new System.Random(spawnSettings.useDeterministicSeed ? spawnSettings.seed : Environment.TickCount);
-			_currentCell = Vector2Int.zero;
-			_isRunning = true;
-
-			if (!_cache.TryGetZone(graph.StartZoneId, out var startEntry))
-			{
-				ReportError($"Start zone '{graph.StartZoneId}' could not be resolved.", graph);
-				return;
-			}
-
-			var startZone = SpawnZone(startEntry, _currentCell, transform.position, null, null);
-			if (startZone == null)
-				return;
-
-			MakeCenter(_currentCell);
-			PreloadAround(_currentCell);
+			catch (Exception exception) { Abort(exception); }
+			finally { EndMutation(); }
 		}
 
 		public void StopRunner()
 		{
-			foreach (var active in _activeZones.Values)
-				Release(active);
-			_activeZones.Clear();
 			_isRunning = false;
+			if (_isMutating)
+			{
+				_pendingCommand = Command.Stop;
+				return;
+			}
+			_isMutating = true;
+			_pendingCommand = Command.None;
+			try { StopCore(); }
+			finally { EndMutation(); }
 		}
 
 		public void AddTarget(Transform target)
 		{
-			if (target != null && !targets.Contains(target))
+			if (target == null || transform.IsChildOf(target))
+				return;
+			EnsureRuntime();
+			if (!targets.Contains(target))
 				targets.Add(target);
 		}
 
 		public void RemoveTarget(Transform target)
 		{
-			targets.Remove(target);
+			EnsureRuntime();
+			_targetRegistry.Remove(target);
 		}
 
-		private void OnExitTriggered(LevelExit exit, Collider2D other)
+		/// <summary>Attempts a registered actor's exit crossing. At most one crossing is accepted per frame.</summary>
+		public bool TryTraverse(LevelExit exit, Collider2D actor)
 		{
-			if (!_isRunning || exit == null || !IsTargetCollider(other))
-				return;
+			if (!CanContinue || _isMutating || exit == null || exit == _arrivalExit ||
+			    _lastTransitionFrame == Time.frameCount || !LevelDirectionUtility.IsCardinal(exit.Direction) ||
+			    !_targetRegistry.TryGetActor(actor, out var actorRoot) ||
+			    !_exitOwners.TryGetValue(exit, out var sourceCell) || sourceCell != _currentCell)
+				return false;
 
-			var sourceZone = exit.GetComponentInParent<LevelZone>();
-			if (sourceZone == null || !_activeZones.TryGetValue(_currentCell, out var current) || current.Zone != sourceZone)
-				return;
-
-			var nextCell = _currentCell + LevelDirectionUtility.ToCellOffset(exit.Direction);
-			if (!_activeZones.ContainsKey(nextCell))
+			_isMutating = true;
+			try
 			{
-				if (!_cache.TryResolve(sourceZone, exit, _random, _lastGeneratedZoneId, out var nextEntry, out var requiredTargetExitTag))
-				{
-					ReportError($"No zone could be resolved from '{sourceZone.ZoneId}' through {exit.Direction}.", sourceZone);
-					return;
-				}
-
-				SpawnZone(nextEntry, nextCell, EstimatePosition(sourceZone, nextEntry.prefab, exit.Direction), exit, requiredTargetExitTag);
-			}
-
-			if (_activeZones.TryGetValue(nextCell, out var entered))
-			{
+				var current = _activeZones[_currentCell];
+				if (!TryRoute(current, exit, out var route))
+					return false;
+				var nextCell = _currentCell + LevelDirectionUtility.ToCellOffset(exit.Direction);
+				if (!EnsureNeighbour(current, exit, route, nextCell, true) || !CanContinue)
+					return false;
+				var entered = _activeZones[nextCell];
 				_currentCell = nextCell;
-				ZoneEntered?.Invoke(new LevelZoneEvent(entered.Zone, entered.ZoneId, nextCell));
-				MakeCenter(nextCell);
-				PreloadAround(nextCell);
+				_lastTransitionFrame = Time.frameCount;
+				entered.Zone.TryGetExit(LevelDirectionUtility.Opposite(exit.Direction), route.TargetTag, out _arrivalExit);
+				_arrivalTrigger = _arrivalExit != null ? _arrivalExit.GetComponent<Collider2D>() : null;
+				_arrivalColliders.Clear();
+				actorRoot.GetComponentsInChildren(false, _arrivalColliders);
+				MakeCenter();
+				if (!CanContinue)
+					return false;
+				Publish(ZoneEntered, entered);
+				if (!CanContinue)
+					return false;
 				DespawnOutsideRadius(nextCell);
+				if (CanContinue)
+					PreloadAround(nextCell);
+				return CanContinue;
 			}
-		}
-
-		private LevelZone SpawnZone(LevelZoneEntry entry, Vector2Int cell, Vector3 position, LevelExit sourceExit, string requiredTargetExitTag)
-		{
-			if (entry?.prefab == null)
+			catch (Exception exception)
 			{
-				ReportError("Cannot spawn an empty zone entry.", graph);
-				return null;
+				Abort(exception);
+				return false;
 			}
-
-			var zone = GetFromPool(entry.prefab);
-			zone.transform.SetParent(spawnSettings.runtimeParent != null ? spawnSettings.runtimeParent : transform, false);
-			zone.transform.position = position;
-			zone.transform.rotation = Quaternion.identity;
-			zone.gameObject.SetActive(true);
-
-			if (sourceExit != null)
-				AlignToExit(zone, sourceExit, requiredTargetExitTag);
-
-			Subscribe(zone);
-			var active = new ActiveZone(entry.prefab, zone, cell, entry.ZoneId);
-			_activeZones[cell] = active;
-			_lastGeneratedZoneId = entry.ZoneId;
-			ZoneSpawned?.Invoke(new LevelZoneEvent(zone, entry.ZoneId, cell));
-			return zone;
+			finally { EndMutation(); }
 		}
 
-		private LevelZone GetFromPool(LevelZone prefab)
+		private bool CanContinue => _isRunning && !_isDestroying && _pendingCommand == Command.None;
+
+		private void EnsureRuntime()
 		{
-			if (_pool.TryGetValue(prefab, out var stack) && stack.Count > 0)
-				return stack.Pop();
-			return Instantiate(prefab);
+			targets ??= new List<Transform>();
+			_targetRegistry ??= new LevelTargetRegistry(targets);
+			_pool ??= new LevelInstancePool(transform);
+		}
+
+		private void EndMutation()
+		{
+			// Stop requests take effect before returning to the caller; restart waits for LateUpdate.
+			if (_pendingCommand == Command.Stop || _isDestroying)
+			{
+				_pendingCommand = Command.None;
+				StopCore();
+			}
+			if (_isDestroying)
+			{
+				_pool?.Dispose();
+				_pendingCommand = Command.None;
+			}
+			_isMutating = false;
+		}
+
+		private void StopCore()
+		{
+			_isRunning = false;
+			ClearArrivalGate();
+			_targetRegistry?.RestoreAll();
+			_stopBuffer.Clear();
+			foreach (var active in _activeZones.Values)
+				_stopBuffer.Add(active);
+			_activeZones.Clear();
+			_publicZones.Clear();
+			foreach (var active in _stopBuffer)
+				Release(active);
+			_stopBuffer.Clear();
+			_exitOwners.Clear();
+			_routes.Clear();
+		}
+
+		private void ClearArrivalGate()
+		{
+			_arrivalExit = null;
+			_arrivalTrigger = null;
+			_arrivalColliders.Clear();
+		}
+
+		private void OnExitTriggered(LevelExit exit, Collider2D actor) => TryTraverse(exit, actor);
+
+		private LevelZone SpawnZone(LevelZoneEntry entry, Vector2Int cell, Vector3 position,
+			LevelExit sourceExit, string targetTag)
+		{
+			if (!CanContinue || entry?.prefab == null)
+				return null;
+			var zone = _pool.Acquire(entry.prefab);
+			zone.transform.SetParent(SpawnSettings.runtimeParent != null ? SpawnSettings.runtimeParent : _pool.ActiveRoot, false);
+			zone.transform.SetPositionAndRotation(position, Quaternion.identity);
+			zone.transform.localScale = entry.prefab.transform.localScale;
+			if (sourceExit != null)
+				AlignToExit(zone, sourceExit, targetTag);
+
+			var active = new ActiveZone(entry.prefab, zone, cell, entry.ZoneId);
+			_activeZones.Add(cell, active);
+			_publicZones.Add(cell, zone);
+			var exits = zone.Exits;
+			for (var i = 0; i < exits.Count; i++)
+			{
+				var exit = exits[i];
+				if (exit == null)
+					continue;
+				_exitOwners[exit] = cell;
+				exit.Triggered += OnExitTriggered;
+			}
+			// Awake/OnEnable see the correct placement and an already registered instance.
+			zone.gameObject.SetActive(true);
+			if (!CanContinue)
+				return zone;
+			NotifyLifecycle(active, true);
+			if (CanContinue)
+				Publish(ZoneSpawned, active);
+			return zone;
 		}
 
 		private void Release(ActiveZone active)
 		{
 			if (active.Zone == null)
 				return;
-
-			Unsubscribe(active.Zone);
-			active.Zone.gameObject.SetActive(false);
-			if (!_pool.TryGetValue(active.Prefab, out var stack))
+			var exits = active.Zone.Exits;
+			for (var i = 0; i < exits.Count; i++)
 			{
-				stack = new Stack<LevelZone>();
-				_pool[active.Prefab] = stack;
+				var exit = exits[i];
+				if (exit == null)
+					continue;
+				exit.Triggered -= OnExitTriggered;
+				_exitOwners.Remove(exit);
+				_routes.Remove(exit);
 			}
-
-			if (stack.Count < spawnSettings.maxPoolInstancesPerPrefab)
-				stack.Push(active.Zone);
-			else
-				Destroy(active.Zone.gameObject);
-
-			ZoneDespawned?.Invoke(new LevelZoneEvent(active.Zone, active.ZoneId, active.Cell));
+			NotifyLifecycle(active, false);
+			_pool.Release(active.Prefab, active.Zone, SpawnSettings.maxPoolInstancesPerPrefab, SpawnSettings.maxPooledInstances);
+			Publish(ZoneDespawned, active);
 		}
 
-		private void Subscribe(LevelZone zone)
-		{
-			foreach (var exit in zone.Exits)
-				if (exit != null)
-					exit.Triggered += OnExitTriggered;
-		}
-
-		private void Unsubscribe(LevelZone zone)
-		{
-			foreach (var exit in zone.Exits)
-				if (exit != null)
-					exit.Triggered -= OnExitTriggered;
-		}
-
-		private void MakeCenter(Vector2Int cell)
+		private void DespawnCell(Vector2Int cell)
 		{
 			if (!_activeZones.TryGetValue(cell, out var active))
 				return;
-
-			if (spawnSettings.parentTargetsToCurrentZone)
-			{
-				foreach (var target in targets)
-					if (target != null)
-						target.SetParent(active.Zone.transform, true);
-			}
-
-			ZoneBecameCenter?.Invoke(new LevelZoneEvent(active.Zone, active.ZoneId, cell));
+			_activeZones.Remove(cell);
+			_publicZones.Remove(cell);
+			Release(active);
 		}
 
-		private void PreloadAround(Vector2Int centerCell)
+		private void MakeCenter()
 		{
-			var radius = Mathf.Max(0, spawnSettings.preloadRadius);
-			for (var depth = 0; depth <= radius; depth++)
-			{
-				var cells = new List<Vector2Int>(_activeZones.Keys);
-				foreach (var cell in cells)
-				{
-					var distance = Mathf.Max(Mathf.Abs(cell.x - centerCell.x), Mathf.Abs(cell.y - centerCell.y));
-					if (distance <= depth)
-						SpawnNeighbours(cell);
-				}
-			}
-		}
-
-		private void SpawnNeighbours(Vector2Int centerCell)
-		{
-			if (!_activeZones.TryGetValue(centerCell, out var center))
+			if (!CanContinue || !_activeZones.TryGetValue(_currentCell, out var active))
 				return;
-
-			foreach (var exit in center.Zone.Exits)
-			{
-				if (exit == null || exit.Direction is LevelDirection.None or LevelDirection.Center)
-					continue;
-
-				var targetCell = centerCell + LevelDirectionUtility.ToCellOffset(exit.Direction);
-				if (_activeZones.ContainsKey(targetCell))
-					continue;
-
-				if (!_cache.TryResolve(center.Zone, exit, _random, _lastGeneratedZoneId, out var nextEntry, out var requiredTargetExitTag))
-					continue;
-
-				SpawnZone(nextEntry, targetCell, EstimatePosition(center.Zone, nextEntry.prefab, exit.Direction), exit, requiredTargetExitTag);
-			}
+			if (SpawnSettings.parentTargetsToCurrentZone)
+				_targetRegistry.ParentTo(active.Zone.transform);
+			RecenterWorld(active);
+            if (CanContinue) Publish(ZoneBecameCenter, active);
 		}
 
-		private void DespawnOutsideRadius(Vector2Int centerCell)
+
+        private void RecenterWorld(ActiveZone center)
+        {
+            if (!SpawnSettings.recenterOnTransition)
+                return;
+            var offset = transform.position - center.Zone.transform.position;
+            if (offset.sqrMagnitude < 0.00000001f)
+                return;
+            // Shift actors outside rooms first; nested targets and parented actors move once.
+            _targetRegistry.ShiftUnparentedTargets(offset, _publicZones);
+            foreach (var room in _publicZones.Values)
+                if (room != null)
+                    room.transform.position += offset;
+            Physics2D.SyncTransforms();
+            WorldShifted?.Invoke(offset);
+        }
+
+        private bool TryRoute(ActiveZone source, LevelExit exit, out ResolvedRoute route)
 		{
-			var toRelease = new List<Vector2Int>();
-			foreach (var pair in _activeZones)
-			{
-				var distance = Mathf.Max(Mathf.Abs(pair.Key.x - centerCell.x), Mathf.Abs(pair.Key.y - centerCell.y));
-				if (distance > Mathf.Max(0, spawnSettings.activeRadius))
-					toRelease.Add(pair.Key);
-			}
-
-			foreach (var cell in toRelease)
-			{
-				var active = _activeZones[cell];
-				_activeZones.Remove(cell);
-				Release(active);
-			}
-		}
-
-		private void AlignToExit(LevelZone zone, LevelExit sourceExit, string requiredTargetExitTag)
-		{
-			var opposite = LevelDirectionUtility.Opposite(sourceExit.Direction);
-			if (!zone.TryGetExit(opposite, requiredTargetExitTag, out var targetExit))
-				return;
-
-			var delta = sourceExit.SpawnAnchor.position - targetExit.SpawnAnchor.position;
-			zone.transform.position += delta;
-		}
-
-		private Vector3 EstimatePosition(LevelZone source, LevelZone target, LevelDirection direction)
-		{
-			var sourceSize = source.Size + spawnSettings.boundsPadding;
-			var targetSize = target.Size + spawnSettings.boundsPadding;
-			var offset = direction switch
-			{
-				LevelDirection.North => new Vector3(0f, (sourceSize.y + targetSize.y) * 0.5f, 0f),
-				LevelDirection.East => new Vector3((sourceSize.x + targetSize.x) * 0.5f, 0f, 0f),
-				LevelDirection.South => new Vector3(0f, -(sourceSize.y + targetSize.y) * 0.5f, 0f),
-				LevelDirection.West => new Vector3(-(sourceSize.x + targetSize.x) * 0.5f, 0f, 0f),
-				_ => Vector3.zero
-			};
-			return source.transform.position + offset;
-		}
-
-		private bool IsTargetCollider(Collider2D other)
-		{
-			if (other == null)
-				return false;
-			if (targets.Count == 0)
+			if (_routes.TryGetValue(exit, out route))
 				return true;
-
-			foreach (var target in targets)
-			{
-				if (target == null)
-					continue;
-				if (other.transform == target || other.transform.IsChildOf(target) || target.IsChildOf(other.transform))
-					return true;
-			}
-
-			return false;
+			if (!_cache.TryResolve(source.ZoneId, exit, _random, source.ZoneId, out var entry, out var tag))
+				return false;
+			route = new ResolvedRoute(entry, tag);
+			_routes.Add(exit, route);
+			return true;
 		}
 
-		private IReadOnlyDictionary<Vector2Int, LevelZone> BuildActiveZoneSnapshot()
+		private bool EnsureNeighbour(ActiveZone source, LevelExit exit, ResolvedRoute route, Vector2Int cell, bool replaceConflict)
 		{
-			var snapshot = new Dictionary<Vector2Int, LevelZone>();
+			if (_activeZones.TryGetValue(cell, out var existing))
+			{
+				if (existing.Zone != null && existing.ZoneId == route.Entry.ZoneId &&
+				    IsAligned(existing.Zone, exit, route.TargetTag))
+					return true;
+				// Speculative paths cannot evict the current room or its immediate neighborhood.
+				if (!replaceConflict || cell == _currentCell)
+					return false;
+				DespawnCell(cell);
+				if (!CanContinue)
+					return false;
+			}
+			return SpawnZone(route.Entry, cell, source.Zone.transform.position, exit, route.TargetTag) != null;
+		}
+
+		private void PreloadAround(Vector2Int center)
+		{
+			var radius = Mathf.Min(Mathf.Max(0, SpawnSettings.preloadRadius), Mathf.Max(0, SpawnSettings.activeRadius));
+			if (radius == 0)
+				return;
+			_preloadQueue.Clear();
+			_queuedCells.Clear();
+			_preloadQueue.Add(center);
+			_queuedCells.Add(center);
+			for (var i = 0; i < _preloadQueue.Count && CanContinue; i++)
+				SpawnNeighbours(_preloadQueue[i], center, radius);
+		}
+
+		private void SpawnNeighbours(Vector2Int cell, Vector2Int centerCell, int radius)
+		{
+			if (!_activeZones.TryGetValue(cell, out var source) || source.Zone == null)
+				return;
+			var exits = source.Zone.Exits;
+			for (var i = 0; i < exits.Count; i++)
+			{
+				var exit = exits[i];
+				if (!CanContinue)
+					return;
+				if (exit == null || !LevelDirectionUtility.IsCardinal(exit.Direction))
+					continue;
+				var next = cell + LevelDirectionUtility.ToCellOffset(exit.Direction);
+				if (!IsWithinRadius(next, centerCell, radius) || !TryRoute(source, exit, out var route) ||
+				    !EnsureNeighbour(source, exit, route, next, false))
+					continue;
+				if (_queuedCells.Add(next))
+					_preloadQueue.Add(next);
+			}
+		}
+
+		private void DespawnOutsideRadius(Vector2Int center)
+		{
+			_releaseCells.Clear();
 			foreach (var pair in _activeZones)
-				snapshot[pair.Key] = pair.Value.Zone;
-			return snapshot;
+				if (!IsWithinRadius(pair.Key, center, Mathf.Max(0, SpawnSettings.activeRadius)))
+					_releaseCells.Add(pair.Key);
+			for (var i = 0; i < _releaseCells.Count && CanContinue; i++)
+				DespawnCell(_releaseCells[i]);
+		}
+
+		private static bool IsWithinRadius(Vector2Int cell, Vector2Int center, int radius) =>
+			Math.Abs((long)cell.x - center.x) <= radius && Math.Abs((long)cell.y - center.y) <= radius;
+
+		private static bool IsAligned(LevelZone zone, LevelExit source, string targetTag) =>
+			zone.TryGetExit(LevelDirectionUtility.Opposite(source.Direction), targetTag, out var target) &&
+			(source.SpawnAnchor.position - target.SpawnAnchor.position).sqrMagnitude < 0.000001f;
+
+		private static void AlignToExit(LevelZone zone, LevelExit source, string targetTag)
+		{
+			if (!zone.TryGetExit(LevelDirectionUtility.Opposite(source.Direction), targetTag, out var target))
+				throw new InvalidOperationException("Validated target room no longer has its required exit.");
+			zone.transform.position += source.SpawnAnchor.position - target.SpawnAnchor.position;
+		}
+
+		private void NotifyLifecycle(ActiveZone active, bool spawning)
+		{
+			var context = new LevelZoneEvent(active.Zone, active.ZoneId, active.Cell);
+			foreach (var hook in _pool.Handlers(active.Zone))
+			{
+				if (hook is UnityEngine.Object component && component == null)
+					continue;
+				try
+				{
+					if (spawning) hook.OnZoneSpawned(context);
+					else hook.OnZoneDespawned(context);
+				}
+				catch (Exception exception) { Abort(exception); }
+				if (spawning && !CanContinue)
+					return;
+			}
+		}
+
+		private void Publish(Action<LevelZoneEvent> callback, ActiveZone active)
+		{
+			try { callback?.Invoke(new LevelZoneEvent(active.Zone, active.ZoneId, active.Cell)); }
+			catch (Exception exception) { Abort(exception); }
+		}
+
+		private void Abort(Exception exception)
+		{
+			_isRunning = false;
+			_pendingCommand = Command.Stop;
+			Debug.LogException(exception, this);
 		}
 
 		private void ReportError(string message, UnityEngine.Object context)
 		{
 			Debug.LogError(message, context);
-			RuntimeError?.Invoke(new LevelRuntimeMessage(message, context));
+			try { RuntimeError?.Invoke(new LevelRuntimeMessage(message, context)); }
+			catch (Exception exception) { Abort(exception); }
+		}
+
+		private readonly struct ResolvedRoute
+		{
+			public readonly LevelZoneEntry Entry;
+			public readonly string TargetTag;
+			public ResolvedRoute(LevelZoneEntry entry, string targetTag) { Entry = entry; TargetTag = targetTag; }
 		}
 
 		private readonly struct ActiveZone
 		{
+			public readonly LevelZone Prefab;
+			public readonly LevelZone Zone;
+			public readonly Vector2Int Cell;
+			public readonly string ZoneId;
 			public ActiveZone(LevelZone prefab, LevelZone zone, Vector2Int cell, string zoneId)
 			{
-				Prefab = prefab;
-				Zone = zone;
-				Cell = cell;
-				ZoneId = zoneId;
+				Prefab = prefab; Zone = zone; Cell = cell; ZoneId = zoneId;
 			}
-
-			public LevelZone Prefab { get; }
-			public LevelZone Zone { get; }
-			public Vector2Int Cell { get; }
-			public string ZoneId { get; }
 		}
 	}
 }

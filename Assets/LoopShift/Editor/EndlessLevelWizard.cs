@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using LoopShift.Runtime;
 using UnityEditor;
@@ -5,95 +6,47 @@ using UnityEngine;
 
 namespace LoopShift.Editor
 {
-	public class EndlessLevelWizard : EditorWindow
-	{
-		private string _graphName = "LevelGraph";
-		private string _folder = "Assets/LoopShift/Demo";
+    public class EndlessLevelWizard : EditorWindow
+    {
+        private string _graphName = "LevelGraph";
+        private string _folder = "Assets";
+        private string _error;
 
-		[MenuItem("Tools/Endless Seamless Levels/Wizard")]
-		public static void Open()
-		{
-			GetWindow<EndlessLevelWizard>("Endless Levels");
-		}
+        [MenuItem("Tools/Endless Seamless Levels/Wizard")]
+        [MenuItem("Window/LoopShift/Create Graph Wizard")]
+        public static void Open() => GetWindow<EndlessLevelWizard>("Create LoopShift Graph");
 
-		private void OnGUI()
-		{
-			EditorGUILayout.LabelField("Endless Seamless Level System", EditorStyles.boldLabel);
-			_graphName = EditorGUILayout.TextField("Graph Name", _graphName);
-			_folder = EditorGUILayout.TextField("Output Folder", _folder);
+        private void OnGUI()
+        {
+            EditorGUILayout.LabelField("Create a level graph", EditorStyles.boldLabel);
+            _graphName = EditorGUILayout.TextField("Graph name", _graphName);
+            _folder = EditorGUILayout.TextField("Output folder", _folder);
+            if (GUILayout.Button("Create empty graph")) CreateGraph(false);
+            if (GUILayout.Button("Create from selected prefabs")) CreateGraph(true);
+            if (!string.IsNullOrEmpty(_error)) EditorGUILayout.HelpBox(_error, MessageType.Error);
+            EditorGUILayout.HelpBox("Select saved LevelZone prefabs in the Project window. Room aliases, start selection and layout use the same authoring rules as the visual editor. Source prefabs are not modified.", MessageType.Info);
+        }
 
-			EditorGUILayout.Space();
-			if (GUILayout.Button("Create Empty Graph"))
-				CreateGraph(false);
-
-			if (GUILayout.Button("Create Graph From Selected Zones"))
-				CreateGraph(true);
-
-			EditorGUILayout.HelpBox("Select prefab assets or scene objects with LevelZone components, then create a graph. The wizard refreshes zone bounds and exits, adds entries, and sets the first zone as the start zone.", MessageType.Info);
-		}
-
-		private void CreateGraph(bool fromSelection)
-		{
-			if (!AssetDatabase.IsValidFolder(_folder))
-			{
-				Debug.LogError($"Output folder does not exist: {_folder}");
-				return;
-			}
-
-			var graph = CreateInstance<LevelGraphAsset>();
-			var path = AssetDatabase.GenerateUniqueAssetPath($"{_folder}/{_graphName}.asset");
-			AssetDatabase.CreateAsset(graph, path);
-
-			if (fromSelection)
-				PopulateFromSelection(graph);
-
-			EditorUtility.SetDirty(graph);
-			AssetDatabase.SaveAssets();
-			Selection.activeObject = graph;
-			Debug.Log($"Created level graph at {path}", graph);
-		}
-
-		private static void PopulateFromSelection(LevelGraphAsset graph)
-		{
-			var zones = GetSelectedZones();
-			var serializedGraph = new SerializedObject(graph);
-			var zonesProperty = serializedGraph.FindProperty("zones");
-			var startZoneIdProperty = serializedGraph.FindProperty("startZoneId");
-
-			foreach (var zone in zones)
-			{
-				Undo.RecordObject(zone, "Refresh Level Zone");
-				zone.RefreshCachedData();
-				EditorUtility.SetDirty(zone);
-
-				var index = zonesProperty.arraySize;
-				zonesProperty.InsertArrayElementAtIndex(index);
-				var entry = zonesProperty.GetArrayElementAtIndex(index);
-				entry.FindPropertyRelative("prefab").objectReferenceValue = zone;
-				entry.FindPropertyRelative("zoneIdOverride").stringValue = string.Empty;
-				entry.FindPropertyRelative("weight").intValue = 1;
-
-				if (string.IsNullOrWhiteSpace(startZoneIdProperty.stringValue))
-					startZoneIdProperty.stringValue = zone.ZoneId;
-			}
-
-			serializedGraph.ApplyModifiedProperties();
-		}
-
-		private static List<LevelZone> GetSelectedZones()
-		{
-			var zones = new List<LevelZone>();
-			foreach (var selectedObject in Selection.objects)
-			{
-				if (selectedObject is GameObject gameObject)
-				{
-					var zone = gameObject.GetComponent<LevelZone>();
-					if (zone != null && !zones.Contains(zone))
-						zones.Add(zone);
-				}
-			}
-
-			return zones;
-		}
-	}
+        private void CreateGraph(bool fromSelection)
+        {
+            try
+            {
+                var zones = new List<LevelZone>();
+                if (fromSelection)
+                {
+                    foreach (var selected in Selection.objects)
+                    {
+                        var zone = selected is GameObject item ? item.GetComponent<LevelZone>() : selected as LevelZone;
+                        if (zone != null && !zones.Contains(zone)) zones.Add(zone);
+                    }
+                    if (zones.Count == 0) throw new ArgumentException("Select at least one saved LevelZone prefab.");
+                }
+                var graph = LevelGraphAuthoring.CreateGraph(_folder, _graphName, zones);
+                Selection.activeObject = graph;
+                LevelGraphWindow.Open(graph);
+                _error = null;
+            }
+            catch (ArgumentException exception) { _error = exception.Message; }
+        }
+    }
 }

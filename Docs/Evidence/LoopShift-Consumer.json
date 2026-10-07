@@ -1,0 +1,28 @@
+{
+  "editor": "6000.7.0b1",
+  "limits": [
+    "No visual verification",
+    "No player execution yet",
+    "No stable/minimum editor test",
+    "No clean unitypackage import yet"
+  ],
+  "playModePassed": 19,
+  "artifacts": [
+    {
+      "Path": "Z:\\source\\LamentsNeverEnd\\Build\\LoopShift\\com.estrixstudio.loopshift-0.1.0.tgz",
+      "Hash": "4A1B068EB46B7D8EC2C326C199694ABF44EC8BDFF75C9078744E4AE7A10FEDE0"
+    },
+    {
+      "Path": "Z:\\source\\LamentsNeverEnd\\Build\\LoopShift\\LoopShift-0.1.0.unitypackage",
+      "Hash": "9A25ACBA333A9FFF54185B66AF437147386452E9A0E4410FAE28C4EC11051702"
+    }
+  ],
+  "externalUnityPackagePaths": 0,
+  "unityPackageEntries": 46,
+  "samplePhysicsTransitions": 15,
+  "platform": "Windows",
+  "buildBytes": 188935458,
+  "editModePassed": 33,
+  "buildTarget": "StandaloneWindows64",
+  "buildResult": "Succeeded"
+}

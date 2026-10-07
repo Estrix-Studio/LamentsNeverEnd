@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-06 08:19:18Z" end-time="2026-10-06 08:19:26Z" duration="7.6285429">
+  <test-suite type="TestSuite" id="1000" name="Consumer-20261006-UnityPackage" fullname="Consumer-20261006-UnityPackage" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-06 08:19:18Z" end-time="2026-10-06 08:19:26Z" duration="7.628543" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1004" name="LoopShift.Consumer.Editor.Tests.dll" fullname="Z:/source/LamentsNeverEnd/Build/LoopShift/Consumer-20261006-UnityPackage/Library/ScriptAssemblies/LoopShift.Consumer.Editor.Tests.dll" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-06 08:19:18Z" end-time="2026-10-06 08:19:26Z" duration="7.613261" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="23612" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1005" name="LoopShift" fullname="LoopShift" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-06 08:19:18Z" end-time="2026-10-06 08:19:26Z" duration="7.612702" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1006" name="ConsumerTests" fullname="LoopShift.ConsumerTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-06 08:19:18Z" end-time="2026-10-06 08:19:26Z" duration="7.612471" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="ReloadModeChecks" fullname="LoopShift.ConsumerTests.ReloadModeChecks" classname="LoopShift.ConsumerTests.ReloadModeChecks" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-06 08:19:18Z" end-time="2026-10-06 08:19:26Z" duration="7.610684" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1003" name="DomainAndSceneReloadDisabledSupportConsecutiveRuns" fullname="LoopShift.ConsumerTests.ReloadModeChecks.DomainAndSceneReloadDisabledSupportConsecutiveRuns" methodname="DomainAndSceneReloadDisabledSupportConsecutiveRuns" classname="LoopShift.ConsumerTests.ReloadModeChecks" runstate="Runnable" seed="112599592" result="Passed" start-time="2026-10-06 08:19:18Z" end-time="2026-10-06 08:19:22Z" duration="3.886239" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="DomainReloadDisabledSupportsConsecutiveRuns" fullname="LoopShift.ConsumerTests.ReloadModeChecks.DomainReloadDisabledSupportsConsecutiveRuns" methodname="DomainReloadDisabledSupportsConsecutiveRuns" classname="LoopShift.ConsumerTests.ReloadModeChecks" runstate="Runnable" seed="1874974054" result="Passed" start-time="2026-10-06 08:19:22Z" end-time="2026-10-06 08:19:26Z" duration="3.698384" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: Z:/source/LamentsNeverEnd/Build/LoopShift/Consumer-20261006-UnityPackage/reloadmodes.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

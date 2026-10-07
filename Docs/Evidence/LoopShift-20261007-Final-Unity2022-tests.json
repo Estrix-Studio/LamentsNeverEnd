@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-07",
+  "archiveSha256": "CBA09B6C6487751CBB0E0C9F73A28C71AB6B76A4E547E453B404E53EEE632FAC",
+  "editor": "2022.3.62f3",
+  "editorTests": 49,
+  "runtimeTests": 26,
+  "reloadModeTests": 2,
+  "playerVerification": "passed",
+  "scope": "Current archive suites, Windows player build and actual player smoke verification passed"
+}

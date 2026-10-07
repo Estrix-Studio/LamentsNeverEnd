@@ -40,10 +40,21 @@ namespace Gameplay
 				return;
 			_isDisappearing = true;
 
-			StartCoroutine(Dissapear());
+			if (!gameObject.activeInHierarchy)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            StartCoroutine(Dissapear());
 		}
 
-		public void Interact()
+		private void OnDisable()
+        {
+            // A completed fade cannot resume after a pooled room disables its coroutine.
+            if (_isDisappearing) Destroy(gameObject);
+        }
+
+        public void Interact()
 		{
 			if (_hasBeenInteracted)
 				return;

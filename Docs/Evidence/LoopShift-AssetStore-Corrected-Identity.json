@@ -1,0 +1,11 @@
+{
+  "archiveSha256": "25105FB299A6D8D88C83AC1DADDDE061EEC6082E1748465A45BC0C29EEC0C74A",
+  "date": "2026-10-07",
+  "scope": "Automated Asset Store Tools checks; not approval or a complete guideline audit",
+  "editor": "6000.7.0b1",
+  "validatorVersion": "12.0.5",
+  "category": "Tools/Level Design",
+  "passed": 36,
+  "warnings": 0,
+  "errors": 0
+}

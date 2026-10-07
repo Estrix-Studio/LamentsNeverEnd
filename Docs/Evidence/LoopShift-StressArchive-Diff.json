@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-07",
+  "previousStage": "Build/LoopShift/staging-4e2ad5ffad9247b48ad50d3ad4a6ce49/package",
+  "currentStage": "Build/LoopShift/staging-9ece2d7714f34cfa9290a41fa8065340/package",
+  "changedFiles": [
+    "Samples~\\MinimalTopDown\\MinimalTopDown.unity",
+    "Samples~\\MinimalTopDown\\Prefabs\\Atrium.prefab",
+    "Samples~\\MinimalTopDown\\Prefabs\\Gallery.prefab",
+    "Samples~\\MinimalTopDown\\Prefabs\\Garden.prefab",
+    "Tests\\README.md",
+    "Tests\\PlayMode\\RunnerLifecycleTests.cs"
+  ],
+  "currentArchives": [
+    {
+      "Path": "Z:\\source\\LamentsNeverEnd\\Build\\LoopShift\\com.estrixstudio.loopshift-0.1.0.tgz",
+      "Hash": "3DF85B479E839F875AC53FAC5D9EBA04AE158D24EA0D2E4157E1494D85351BB0"
+    },
+    {
+      "Path": "Z:\\source\\LamentsNeverEnd\\Build\\LoopShift\\LoopShift-0.1.0.unitypackage",
+      "Hash": "0242A86EB73B535A8B33AD17A12AFF412AB7ECCCFE44208158D17C34B81801C7"
+    }
+  ]
+}

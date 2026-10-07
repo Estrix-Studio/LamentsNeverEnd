@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-07",
+  "archiveSha256": "7DD7C52F682F25B45214C5C80FEEBA5E49651EA6E3C105419187189963A677B5",
+  "editor": "6000.7.0b1",
+  "validatorVersion": "12.0.5",
+  "category": "Tools/Level Design",
+  "passed": 36,
+  "warnings": 0,
+  "errors": 0,
+  "scope": "Automated validator checks only; not publication approval"
+}

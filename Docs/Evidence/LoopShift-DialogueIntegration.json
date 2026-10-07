@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-07",
+  "assertions": 123,
+  "result": "Passed",
+  "probeSha256": "88F302D8723D3B9387157777A16BDD179C8F294533BFE1E4BEEC181BBB350990",
+  "prefabSha256": "B79DBAD0A8F8EFCDE54364E414DAF83AFB969CEA55AC408142079D4FB7B7D21B",
+  "fix": "Starting dialogue now records Dialog_1Completed instead of None",
+  "scope": "Authored dialogue started via Interact and advanced through Next callback; progression, exactly-once completion, torch and physical enemy loss verified. Physical dialogue input and doorway navigation remain unverified."
+}

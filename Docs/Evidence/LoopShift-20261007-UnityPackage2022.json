@@ -1,0 +1,14 @@
+{
+  "playerSmokePassed": true,
+  "sha256": "7DD7C52F682F25B45214C5C80FEEBA5E49651EA6E3C105419187189963A677B5",
+  "consumer": "Z:\\source\\LamentsNeverEnd\\Build\\A22",
+  "archive": "Z:/source/LamentsNeverEnd/Build/LoopShift/LoopShift-0.1.0.unitypackage",
+  "suites": {
+    "playmode": 1,
+    "reloadmodes": 2
+  },
+  "visualInspectionPassed": false,
+  "editor": "m_EditorVersion: 2022.3.62f3\nm_EditorVersionWithRevision: 2022.3.62f3 (96770f904ca7)",
+  "format": "UnityPackage",
+  "urpVersion": ""
+}

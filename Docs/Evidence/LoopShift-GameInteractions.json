@@ -1,0 +1,7 @@
+{
+  "date": "2026-10-07",
+  "assertions": 116,
+  "result": "Passed",
+  "probeSha256": "029D13145BCDC5F35A48C24E20D4B492D5F1F2C7B23E3513348243869AEEF1C5",
+  "scope": "Existing route/progression/restart checks plus real torch state toggles and physical contact with a cloned authored enemy collider. Does not prove doorway navigation or dialogue input."
+}

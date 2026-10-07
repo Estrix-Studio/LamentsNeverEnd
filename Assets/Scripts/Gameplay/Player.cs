@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
@@ -42,14 +42,14 @@ namespace Gameplay
 		private void Awake()
 		{
 			_inputActions = new InputSystem_Actions();
-			_inputActions.Enable();
+			// Input is enabled by OnEnable after Awake initializes the actions.
 
 			_interactAction = _inputActions.Interact.TriggerObject;
-			_inputActions.Interact.Enable();
+
 			_interactAction.performed += InteractActionOnperformed;
 
 			_toggleAction = _inputActions.Torch.Toggle;
-			_toggleAction.Enable();
+
 			_toggleAction.performed += ToggleActionOnperformed;
 
 			_inputActions.UI.Click.performed += UiActionOnperformed;
@@ -62,6 +62,16 @@ namespace Gameplay
 			_animator = GetComponent<Animator>();
 
 			UpdateInteractionPrompt();
+		}
+
+		private void OnEnable()
+		{
+			_inputActions?.Enable();
+		}
+
+		private void OnDisable()
+		{
+			_inputActions?.Disable();
 		}
 
 		private void Start()
@@ -182,7 +192,12 @@ namespace Gameplay
 				return;
 
 			RemoveMissingInteractables();
-			foreach (var action in _currentInteractables.ToArray()) action.Interact();
+			foreach (var action in _currentInteractables.ToArray())
+			{
+				action.Interact();
+				if (!_isWalking)
+					break;
+			}
 			UpdateInteractionPrompt();
 		}
 

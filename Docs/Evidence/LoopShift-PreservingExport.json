@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-07",
+  "sampleFiles": 23,
+  "changedSampleFiles": 0,
+  "archives": [
+    {
+      "Path": "Z:\\source\\LamentsNeverEnd\\Build\\LoopShift\\com.estrixstudio.loopshift-0.1.0.tgz",
+      "Hash": "49870778DB118192E34EACAE4742A7F920CF4DF5B5AECE36C16D5DCA6D78C321"
+    },
+    {
+      "Path": "Z:\\source\\LamentsNeverEnd\\Build\\LoopShift\\LoopShift-0.1.0.unitypackage",
+      "Hash": "0423140251419213FD5DBCE05F950AE57B62CC438538A526DA79C8613B18C21E"
+    }
+  ]
+}

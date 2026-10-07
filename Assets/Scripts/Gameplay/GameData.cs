@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Gameplay.Data;
 using UnityEngine;
@@ -39,9 +39,19 @@ namespace Gameplay
 		public void Reset()
 		{
 			currentConnections.Clear();
-			foreach (var zone in ZoneConfig.DefaultZones) currentConnections[zone.Zone] = zone;
+			foreach (var zone in ZoneConfig.DefaultZones)
+				currentConnections[zone.Zone] = new ZoneInfo(zone.Zone)
+				{
+					Left = zone.Left, Right = zone.Right, Top = zone.Top, Bottom = zone.Bottom
+				};
 			_completedEvents.Clear();
 			spawnedConditions.Clear();
+		}
+
+		public bool TryRegisterCondition(EventName eventName)
+		{
+			return eventName != EventName.None && !IsEventCompleted(eventName) &&
+			       spawnedConditions.Add(eventName);
 		}
 
 		public bool IsEventCompleted(EventName eventName)
@@ -61,8 +71,8 @@ namespace Gameplay
 
 		public void CompleteEvent(EventName eventName)
 		{
-			_completedEvents.Add(eventName);
-			OnEventCompleted?.Invoke(eventName);
+			if (eventName != EventName.None && _completedEvents.Add(eventName))
+				OnEventCompleted?.Invoke(eventName);
 		}
 
 		public void RestartGame()

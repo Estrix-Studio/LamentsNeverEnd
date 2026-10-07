@@ -4,6 +4,12 @@ namespace LoopShift.Runtime
 {
 	public static class LevelDirectionUtility
 	{
+		public static bool IsCardinal(LevelDirection direction)
+		{
+			return direction == LevelDirection.North || direction == LevelDirection.East ||
+			       direction == LevelDirection.South || direction == LevelDirection.West;
+		}
+
 		public static Vector2Int ToCellOffset(LevelDirection direction)
 		{
 			return direction switch

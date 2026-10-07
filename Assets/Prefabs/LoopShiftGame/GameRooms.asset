@@ -1,0 +1,367 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d300354d294eb85449633dad3abdd997, type: 3}
+  m_Name: GameRooms
+  m_EditorClassIdentifier: LoopShift.Runtime::LoopShift.Runtime.LevelGraphAsset
+  startZoneId: Penyok1
+  zones:
+  - editorPosition: {x: 0, y: 0}
+    hasEditorPosition: 1
+    prefab: {fileID: 4735121546713466787, guid: 75551a36fd677774590cdce3449b5afc, type: 3}
+    zoneIdOverride: Penyok1
+    weight: 1
+    tags: []
+  - editorPosition: {x: 300, y: 0}
+    hasEditorPosition: 1
+    prefab: {fileID: 4959959974351634690, guid: 451af07105c1e03418a6fbc2df381e26, type: 3}
+    zoneIdOverride: Room1_1
+    weight: 1
+    tags: []
+  - editorPosition: {x: 600, y: 0}
+    hasEditorPosition: 1
+    prefab: {fileID: 3095808782976157564, guid: 2292155fb18859940b73ea3e181ccaff, type: 3}
+    zoneIdOverride: Room1_2
+    weight: 1
+    tags: []
+  - editorPosition: {x: 900, y: 0}
+    hasEditorPosition: 1
+    prefab: {fileID: 6237954380586706636, guid: 8c93a2cda52333945a914238d0b7d0fa, type: 3}
+    zoneIdOverride: Room1_3
+    weight: 1
+    tags: []
+  - editorPosition: {x: 0, y: 220}
+    hasEditorPosition: 1
+    prefab: {fileID: 868772635803335214, guid: f25f5ff3f26c36f4b8a1ab843af1e7c2, type: 3}
+    zoneIdOverride: Penyok2
+    weight: 1
+    tags: []
+  - editorPosition: {x: 300, y: 220}
+    hasEditorPosition: 1
+    prefab: {fileID: 6747310901252023877, guid: 4aaaf114417519d41a7e976fdfdfffa9, type: 3}
+    zoneIdOverride: Room2_1
+    weight: 1
+    tags: []
+  - editorPosition: {x: 600, y: 220}
+    hasEditorPosition: 1
+    prefab: {fileID: 4742647063072626254, guid: c34d03309ad209a449f0f868d72ea455, type: 3}
+    zoneIdOverride: Room2_2
+    weight: 1
+    tags: []
+  - editorPosition: {x: 900, y: 220}
+    hasEditorPosition: 1
+    prefab: {fileID: 8474353004277164177, guid: 5c0303d413cdd834ca42c0c378ece9f8, type: 3}
+    zoneIdOverride: Room2_3
+    weight: 1
+    tags: []
+  - editorPosition: {x: 0, y: 440}
+    hasEditorPosition: 1
+    prefab: {fileID: 8966852427600088791, guid: ea6ae66be2e47e244aa5e42868100458, type: 3}
+    zoneIdOverride: Room2_4
+    weight: 1
+    tags: []
+  - editorPosition: {x: 300, y: 440}
+    hasEditorPosition: 1
+    prefab: {fileID: 2982122065548221965, guid: de5b3a0bf769c30418ba0f862bb664a8, type: 3}
+    zoneIdOverride: Penyok3
+    weight: 1
+    tags: []
+  - editorPosition: {x: 600, y: 440}
+    hasEditorPosition: 1
+    prefab: {fileID: 5237185510118234328, guid: aa4ce2078e57794498a1061b6d620769, type: 3}
+    zoneIdOverride: Room3_1
+    weight: 1
+    tags: []
+  - editorPosition: {x: 900, y: 440}
+    hasEditorPosition: 1
+    prefab: {fileID: 4083394329340761953, guid: 3f9ced18eaedc10488b33606719dc905, type: 3}
+    zoneIdOverride: Room3_2
+    weight: 1
+    tags: []
+  - editorPosition: {x: 0, y: 660}
+    hasEditorPosition: 1
+    prefab: {fileID: 3991061021060811552, guid: 33946d55a63804249a587ef9feda31f9, type: 3}
+    zoneIdOverride: Room3_3
+    weight: 1
+    tags: []
+  - editorPosition: {x: 300, y: 660}
+    hasEditorPosition: 1
+    prefab: {fileID: 1423974987960905757, guid: e794b04d702ba28468a4ac843721bac8, type: 3}
+    zoneIdOverride: Room3_4
+    weight: 1
+    tags: []
+  - editorPosition: {x: 600, y: 660}
+    hasEditorPosition: 1
+    prefab: {fileID: 1326871067865987022, guid: 5ee4d89aee085e747b9fb9fea9925145, type: 3}
+    zoneIdOverride: Room3_5
+    weight: 1
+    tags: []
+  fixedConnections:
+  - fromZoneId: Penyok1
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Penyok1
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Penyok1
+    direction: 3
+    fromExitTag: Default
+    toZoneId: Room1_3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Penyok1
+    direction: 4
+    fromExitTag: Default
+    toZoneId: Room1_1
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room1_1
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Room1_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room1_1
+    direction: 4
+    fromExitTag: Default
+    toZoneId: Room1_1
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room1_1
+    direction: 5
+    fromExitTag: Default
+    toZoneId: Room1_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room1_2
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Penyok2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room1_2
+    direction: 3
+    fromExitTag: Default
+    toZoneId: Room1_1
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room1_2
+    direction: 4
+    fromExitTag: Default
+    toZoneId: Room1_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room1_2
+    direction: 5
+    fromExitTag: Default
+    toZoneId: Room1_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room1_3
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Room1_3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room1_3
+    direction: 3
+    fromExitTag: Default
+    toZoneId: Room1_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room1_3
+    direction: 5
+    fromExitTag: Default
+    toZoneId: Room1_3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Penyok2
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Room2_1
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Penyok2
+    direction: 3
+    fromExitTag: Default
+    toZoneId: Room2_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Penyok2
+    direction: 4
+    fromExitTag: Default
+    toZoneId: Room2_3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Penyok2
+    direction: 5
+    fromExitTag: Default
+    toZoneId: Penyok2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room2_1
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Room2_3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room2_1
+    direction: 3
+    fromExitTag: Default
+    toZoneId: Room2_1
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room2_1
+    direction: 4
+    fromExitTag: Default
+    toZoneId: Penyok2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room2_1
+    direction: 5
+    fromExitTag: Default
+    toZoneId: Room2_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room2_2
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Room2_4
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room2_2
+    direction: 3
+    fromExitTag: Default
+    toZoneId: Room2_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room2_2
+    direction: 4
+    fromExitTag: Default
+    toZoneId: Room2_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room2_2
+    direction: 5
+    fromExitTag: Default
+    toZoneId: Room2_1
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room2_3
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Room2_3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room2_3
+    direction: 3
+    fromExitTag: Default
+    toZoneId: Room2_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room2_3
+    direction: 4
+    fromExitTag: Default
+    toZoneId: Room2_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room2_4
+    direction: 4
+    fromExitTag: Default
+    toZoneId: Penyok3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Penyok3
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Penyok3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Penyok3
+    direction: 3
+    fromExitTag: Default
+    toZoneId: Room3_1
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Penyok3
+    direction: 4
+    fromExitTag: Default
+    toZoneId: Room3_1
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Penyok3
+    direction: 5
+    fromExitTag: Default
+    toZoneId: Penyok3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room3_1
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Penyok3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room3_1
+    direction: 3
+    fromExitTag: Default
+    toZoneId: Room3_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room3_1
+    direction: 4
+    fromExitTag: Default
+    toZoneId: Room3_1
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room3_1
+    direction: 5
+    fromExitTag: Default
+    toZoneId: Penyok3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room3_2
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Penyok3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room3_2
+    direction: 3
+    fromExitTag: Default
+    toZoneId: Room3_3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room3_2
+    direction: 4
+    fromExitTag: Default
+    toZoneId: Room3_2
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room3_2
+    direction: 5
+    fromExitTag: Default
+    toZoneId: Room3_4
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room3_3
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Room3_3
+    toExitTag: Default
+    bidirectional: 0
+  - fromZoneId: Room3_4
+    direction: 2
+    fromExitTag: Default
+    toZoneId: Room3_5
+    toExitTag: Default
+    bidirectional: 0
+  pools: []
+  poolRules: []

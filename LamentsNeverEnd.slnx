@@ -1,3 +1,6 @@
 ﻿<Solution>
+  <Project Path="asset-store-tools-editor.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="LoopShift.Runtime.csproj" />
+  <Project Path="EndlessSeamlessLevels.Editor.csproj" />
 </Solution>

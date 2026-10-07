@@ -1,8 +1,7 @@
 {
   "name": "EndlessSeamlessLevels.Editor",
-  "rootNamespace": "EndlessSeamlessLevels.Editor",
+  "rootNamespace": "LoopShift.Editor",
   "references": [
-    "EndlessSeamlessLevels.Runtime",
     "LoopShift.Runtime"
   ],
   "includePlatforms": [

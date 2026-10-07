@@ -19,7 +19,7 @@ namespace LoopShift.Runtime
 		public string ZoneId => string.IsNullOrWhiteSpace(zoneId) ? name : zoneId;
 		public string DisplayName => string.IsNullOrWhiteSpace(displayName) ? ZoneId : displayName;
 		public LevelBoundsMode BoundsMode => boundsMode;
-		public IReadOnlyList<LevelExit> Exits => exits;
+		public IReadOnlyList<LevelExit> Exits => exits ?? (IReadOnlyList<LevelExit>)Array.Empty<LevelExit>();
 
 		public Bounds LocalBounds
 		{
@@ -51,16 +51,20 @@ namespace LoopShift.Runtime
 
 		public void RefreshExits()
 		{
+			exits ??= new List<LevelExit>();
 			exits.Clear();
 			GetComponentsInChildren(true, exits);
+			for (var i = exits.Count - 1; i >= 0; i--)
+				if (exits[i].GetComponentInParent<LevelZone>(true) != this) exits.RemoveAt(i);
 		}
 
 		public bool TryGetExit(LevelDirection direction, string requiredTag, out LevelExit exit)
 		{
 			exit = null;
-			for (var i = 0; i < exits.Count; i++)
+			var candidates = Exits;
+			for (var i = 0; i < candidates.Count; i++)
 			{
-				var candidate = exits[i];
+				var candidate = candidates[i];
 				if (candidate == null || candidate.Direction != direction)
 					continue;
 				if (!TagsCompatible(candidate.ExitTag, requiredTag))
@@ -100,54 +104,54 @@ namespace LoopShift.Runtime
 		private void RecalculateBounds()
 		{
 			var found = false;
-			var worldBounds = new Bounds(transform.position, Vector3.zero);
-
-			var renderers = GetComponentsInChildren<Renderer>(true);
-			foreach (var rendererComponent in renderers)
+			var localBounds = new Bounds();
+			var worldToLocal = transform.worldToLocalMatrix;
+			foreach (var rendererComponent in GetComponentsInChildren<Renderer>(true))
 			{
-				if (rendererComponent == null)
+				if (rendererComponent.GetComponentInParent<LevelZone>(true) != this)
 					continue;
-				if (!found)
-				{
-					worldBounds = rendererComponent.bounds;
-					found = true;
-				}
-				else
-				{
-					worldBounds.Encapsulate(rendererComponent.bounds);
-				}
+				EncapsulateTransformedBounds(ref localBounds, ref found, rendererComponent.localBounds,
+					worldToLocal * rendererComponent.transform.localToWorldMatrix);
 			}
 
-			var colliders = GetComponentsInChildren<Collider2D>(true);
-			foreach (var colliderComponent in colliders)
+			foreach (var colliderComponent in GetComponentsInChildren<Collider2D>(true))
 			{
-				if (colliderComponent == null)
+				if (colliderComponent.GetComponentInParent<LevelZone>(true) != this ||
+					colliderComponent.GetComponent<LevelExit>() != null)
 					continue;
-				if (colliderComponent.GetComponent<LevelExit>() != null)
+				// Disabled colliders have empty world bounds; do not include an artificial origin.
+				var bounds = colliderComponent.bounds;
+				if (bounds.size == Vector3.zero)
 					continue;
-				if (!found)
-				{
-					worldBounds = colliderComponent.bounds;
-					found = true;
-				}
-				else
-				{
-					worldBounds.Encapsulate(colliderComponent.bounds);
-				}
+				EncapsulateTransformedBounds(ref localBounds, ref found, bounds, worldToLocal);
 			}
 
 			if (!found)
 			{
-				cachedLocalBounds = new Bounds(Vector3.zero, new Vector3(manualSize.x, manualSize.y, 1f));
+				cachedLocalBounds = new Bounds(pivotOffset,
+					new Vector3(Mathf.Max(0.01f, manualSize.x), Mathf.Max(0.01f, manualSize.y), 1));
 				return;
 			}
 
-			var localCenter = transform.InverseTransformPoint(worldBounds.center);
-			var localSize = new Vector3(
-				Mathf.Abs(worldBounds.size.x / Mathf.Max(0.0001f, transform.lossyScale.x)) + boundsPadding.x,
-				Mathf.Abs(worldBounds.size.y / Mathf.Max(0.0001f, transform.lossyScale.y)) + boundsPadding.y,
-				Mathf.Max(1f, worldBounds.size.z));
-			cachedLocalBounds = new Bounds(localCenter, localSize);
+			var size = localBounds.size;
+			size.x = Mathf.Max(0.01f, size.x + boundsPadding.x);
+			size.y = Mathf.Max(0.01f, size.y + boundsPadding.y);
+			size.z = Mathf.Max(1, size.z);
+			cachedLocalBounds = new Bounds(localBounds.center, size);
+		}
+
+		private static void EncapsulateTransformedBounds(ref Bounds result, ref bool found,
+			Bounds source, Matrix4x4 matrix)
+		{
+			// Transform all corners; dividing world sizes by scale loses rotation and mirror signs.
+			for (var i = 0; i < 8; i++)
+			{
+				var corner = source.center + Vector3.Scale(source.extents,
+					new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1));
+				var point = matrix.MultiplyPoint3x4(corner);
+				if (found) result.Encapsulate(point);
+				else { result = new Bounds(point, Vector3.zero); found = true; }
+			}
 		}
 	}
 }

@@ -34,7 +34,10 @@ namespace LamentsNeverEnd.Editor
         private static GameObject _inactiveInteraction;
         private static int _step, _events, _checks;
         private static float _nextStep;
-        private static bool _started;
+        private static bool _started, _crossing;
+        private static Vector2Int _crossingCell;
+        private static int _crossingEvents;
+        private static float _crossingDeadline;
 
         static LoopShiftGameChecks()
         {
@@ -97,27 +100,123 @@ namespace LamentsNeverEnd.Editor
             _player.enabled = false;
             _actor = _player.GetComponent<Collider2D>();
             Check(_actor != null, "Registered player collider exists");
-            // Route/event checks deliberately bypass navigation and collision obstacles.
+            // Each route check enables physics for a local approach to its authored doorway.
             _actor.enabled = false;
+            foreach (var zone in _runner.ActiveZones.Values) IgnoreDoorwayEnemies(zone);
+            _runner.ZoneSpawned += context => IgnoreDoorwayEnemies(context.Zone);
             GameData.instance.OnZoneEntered += _ => _events++;
             _started = true;
         }
 
+        private static void IgnoreDoorwayEnemies(LevelZone zone)
+        {
+            foreach (var enemy in zone.GetComponentsInChildren<Enemy>(true))
+                foreach (var collider in enemy.GetComponentsInChildren<Collider2D>(true))
+                    Physics2D.IgnoreCollision(_actor, collider);
+        }
+        private static Vector2 FindDoorwayApproach(LevelExit exit, Vector2 direction)
+        {
+            var tangent = new Vector2(-direction.y, direction.x);
+            _actor.enabled = true;
+            Physics2D.SyncTransforms();
+            var size = (Vector2)_actor.bounds.size;
+            var offset = (Vector2)(_actor.bounds.center - _actor.transform.position);
+            var triggerBounds = exit.GetComponent<Collider2D>().bounds;
+            var halfSpan = Mathf.Abs(tangent.x) * triggerBounds.extents.x + Mathf.Abs(tangent.y) * triggerBounds.extents.y;
+            var actorHalfSpan = (Mathf.Abs(tangent.x) * size.x + Mathf.Abs(tangent.y) * size.y) * 0.5f;
+            var samples = Mathf.Max(0, Mathf.FloorToInt((halfSpan - actorHalfSpan - 0.05f) / 0.25f));
+            for (var index = 0; index <= samples * 2; index++)
+            {
+                var lateral = index == 0 ? 0 : ((index + 1) / 2) * 0.25f * (index % 2 == 0 ? -1 : 1);
+                var start = (Vector2)exit.SpawnAnchor.position + tangent * lateral - direction * 2;
+                var hits = Physics2D.BoxCastAll(start + offset, size, 0, direction, 3);
+                var blocked = false;
+                foreach (var hit in hits)
+                {
+                    if (hit.collider.isTrigger || hit.collider.attachedRigidbody == _actor.attachedRigidbody ||
+                        hit.collider.GetComponentInParent<Enemy>() != null) continue;
+                    blocked = true;
+                    break;
+                }
+                if (!blocked) return start;
+            }
+            var room = _runner.ActiveZones[_runner.CurrentCell];
+            foreach (var legacy in Resources.LoadAll<CyclingZone>("Zones"))
+            {
+                if (legacy.ZoneID.ToString() != room.ZoneId) continue;
+                foreach (var trigger in legacy.GetComponentsInChildren<TriggerZone>(true))
+                    Debug.Log("DOORWAY ORIGINAL: " + trigger.name + " local=" + legacy.transform.InverseTransformPoint(trigger.transform.position) + " collider=" + trigger.GetComponent<Collider2D>());
+            }
+            for (var y = 12; y >= 6; y--)
+            {
+                var row = "";
+                for (var x = -19; x <= 19; x++)
+                {
+                    var solids = Physics2D.OverlapBoxAll((Vector2)room.transform.position + new Vector2(x * 0.5f, y), new Vector2(0.2f, 0.2f), 0);
+                    var marker = '.';
+                    foreach (var solid in solids)
+                    {
+                        if (solid.isTrigger || solid.attachedRigidbody == _actor.attachedRigidbody || solid.GetComponentInParent<Enemy>() != null) continue;
+                        marker = solid.GetComponentInParent<LevelZone>() == room ? '#' : 'N';
+                        break;
+                    }
+                    row += marker;
+                }
+                Debug.Log("DOORWAY MAP y=" + y + ": " + row);
+            }
+            foreach (var collider in room.GetComponentsInChildren<Collider2D>())
+            {
+                if (collider.isTrigger) continue;
+                Debug.Log("DOORWAY SOLID: " + collider.name + " bounds=" + collider.bounds);
+            }
+            throw new InvalidOperationException("No clear local approach along authored exit " + exit.name + " at step " + _step);
+        }
         private static void Traverse()
         {
+            Check(_runner != null && _runner.IsRunning, "Doorway probe requires a running Gameplay scene");
             var room = _runner.ActiveZones[_runner.CurrentCell];
-            Check(room.TryGetExit(Path[_step], "Default", out var exit), "Exit exists at step " + _step);
-            var before = _events;
-            Check(_runner.TryTraverse(exit, _actor), "Traverse step " + _step);
-            Check(_runner.ActiveZones[_runner.CurrentCell].ZoneId == Rooms[_step], "Expected destination " + Rooms[_step]);
-            Check(_events == before + 1, "Exactly one progression notification");
-            Check(_runner.ActiveZones[_runner.CurrentCell].transform.position.sqrMagnitude < 0.001f, "Room stays at origin");
+            if (!_crossing)
+            {
+                Check(room.TryGetExit(Path[_step], "Default", out var exit), "Exit exists at step " + _step);
+                _crossingCell = _runner.CurrentCell;
+                _crossingEvents = _events;
+                _crossingDeadline = Time.realtimeSinceStartup + 5;
+                var direction = (Vector2)LevelDirectionUtility.ToCellOffset(Path[_step]);
+                var start = FindDoorwayApproach(exit, direction);
+                _player.transform.position = start;
+                _actor.attachedRigidbody.position = start;
+                _actor.enabled = true;
+                _actor.attachedRigidbody.linearVelocity = direction * 4;
+                Physics2D.SyncTransforms();
+                _crossing = true;
+                return;
+            }
+            if (_runner.CurrentCell == _crossingCell)
+            {
+                if (Time.realtimeSinceStartup >= _crossingDeadline)
+                {
+                    var contacts = new ContactPoint2D[16];
+                    var count = _actor.GetContacts(contacts);
+                    var details = "";
+                    for (var i = 0; i < count; i++)
+                        details += " [" + contacts[i].collider.name + "/" + contacts[i].otherCollider.name + " at " + contacts[i].point + "]";
+                    throw new InvalidOperationException("Physical doorway crossing timed out at step " + _step +
+                        ", room=" + room.ZoneId + ", position=" + _actor.attachedRigidbody.position +
+                        ", velocity=" + _actor.attachedRigidbody.linearVelocity + ", contacts=" + details);
+                }
+                return;
+            }
+            _actor.attachedRigidbody.linearVelocity = Vector2.zero;
+            _actor.enabled = false;
+            Check(room.ZoneId == Rooms[_step], "Expected destination " + Rooms[_step]);
+            Check(_events == _crossingEvents + 1, "Exactly one progression notification");
+            Check(room.transform.position.sqrMagnitude < 0.001f, "Room stays at origin");
             Check(_runner.ActiveZones.Count <= 9 && _runner.PooledZoneCount <= 16, "Room counts bounded");
             _player.transform.position = Vector3.zero;
             _actor.attachedRigidbody.position = Vector2.zero;
+            _crossing = false;
             _step++;
         }
-
         private static void CheckPooledState()
         {
             var probe = new GameObject("Enemy lifecycle probe");

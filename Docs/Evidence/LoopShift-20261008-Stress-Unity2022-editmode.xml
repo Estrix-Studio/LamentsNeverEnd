@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="50" result="Passed" total="50" passed="50" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-07 09:36:38Z" end-time="2026-10-07 09:36:40Z" duration="2.6637566">
+  <test-suite type="TestSuite" id="1068" name="S22" fullname="S22" runstate="Runnable" testcasecount="52" result="Passed" start-time="2026-10-07 09:36:38Z" end-time="2026-10-07 09:36:40Z" duration="2.663757" total="50" passed="50" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties />
+    <test-suite type="Assembly" id="1132" name="LoopShift.Tests.Editor.dll" fullname="Z:/source/LamentsNeverEnd/Build/S22/Library/ScriptAssemblies/LoopShift.Tests.Editor.dll" runstate="Runnable" testcasecount="50" result="Passed" start-time="2026-10-07 09:36:38Z" end-time="2026-10-07 09:36:40Z" duration="2.649571" total="50" passed="50" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="14616" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+      </properties>
+      <test-suite type="TestSuite" id="1133" name="LoopShift" fullname="LoopShift" runstate="Runnable" testcasecount="50" result="Passed" start-time="2026-10-07 09:36:38Z" end-time="2026-10-07 09:36:40Z" duration="2.649115" total="50" passed="50" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1134" name="Tests" fullname="LoopShift.Tests" runstate="Runnable" testcasecount="50" result="Passed" start-time="2026-10-07 09:36:38Z" end-time="2026-10-07 09:36:40Z" duration="2.648919" total="50" passed="50" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1075" name="GraphAuthoringTests" fullname="LoopShift.Tests.GraphAuthoringTests" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-10-07 09:36:38Z" end-time="2026-10-07 09:36:40Z" duration="2.523639" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1086" name="AddRoomAssignsUniqueIdsAndStart" fullname="LoopShift.Tests.GraphAuthoringTests.AddRoomAssignsUniqueIdsAndStart" methodname="AddRoomAssignsUniqueIdsAndStart" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="1832943862" result="Passed" start-time="2026-10-07 09:36:38Z" end-time="2026-10-07 09:36:38Z" duration="0.202168" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1083" name="CanvasDragUndoAndPortConnectionUseAuthoringState" fullname="LoopShift.Tests.GraphAuthoringTests.CanvasDragUndoAndPortConnectionUseAuthoringState" methodname="CanvasDragUndoAndPortConnectionUseAuthoringState" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="1908201581" result="Passed" start-time="2026-10-07 09:36:38Z" end-time="2026-10-07 09:36:39Z" duration="1.045762" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+            <test-case id="1085" name="DeferredRefreshSurvivesDraggingAndSwitchingGraphsCancelsTheGesture" fullname="LoopShift.Tests.GraphAuthoringTests.DeferredRefreshSurvivesDraggingAndSwitchingGraphsCancelsTheGesture" methodname="DeferredRefreshSurvivesDraggingAndSwitchingGraphsCancelsTheGesture" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="1675783450" result="Passed" start-time="2026-10-07 09:36:39Z" end-time="2026-10-07 09:36:39Z" duration="0.095637" asserts="0">
+              <properties />
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1081" name="GraphFactoryRejectsInvalidOutput" fullname="LoopShift.Tests.GraphAuthoringTests.GraphFactoryRejectsInvalidOutput" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-07 09:36:39Z" end-time="2026-10-07 09:36:39Z" duration="0.368067" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1077" name="GraphFactoryRejectsInvalidOutput(&quot;Packages/ReadOnly&quot;,&quot;Graph&quot;)" fullname="LoopShift.Tests.GraphAuthoringTests.GraphFactoryRejectsInvalidOutput(&quot;Packages/ReadOnly&quot;,&quot;Graph&quot;)" methodname="GraphFactoryRejectsInvalidOutput" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="1077805053" result="Passed" start-time="2026-10-07 09:36:39Z" end-time="2026-10-07 09:36:39Z" duration="0.096441" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1078" name="GraphFactoryRejectsInvalidOutput(&quot;Assets/../Packages&quot;,&quot;Graph&quot;)" fullname="LoopShift.Tests.GraphAuthoringTests.GraphFactoryRejectsInvalidOutput(&quot;Assets/../Packages&quot;,&quot;Graph&quot;)" methodname="GraphFactoryRejectsInvalidOutput" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="1014010557" result="Passed" start-time="2026-10-07 09:36:39Z" end-time="2026-10-07 09:36:39Z" duration="0.088756" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1079" name="GraphFactoryRejectsInvalidOutput(&quot;Assets&quot;,&quot;../Graph&quot;)" fullname="LoopShift.Tests.GraphAuthoringTests.GraphFactoryRejectsInvalidOutput(&quot;Assets&quot;,&quot;../Graph&quot;)" methodname="GraphFactoryRejectsInvalidOutput" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="954359837" result="Passed" start-time="2026-10-07 09:36:39Z" end-time="2026-10-07 09:36:39Z" duration="0.092440" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1080" name="GraphFactoryRejectsInvalidOutput(&quot;Assets&quot;,&quot;&quot;)" fullname="LoopShift.Tests.GraphAuthoringTests.GraphFactoryRejectsInvalidOutput(&quot;Assets&quot;,&quot;&quot;)" methodname="GraphFactoryRejectsInvalidOutput" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="32004984" result="Passed" start-time="2026-10-07 09:36:39Z" end-time="2026-10-07 09:36:39Z" duration="0.087876" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-case id="1082" name="GraphFactoryRejectsSceneRoomsBeforeCreatingAsset" fullname="LoopShift.Tests.GraphAuthoringTests.GraphFactoryRejectsSceneRoomsBeforeCreatingAsset" methodname="GraphFactoryRejectsSceneRoomsBeforeCreatingAsset" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="223317776" result="Passed" start-time="2026-10-07 09:36:39Z" end-time="2026-10-07 09:36:39Z" duration="0.116473" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1076" name="GraphFactoryUsesSharedAliasesAndDoesNotModifyPrefabs" fullname="LoopShift.Tests.GraphAuthoringTests.GraphFactoryUsesSharedAliasesAndDoesNotModifyPrefabs" methodname="GraphFactoryUsesSharedAliasesAndDoesNotModifyPrefabs" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="1443441625" result="Passed" start-time="2026-10-07 09:36:39Z" end-time="2026-10-07 09:36:40Z" duration="0.140967" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1084" name="IdleWindowKeepsItsCompiledViewAndRefreshesExternalEdits" fullname="LoopShift.Tests.GraphAuthoringTests.IdleWindowKeepsItsCompiledViewAndRefreshesExternalEdits" methodname="IdleWindowKeepsItsCompiledViewAndRefreshesExternalEdits" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="1301648966" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.155686" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+            <test-case id="1090" name="PoolRenameAndRemovalMaintainGlobalRules" fullname="LoopShift.Tests.GraphAuthoringTests.PoolRenameAndRemovalMaintainGlobalRules" methodname="PoolRenameAndRemovalMaintainGlobalRules" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="662484407" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.098290" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1088" name="RenameAndDeleteMaintainReferences" fullname="LoopShift.Tests.GraphAuthoringTests.RenameAndDeleteMaintainReferences" methodname="RenameAndDeleteMaintainReferences" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="731493447" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.097745" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1089" name="ReverseRouteCannotBeOverwrittenAndConnectionSupportsUndo" fullname="LoopShift.Tests.GraphAuthoringTests.ReverseRouteCannotBeOverwrittenAndConnectionSupportsUndo" methodname="ReverseRouteCannotBeOverwrittenAndConnectionSupportsUndo" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="1390324232" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.092024" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1087" name="SceneObjectIsRejectedWithoutChangingGraph" fullname="LoopShift.Tests.GraphAuthoringTests.SceneObjectIsRejectedWithoutChangingGraph" methodname="SceneObjectIsRejectedWithoutChangingGraph" classname="LoopShift.Tests.GraphAuthoringTests" runstate="Runnable" seed="559335951" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.089380" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1091" name="GraphRoutingTests" fullname="LoopShift.Tests.GraphRoutingTests" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" testcasecount="28" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.089155" total="28" passed="28" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1119" name="ActiveViewIsStableReadOnlyAndLiveAcrossRestart" fullname="LoopShift.Tests.GraphRoutingTests.ActiveViewIsStableReadOnlyAndLiveAcrossRestart" methodname="ActiveViewIsStableReadOnlyAndLiveAcrossRestart" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="725362326" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.033249" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1102" name="CompiledIdentityDoesNotChangeWhenAuthoringEntryChanges" fullname="LoopShift.Tests.GraphRoutingTests.CompiledIdentityDoesNotChangeWhenAuthoringEntryChanges" methodname="CompiledIdentityDoesNotChangeWhenAuthoringEntryChanges" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="1442130870" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.002226" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1106" name="DifferentPrefabsCannotShareAnId" fullname="LoopShift.Tests.GraphRoutingTests.DifferentPrefabsCannotShareAnId" methodname="DifferentPrefabsCannotShareAnId" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="1785735196" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.002646" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1095" name="ExactTaggedRouteWinsOverWildcard" fullname="LoopShift.Tests.GraphRoutingTests.ExactTaggedRouteWinsOverWildcard" methodname="ExactTaggedRouteWinsOverWildcard" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="70935460" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.001199" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1100" name="LargeWeightsDoNotOverflowAndSeedIsReproducible" fullname="LoopShift.Tests.GraphRoutingTests.LargeWeightsDoNotOverflowAndSeedIsReproducible" methodname="LargeWeightsDoNotOverflowAndSeedIsReproducible" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="1014037959" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.001137" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1093" name="LogicalIdOverridesAreUsedInBothDirections" fullname="LoopShift.Tests.GraphRoutingTests.LogicalIdOverridesAreUsedInBothDirections" methodname="LogicalIdOverridesAreUsedInBothDirections" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="187655223" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.001420" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1112" name="MissingOpposingExitIsInvalid" fullname="LoopShift.Tests.GraphRoutingTests.MissingOpposingExitIsInvalid" methodname="MissingOpposingExitIsInvalid" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="494130896" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.001620" asserts="0">
+              <properties />
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1110" name="NonPositivePoolWeightsAreInvalid" fullname="LoopShift.Tests.GraphRoutingTests.NonPositivePoolWeightsAreInvalid" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.003530" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1108" name="NonPositivePoolWeightsAreInvalid(0)" fullname="LoopShift.Tests.GraphRoutingTests.NonPositivePoolWeightsAreInvalid(0)" methodname="NonPositivePoolWeightsAreInvalid" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="2061532242" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.001579" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1109" name="NonPositivePoolWeightsAreInvalid(-3)" fullname="LoopShift.Tests.GraphRoutingTests.NonPositivePoolWeightsAreInvalid(-3)" methodname="NonPositivePoolWeightsAreInvalid" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="1770870199" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.000855" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-case id="1099" name="NoRepeatExcludesCurrentLogicalId" fullname="LoopShift.Tests.GraphRoutingTests.NoRepeatExcludesCurrentLogicalId" methodname="NoRepeatExcludesCurrentLogicalId" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="1030594820" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.000904" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1098" name="NoRepeatNeverFallsBackToTheExcludedSingleton" fullname="LoopShift.Tests.GraphRoutingTests.NoRepeatNeverFallsBackToTheExcludedSingleton" methodname="NoRepeatNeverFallsBackToTheExcludedSingleton" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="2025221354" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.000873" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1111" name="NullAndDuplicatePoolEntriesAreInvalid" fullname="LoopShift.Tests.GraphRoutingTests.NullAndDuplicatePoolEntriesAreInvalid" methodname="NullAndDuplicatePoolEntriesAreInvalid" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="289115189" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.000860" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1104" name="NullCollectionsDoNotCrashValidation" fullname="LoopShift.Tests.GraphRoutingTests.NullCollectionsDoNotCrashValidation" methodname="NullCollectionsDoNotCrashValidation" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="805533032" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.001101" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1103" name="NullConnectionIdsAreDiagnosticsInsteadOfExceptions" fullname="LoopShift.Tests.GraphRoutingTests.NullConnectionIdsAreDiagnosticsInsteadOfExceptions" methodname="NullConnectionIdsAreDiagnosticsInsteadOfExceptions" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="505124268" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.000794" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1121" name="NullExitListProducesConnectionDiagnosticsAndCanBeRefreshed" fullname="LoopShift.Tests.GraphRoutingTests.NullExitListProducesConnectionDiagnosticsAndCanBeRefreshed" methodname="NullExitListProducesConnectionDiagnosticsAndCanBeRefreshed" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="1225248386" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.001033" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1097" name="PoolFiltersIncompatibleExitDirectionsAndTags" fullname="LoopShift.Tests.GraphRoutingTests.PoolFiltersIncompatibleExitDirectionsAndTags" methodname="PoolFiltersIncompatibleExitDirectionsAndTags" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="1179049579" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.001187" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1096" name="PoolOnlyZonesCanStartAndReceiveFixedConnections" fullname="LoopShift.Tests.GraphRoutingTests.PoolOnlyZonesCanStartAndReceiveFixedConnections" methodname="PoolOnlyZonesCanStartAndReceiveFixedConnections" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="840228016" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.000780" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1107" name="PoolWithoutCompatibleCandidatesIsInvalid" fullname="LoopShift.Tests.GraphRoutingTests.PoolWithoutCompatibleCandidatesIsInvalid" methodname="PoolWithoutCompatibleCandidatesIsInvalid" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="532591290" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.000998" asserts="0">
+              <properties />
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1118" name="PreloadStaysInsideConfiguredWindow" fullname="LoopShift.Tests.GraphRoutingTests.PreloadStaysInsideConfiguredWindow" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.016603" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1113" name="PreloadStaysInsideConfiguredWindow(0,0,1)" fullname="LoopShift.Tests.GraphRoutingTests.PreloadStaysInsideConfiguredWindow(0,0,1)" methodname="PreloadStaysInsideConfiguredWindow" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="885828854" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.003847" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1114" name="PreloadStaysInsideConfiguredWindow(1,1,9)" fullname="LoopShift.Tests.GraphRoutingTests.PreloadStaysInsideConfiguredWindow(1,1,9)" methodname="PreloadStaysInsideConfiguredWindow" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="733212810" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.002831" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1115" name="PreloadStaysInsideConfiguredWindow(2,2,25)" fullname="LoopShift.Tests.GraphRoutingTests.PreloadStaysInsideConfiguredWindow(2,2,25)" methodname="PreloadStaysInsideConfiguredWindow" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="687708228" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.004816" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1116" name="PreloadStaysInsideConfiguredWindow(4,1,9)" fullname="LoopShift.Tests.GraphRoutingTests.PreloadStaysInsideConfiguredWindow(4,1,9)" methodname="PreloadStaysInsideConfiguredWindow" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="108465758" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.002328" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1117" name="PreloadStaysInsideConfiguredWindow(-1,1,1)" fullname="LoopShift.Tests.GraphRoutingTests.PreloadStaysInsideConfiguredWindow(-1,1,1)" methodname="PreloadStaysInsideConfiguredWindow" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="431580159" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.001477" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-case id="1120" name="ReadingActiveViewDoesNotAllocateAfterWarmup" fullname="LoopShift.Tests.GraphRoutingTests.ReadingActiveViewDoesNotAllocateAfterWarmup" methodname="ReadingActiveViewDoesNotAllocateAfterWarmup" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="23688637" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.002467" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1101" name="RepeatedResolutionAllocatesNoManagedMemoryAfterWarmup" fullname="LoopShift.Tests.GraphRoutingTests.RepeatedResolutionAllocatesNoManagedMemoryAfterWarmup" methodname="RepeatedResolutionAllocatesNoManagedMemoryAfterWarmup" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="1463315859" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.003473" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1105" name="ReverseConnectionConflictsAreRejected" fullname="LoopShift.Tests.GraphRoutingTests.ReverseConnectionConflictsAreRejected" methodname="ReverseConnectionConflictsAreRejected" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="1116447512" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.001204" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1094" name="RouteKeysDoNotCollideOnDelimitersAndTagsIgnoreCase" fullname="LoopShift.Tests.GraphRoutingTests.RouteKeysDoNotCollideOnDelimitersAndTagsIgnoreCase" methodname="RouteKeysDoNotCollideOnDelimitersAndTagsIgnoreCase" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="335300472" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.002308" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1092" name="ValidFixedGraphHasNoErrors" fullname="LoopShift.Tests.GraphRoutingTests.ValidFixedGraphHasNoErrors" methodname="ValidFixedGraphHasNoErrors" classname="LoopShift.Tests.GraphRoutingTests" runstate="Runnable" seed="1201902041" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.001393" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1122" name="ZoneAuthoringTests" fullname="LoopShift.Tests.ZoneAuthoringTests" classname="LoopShift.Tests.ZoneAuthoringTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.034606" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1130" name="AutomaticBoundsIgnoreNestedRoomsAndRetainFallbackOffset" fullname="LoopShift.Tests.ZoneAuthoringTests.AutomaticBoundsIgnoreNestedRoomsAndRetainFallbackOffset" methodname="AutomaticBoundsIgnoreNestedRoomsAndRetainFallbackOffset" classname="LoopShift.Tests.ZoneAuthoringTests" runstate="Runnable" seed="1050866054" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.006299" asserts="0">
+              <properties />
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1129" name="AutomaticRendererBoundsAreIndependentOfRoomTransform" fullname="LoopShift.Tests.ZoneAuthoringTests.AutomaticRendererBoundsAreIndependentOfRoomTransform" classname="LoopShift.Tests.ZoneAuthoringTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.007848" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1127" name="AutomaticRendererBoundsAreIndependentOfRoomTransform(-2.0f,3.0f,0.0f)" fullname="LoopShift.Tests.ZoneAuthoringTests.AutomaticRendererBoundsAreIndependentOfRoomTransform(-2.0f,3.0f,0.0f)" methodname="AutomaticRendererBoundsAreIndependentOfRoomTransform" classname="LoopShift.Tests.ZoneAuthoringTests" runstate="Runnable" seed="620931323" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.005588" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1128" name="AutomaticRendererBoundsAreIndependentOfRoomTransform(2.0f,3.0f,37.0f)" fullname="LoopShift.Tests.ZoneAuthoringTests.AutomaticRendererBoundsAreIndependentOfRoomTransform(2.0f,3.0f,37.0f)" methodname="AutomaticRendererBoundsAreIndependentOfRoomTransform" classname="LoopShift.Tests.ZoneAuthoringTests" runstate="Runnable" seed="565127580" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.000467" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-case id="1123" name="CardinalExitCreationUsesOffsetBoundsAndIsIdempotent" fullname="LoopShift.Tests.ZoneAuthoringTests.CardinalExitCreationUsesOffsetBoundsAndIsIdempotent" methodname="CardinalExitCreationUsesOffsetBoundsAndIsIdempotent" classname="LoopShift.Tests.ZoneAuthoringTests" runstate="Runnable" seed="501845535" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.009566" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1124" name="ExitCreationSupportsUndoAndRedo" fullname="LoopShift.Tests.ZoneAuthoringTests.ExitCreationSupportsUndoAndRedo" methodname="ExitCreationSupportsUndoAndRedo" classname="LoopShift.Tests.ZoneAuthoringTests" runstate="Runnable" seed="2084297955" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.003678" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1125" name="ExitPositionUsesWorldCoordinatesWithRotatedScaledParent" fullname="LoopShift.Tests.ZoneAuthoringTests.ExitPositionUsesWorldCoordinatesWithRotatedScaledParent" methodname="ExitPositionUsesWorldCoordinatesWithRotatedScaledParent" classname="LoopShift.Tests.ZoneAuthoringTests" runstate="Runnable" seed="606288501" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.002197" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1126" name="InvalidGeometryAndNonCardinalExitsAreRejected" fullname="LoopShift.Tests.ZoneAuthoringTests.InvalidGeometryAndNonCardinalExitsAreRejected" methodname="InvalidGeometryAndNonCardinalExitsAreRejected" classname="LoopShift.Tests.ZoneAuthoringTests" runstate="Runnable" seed="967329757" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.000776" asserts="0">
+              <properties />
+            </test-case>
+            <test-case id="1131" name="NestedRoomExitDoesNotSuppressParentExitCreation" fullname="LoopShift.Tests.ZoneAuthoringTests.NestedRoomExitDoesNotSuppressParentExitCreation" methodname="NestedRoomExitDoesNotSuppressParentExitCreation" classname="LoopShift.Tests.ZoneAuthoringTests" runstate="Runnable" seed="1392817606" result="Passed" start-time="2026-10-07 09:36:40Z" end-time="2026-10-07 09:36:40Z" duration="0.001759" asserts="0">
+              <properties />
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

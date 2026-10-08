@@ -423,6 +423,34 @@ namespace LoopShift.Tests
 			Assert.That(_runner.ActiveZones.Count, Is.EqualTo(1));
 			Assert.That(_runner.OwnedZoneCount, Is.EqualTo(2), "Two instances suffice for this zero-radius loop.");
 		}
+        [Test]
+        public void CurrentRoomPreloadRealignsAConflictingNeighbourBeforeApproach()
+        {
+            var a = Own(LevelTestFactory.CreateZone("Start", new[] { LevelDirection.North, LevelDirection.East }, 2));
+            var b = Own(LevelTestFactory.CreateZone("East", new[] { LevelDirection.West, LevelDirection.North }, 2));
+            var c = Own(LevelTestFactory.CreateZone("North", new[] { LevelDirection.South, LevelDirection.East }, 2));
+            var d = Own(LevelTestFactory.CreateZone("Corner", new[] { LevelDirection.West, LevelDirection.South }, 2));
+            d.TryGetExit(LevelDirection.South, null, out var south);
+            south.transform.localPosition += Vector3.right;
+            var graph = LevelTestFactory.CreateGraph(a, b, c, d);
+            _owned.Add(graph);
+            LevelTestFactory.Set(graph, "fixedConnections", new List<LevelConnection>
+            {
+                new() { fromZoneId = "Start", toZoneId = "North", direction = LevelDirection.North, bidirectional = false },
+                new() { fromZoneId = "Start", toZoneId = "East", direction = LevelDirection.East, bidirectional = false },
+                new() { fromZoneId = "North", toZoneId = "Corner", direction = LevelDirection.East, bidirectional = false },
+                new() { fromZoneId = "East", toZoneId = "Corner", direction = LevelDirection.North, bidirectional = false }
+            });
+            LevelTestFactory.Set(_runner, "graph", graph);
+            _runner.SpawnSettings.preloadRadius = 1;
+            _runner.StartRunner();
+            Assert.That(_runner.TryTraverse(CurrentExit(LevelDirection.East), _actor), Is.True);
+            var source = CurrentExit(LevelDirection.North);
+            var neighbour = _runner.ActiveZones[_runner.CurrentCell + Vector2Int.up];
+            neighbour.TryGetExit(LevelDirection.South, null, out var target);
+            Assert.That(Vector3.Distance(source.SpawnAnchor.position, target.SpawnAnchor.position), Is.LessThan(0.001f),
+                "The immediate destination must be aligned before the actor reaches its trigger.");
+        }
         [UnityTest]
         public IEnumerator SquareTraversalKeepsPreloadedRoomsBoundedAcrossRadii()
         {

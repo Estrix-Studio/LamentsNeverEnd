@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-09 03:02:41Z" end-time="2026-10-09 03:02:48Z" duration="7.5362468">
+  <test-suite type="TestSuite" id="1068" name="P22" fullname="P22" runstate="Runnable" testcasecount="52" result="Passed" start-time="2026-10-09 03:02:41Z" end-time="2026-10-09 03:02:48Z" duration="7.536247" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties />
+    <test-suite type="Assembly" id="1072" name="LoopShift.Consumer.Editor.Tests.dll" fullname="Z:/source/LamentsNeverEnd/Build/P22/Library/ScriptAssemblies/LoopShift.Consumer.Editor.Tests.dll" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-09 03:02:41Z" end-time="2026-10-09 03:02:48Z" duration="7.521724" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="32360" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+      </properties>
+      <test-suite type="TestSuite" id="1073" name="LoopShift" fullname="LoopShift" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-09 03:02:41Z" end-time="2026-10-09 03:02:48Z" duration="7.521281" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1074" name="ConsumerTests" fullname="LoopShift.ConsumerTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-09 03:02:41Z" end-time="2026-10-09 03:02:48Z" duration="7.521114" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1069" name="ReloadModeChecks" fullname="LoopShift.ConsumerTests.ReloadModeChecks" classname="LoopShift.ConsumerTests.ReloadModeChecks" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-09 03:02:41Z" end-time="2026-10-09 03:02:48Z" duration="7.519592" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1071" name="DomainAndSceneReloadDisabledSupportConsecutiveRuns" fullname="LoopShift.ConsumerTests.ReloadModeChecks.DomainAndSceneReloadDisabledSupportConsecutiveRuns" methodname="DomainAndSceneReloadDisabledSupportConsecutiveRuns" classname="LoopShift.ConsumerTests.ReloadModeChecks" runstate="Runnable" seed="211591092" result="Passed" start-time="2026-10-09 03:02:41Z" end-time="2026-10-09 03:02:45Z" duration="3.777228" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+            <test-case id="1070" name="DomainReloadDisabledSupportsConsecutiveRuns" fullname="LoopShift.ConsumerTests.ReloadModeChecks.DomainReloadDisabledSupportsConsecutiveRuns" methodname="DomainReloadDisabledSupportsConsecutiveRuns" classname="LoopShift.ConsumerTests.ReloadModeChecks" runstate="Runnable" seed="875108354" result="Passed" start-time="2026-10-09 03:02:45Z" end-time="2026-10-09 03:02:48Z" duration="3.724796" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -54,7 +54,7 @@ Test runner XML is in Logs/loopshift-editmode.xml and Logs/loopshift-playmode.xm
 
 25 package PlayMode tests, 100 project checks and 107 game integration assertions passed. Run Tools/Validate-LoopShiftGame.ps1 with -UnityPath to reproduce menu entry, programmatic route/progression checks, pooled-state checks, physical victory, loss reset and restart checks. The route tour bypasses navigation obstacles; visual doorway navigation, dialogue and physical enemy collision still require separate verification.
 
-## Current verification (2026-10-06)
+## Historical verification (2026-10-06)
 
 All runs completed successfully in the installed Unity 6000.7.0b1 editor.
 
@@ -74,3 +74,16 @@ Retained results are in [LoopShift-Authoring.xml](Evidence/LoopShift-Authoring.x
 To reproduce: run the project validation script above, run LoopShift.Tests.Editor in EditMode and LoopShift.Tests.PlayMode in PlayMode, then run Tools/Validate-LoopShiftGame.ps1 with the same UnityPath. Keep graphics enabled for tests that open the graph window.
 
 The game route tour invokes traversal programmatically. Physical victory, menu entry, reset and restart are exercised, but visual navigation, dialogue, lighting and physical enemy collision remain manual checks. No other Unity editor version or new distribution archive was validated in this pass.
+## Current verification (2026-10-09)
+
+The host has passed 100 project checks, 50 package editor tests, 27 package runtime tests and 198 game integration assertions. The latest game probe replaces the older programmatic route tour with 17 local physical doorway crossings. Authored interaction and dialogue callbacks, torch state, victory, a separate physical enemy collision, and restart are covered. It still does not verify full room-interior navigation, keyboard/controller input, or visual quality.
+
+The current UPM archive passed clean Unity 2022.3.62f3 qualification: 50 editor tests, 28 runtime tests (including the consumer sample), two reload-mode tests and a Windows player smoke run. The exact archive identity and results are in [LoopShift-PreloadFix-Unity2022.json](Evidence/LoopShift-PreloadFix-Unity2022.json).
+
+The Unity 6/URP retry crashed during import with an out-of-memory exception. The first current-archive Asset Store validator attempt failed during editor startup; an isolated Unity 2022.3 retry subsequently passed all 36 checks without warnings. The Unity 6 crash remains an incomplete qualification. Follow [publication readiness](Publication/Readiness.md) for archive-specific qualification and remaining release work; historical successes do not qualify changed archives.
+The current native Unity package also passed clean Unity 2022.3.62f3 import, one consumer sample traversal test, two reload-mode tests, Windows build and actual player smoke. See [LoopShift-PreloadFix-NativeUnity2022.json](Evidence/LoopShift-PreloadFix-NativeUnity2022.json). Unlike UPM, this distribution excludes package test assemblies, so its test count is intentionally smaller.
+## Unity 6 recovery and final package audit (2026-10-09)
+
+The interrupted Unity 6000.3.25f1 / URP 17.3.0 consumer was recovered. It passed 50 editor tests, 28 runtime tests, two reload-mode tests and Built-in/URP camera rendering. A URP texture left with a failed import was explicitly reimported; a subsequent Windows build and actual player smoke run passed without that import error. [LoopShift-PreloadFix-Unity6URP.json](Evidence/LoopShift-PreloadFix-Unity6URP.json) records the recovery and evidence identity.
+
+The final publisher/documentation rebuild contains identical implementation, tests, sample content and Unity .meta files. Only README.md, Authoring.md and UPM publisher contact metadata changed. [The complete archive comparison](Evidence/LoopShift-PublisherMetadata-ArchiveAudit.json) records both base and final hashes. See [readiness](Publication/Readiness.md) for final validator status and remaining native visual/publisher gates.

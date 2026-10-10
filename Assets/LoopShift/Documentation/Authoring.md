@@ -27,4 +27,4 @@ Open Window > LoopShift > Level Graph. Drag saved room prefabs onto the canvas, 
 - Scroll to zoom, middle-drag or Alt-drag to pan, and choose Frame all to fit the graph.
 - Save the graph and resolve its validation messages before running.
 
-The game-specific graph is Assets/Prefabs/LoopShiftGame/GameRooms.asset. Game progression remains in GameData and its condition scripts; the reusable graph contains routing data only.
+Keep game progression in your application scripts. The reusable graph contains routing data only; use the runtime events described in Integration.md to connect room entry to your game.

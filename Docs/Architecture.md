@@ -43,11 +43,11 @@ GameData is not a disk save. Starting through MainMenu is the normal reset bound
 
 Gameplay now uses LoopShift.Runtime.EndlessLevelRunner with the game-specific GameLevelRunner adapter. Its original scene GUID and build index are retained, so MainMenu loads the same scene.
 
-Assets/Prefabs/LoopShiftGame/GameRooms.asset contains 15 logical rooms and 43 one-way routes migrated from ZoneConfig. The copied prefabs retain game artwork, interactions, conditions and victory content, and add cardinal exits at 20-unit spacing. Legacy CyclingZone/TriggerZone callbacks are removed from these copies, making the runner the source of room-entry notifications.
+Assets/Prefabs/LoopShiftGame/GameRooms.asset contains 15 logical rooms and 43 one-way routes migrated from ZoneConfig. The copied prefabs retain game artwork, interactions, conditions and victory content, and add cardinal exits on a 20-unit room grid. Exit anchors are offset along each edge to match measured unlocked passages; the migration uses LoopShiftPassageAudit to apply those anchors. Legacy CyclingZone/TriggerZone callbacks are removed from these copies, making the runner the source of room-entry notifications.
 
 GameLevelRunner registers the player and camera, starts the graph, and translates logical IDs into GameData progression notifications. The initial notification waits for room conditions to initialize. The adapter contains no streaming algorithm.
 
-The runner retains a radius-one room window, bounds pooled instances, and recenters the current room at its origin. Registered actors and camera receive the same offset. Enemy lifecycle hooks restore spawn positions and clear chase state. Completed disappearing objects are removed on room disable; inactive event completion does not start a coroutine.
+Immediate neighbors are aligned to the current room, replacing stale conflicting speculative instances when necessary. More distant speculative paths retain occupied cells. The runner retains a radius-one room window, bounds pooled instances, and recenters the current room at its origin. Registered actors and camera receive the same offset. Enemy lifecycle hooks restore spawn positions and clear chase state. Completed disappearing objects are removed on room disable; inactive event completion does not start a coroutine.
 
 Original Resources/Zones prefabs and LevelTraversal remain for migration comparison and compatibility; current Gameplay does not load them. GameData.currentConnections remains a legacy compatibility surface. The graph is the current gameplay routing source.
 
@@ -104,3 +104,10 @@ Serialized scenes, prefab references, and asset GUIDs are the composition bounda
 - Legacy room assets remain available for comparison. Changes to live game routing belong in GameRooms.asset.
 - The project currently targets the checked-in Unity beta version. Automated results on that editor do not establish compatibility with other Unity versions.
 - Automated editor events test behavior, not visual appearance. Physical doorway navigation, dialogue presentation, lighting, and player controls still need the manual checklist in Validation.md.
+## Verified content and navigation boundaries
+
+The final-stage graph enters Room3_3 through its open north passage from Room3_2's south exit; returning north leads back to Room3_2. ZoneConfig retains the same routes for legacy comparison. Interaction event assignments in Room2_1, Room2_3, Room3_1 and Room3_3 match their authored gate consumers. Krabik completes Dialog_1Completed when its conversation finishes.
+
+LoopShiftPassageAudit measures temporary prefab instances with event-controlled gate colliders disabled, identifies contiguous open spans, and saves only exit positions and trigger dimensions through prefab editing. This measures unlocked geometry; it does not remove gameplay gates. The runtime graph does not model whether an interaction gate is currently open.
+
+The game integration probe crosses 17 local doorways with physical movement and authored interaction callbacks, and separately checks enemy loss, victory and restart. It positions the player near each doorway, so it does not establish complete room-interior navigation or native input usability. See Docs/Evidence/LoopShift-PhysicalProgression.json for the measured scope.

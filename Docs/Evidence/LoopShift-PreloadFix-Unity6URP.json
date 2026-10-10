@@ -1,0 +1,17 @@
+{
+  "sha256": "1E83DF18D20DDBA7B3E357D2C849E61F6C9523A41096E250AEE0266B569E71BA",
+  "consumer": "Z:/source/LamentsNeverEnd/Build/P63retry",
+  "suites": {
+    "reloadmodes": 2,
+    "editmode": 50,
+    "playmode": 28
+  },
+  "playerSmokePassed": true,
+  "editor": "m_EditorVersion: 6000.3.25f1\nm_EditorVersionWithRevision: 6000.3.25f1 (e1dba0a9aba4)",
+  "visualInspectionPassed": false,
+  "archive": "Z:/source/LamentsNeverEnd/Build/LoopShift/com.estrixstudio.loopshift-0.1.0.tgz",
+  "urpVersion": "17.3.0",
+  "format": "UPM",
+  "importRecovery": "Resumed interrupted clean import; reimported URP Medium01.png after an import error; subsequent build and player passed without that error.",
+  "recoveredBuildLogSha256": "804C800EAC0EE5953645ABF30BE9BC29B1DB850842B3AE4A465835B6AE6C0A08"
+}

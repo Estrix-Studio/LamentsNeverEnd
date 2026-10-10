@@ -1,0 +1,1 @@
+Colored pixels: 106007; white actor pixels: 144; magenta error pixels: 0

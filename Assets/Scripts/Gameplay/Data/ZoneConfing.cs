@@ -87,13 +87,13 @@ namespace Gameplay.Data
 			{
 				Left = CycleZoneID.Room3_4,
 				Top = CycleZoneID.Penyok3,
-				Right = CycleZoneID.Room3_3,
-				Bottom = CycleZoneID.Room3_2
+				Right = CycleZoneID.Room3_2,
+				Bottom = CycleZoneID.Room3_3
 			},
 			new(CycleZoneID.Room3_3)
 			{
 				Left = CycleZoneID.None,
-				Top = CycleZoneID.Room3_3,
+				Top = CycleZoneID.Room3_2,
 				Right = CycleZoneID.None,
 				Bottom = CycleZoneID.None
 			},

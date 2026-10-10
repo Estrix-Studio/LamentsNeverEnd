@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-09 08:23:56Z" end-time="2026-10-09 08:24:04Z" duration="7.3296369">
+  <test-suite type="TestSuite" id="1000" name="N22final" fullname="N22final" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-09 08:23:56Z" end-time="2026-10-09 08:24:04Z" duration="7.329637" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties />
+    <test-suite type="Assembly" id="1003" name="LoopShift.Consumer.Tests.dll" fullname="Z:/source/LamentsNeverEnd/Build/N22final/Library/ScriptAssemblies/LoopShift.Consumer.Tests.dll" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-09 08:23:56Z" end-time="2026-10-09 08:24:04Z" duration="7.321635" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="16792" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+      </properties>
+      <test-suite type="TestFixture" id="1001" name="LoopShiftSampleSmokeTests" fullname="LoopShiftSampleSmokeTests" classname="LoopShiftSampleSmokeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-09 08:23:56Z" end-time="2026-10-09 08:24:04Z" duration="7.319869" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1002" name="ExportedSampleTraversesMultipleRoomsAndRestarts" fullname="LoopShiftSampleSmokeTests.ExportedSampleTraversesMultipleRoomsAndRestarts" methodname="ExportedSampleTraversesMultipleRoomsAndRestarts" classname="LoopShiftSampleSmokeTests" runstate="Runnable" seed="1268627690" result="Passed" start-time="2026-10-09 08:23:56Z" end-time="2026-10-09 08:24:04Z" duration="7.306167" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+          </properties>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

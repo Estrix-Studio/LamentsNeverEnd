@@ -29,6 +29,18 @@ namespace LamentsNeverEnd.Editor
                 try
                 {
                     instance.transform.position = Vector3.zero;
+                    // Measure the corridor after its authored progression gate is removed.
+                    foreach (var gate in instance.GetComponentsInChildren<Gameplay.LevelScripts.RemoveObjectEventCompleted>(true))
+                    {
+                        var data = new SerializedObject(gate);
+                        var removed = data.FindProperty("destroyObjects");
+                        for (var index = 0; index < removed.arraySize; index++)
+                        {
+                            var target = removed.GetArrayElementAtIndex(index).objectReferenceValue as GameObject;
+                            if (target == null) continue;
+                            foreach (var collider in target.GetComponentsInChildren<Collider2D>(true)) collider.enabled = false;
+                        }
+                    }
                     foreach (var collider in instance.GetComponentsInChildren<TilemapCollider2D>()) collider.ProcessTilemapChanges();
                     foreach (var collider in instance.GetComponentsInChildren<CompositeCollider2D>()) collider.GenerateGeometry();
                     Physics2D.SyncTransforms();

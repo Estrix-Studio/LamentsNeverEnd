@@ -411,7 +411,7 @@ namespace LoopShift.Runtime
 					continue;
 				var next = cell + LevelDirectionUtility.ToCellOffset(exit.Direction);
 				if (!IsWithinRadius(next, centerCell, radius) || !TryRoute(source, exit, out var route) ||
-				    !EnsureNeighbour(source, exit, route, next, false))
+				    !EnsureNeighbour(source, exit, route, next, cell == centerCell))
 					continue;
 				if (_queuedCells.Add(next))
 					_preloadQueue.Add(next);

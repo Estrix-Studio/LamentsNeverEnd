@@ -1,0 +1,8 @@
+{
+  "assertions": 198,
+  "physicalCrossings": 17,
+  "result": "Passed",
+  "probeSha256": "558A908AF5BE76DAC2EA28628EAA22CCEAD255FE65D777B6CBEFB9AB2A9BB8B7",
+  "graphSha256": "ED6F733F89B92EC5CEE300FF09266EDF32FE04C06CA00AFC05F62426AFACC7E0",
+  "scope": "Physical local doorway approaches with solid walls enabled and enemy collisions ignored during route tour; authored interactions invoked through callbacks. Separate enemy collision loss, dialogue, torch, victory and restart checks passed. Full player-input navigation and visual quality remain unverified."
+}

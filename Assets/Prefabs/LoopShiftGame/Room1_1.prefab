@@ -2831,7 +2831,7 @@ Tilemap:
     m_Data: {fileID: 1805545425, guid: 2f0d48a5bdcce8e4097db93b2cb40e74, type: 3}
   m_TileMatrixArray:
   - serializedVersion: 2
-    m_RefCount: 180
+    m_RefCount: 414
     m_Data:
       e00: 1
       e01: 0
@@ -4801,7 +4801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3034023235434103387, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_TileMatrixArray.Array.data[0].m_RefCount
-      value: 370
+      value: 770
       objectReference: {fileID: 0}
     - target: {fileID: 3034023235434103387, guid: 5d8e6fe2d88f1d549a09b9bd5e70d05d, type: 3}
       propertyPath: m_TileMatrixArray.Array.data[1].m_Data.e00

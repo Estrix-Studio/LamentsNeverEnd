@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-09",
+  "upmSha256": "74D47E6B8624C4F36B4C44906044954FEB1DC9A034D90D54721246DB046ADDB4",
+  "nativeSha256": "2256C34715D1E48213060C80575CA9282AE1F6E4D2AEA816200649AC5A5BCDD0",
+  "baseUpmSha256": "1E83DF18D20DDBA7B3E357D2C849E61F6C9523A41096E250AEE0266B569E71BA",
+  "baseNativeSha256": "7AE6A718485C8E49C4169D649FA1E02169AEBEB1DC20AF375EF4488145D0258A",
+  "upmChangedFiles": [
+    "Documentation~\\Authoring.md",
+    "package.json",
+    "README.md"
+  ],
+  "nativeChangedFiles": [
+    "Assets/LoopShift/Documentation/Authoring.md/asset",
+    "Assets/LoopShift/README.md/asset"
+  ],
+  "unresolvedSerializedReferences": 0,
+  "scope": "Exact content comparison: implementation, sample and metadata assets unchanged; only listed publisher/documentation files differ. Runtime evidence belongs to base archives; final native validator is recorded separately."
+}

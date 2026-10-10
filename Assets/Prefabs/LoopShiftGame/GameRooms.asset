@@ -336,13 +336,13 @@ MonoBehaviour:
   - fromZoneId: Room3_2
     direction: 3
     fromExitTag: Default
-    toZoneId: Room3_3
+    toZoneId: Room3_2
     toExitTag: Default
     bidirectional: 0
   - fromZoneId: Room3_2
     direction: 4
     fromExitTag: Default
-    toZoneId: Room3_2
+    toZoneId: Room3_3
     toExitTag: Default
     bidirectional: 0
   - fromZoneId: Room3_2
@@ -354,7 +354,7 @@ MonoBehaviour:
   - fromZoneId: Room3_3
     direction: 2
     fromExitTag: Default
-    toZoneId: Room3_3
+    toZoneId: Room3_2
     toExitTag: Default
     bidirectional: 0
   - fromZoneId: Room3_4

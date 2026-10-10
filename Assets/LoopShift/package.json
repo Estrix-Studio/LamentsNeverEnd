@@ -5,7 +5,9 @@
   "description": "Lightweight 2D seamless level streaming with no-code ScriptableObject graph authoring, hybrid endless pools, and automatic zone bounds detection.",
   "unity": "2022.3",
   "author": {
-    "name": "Estrix Studio"
+    "name": "Estrix Studio",
+    "email": "contact@estrixstudio.com",
+    "url": "https://estrixstudio.com"
   },
   "samples": [
     {

@@ -18,14 +18,14 @@ namespace LamentsNeverEnd.Editor
         private static readonly LevelDirection[] Path =
         {
             LevelDirection.East, LevelDirection.East, LevelDirection.East, LevelDirection.North,
-            LevelDirection.North, LevelDirection.North, LevelDirection.North, LevelDirection.East,
+            LevelDirection.North, LevelDirection.North, LevelDirection.South, LevelDirection.South, LevelDirection.East,
             LevelDirection.North, LevelDirection.South, LevelDirection.East, LevelDirection.East,
-            LevelDirection.West, LevelDirection.North
+            LevelDirection.South, LevelDirection.North, LevelDirection.West, LevelDirection.North
         };
         private static readonly string[] Rooms =
         {
-            "Room1_3", "Room1_2", "Room1_1", "Room1_2", "Penyok2", "Room2_1", "Room2_3",
-            "Room2_2", "Room2_4", "Penyok3", "Room3_1", "Room3_2", "Room3_4", "Room3_5"
+            "Room1_3", "Room1_2", "Room1_1", "Room1_2", "Penyok2", "Room2_1", "Penyok2", "Room2_3",
+            "Room2_2", "Room2_4", "Penyok3", "Room3_1", "Room3_2", "Room3_3", "Room3_2", "Room3_4", "Room3_5"
         };
         private static EndlessLevelRunner _runner;
         private static Player _player;
@@ -35,6 +35,7 @@ namespace LamentsNeverEnd.Editor
         private static int _step, _events, _checks;
         private static float _nextStep;
         private static bool _started, _crossing;
+        private static int _preparedStep = -1;
         private static Vector2Int _crossingCell;
         private static int _crossingEvents;
         private static float _crossingDeadline;
@@ -175,6 +176,18 @@ namespace LamentsNeverEnd.Editor
         {
             Check(_runner != null && _runner.IsRunning, "Doorway probe requires a running Gameplay scene");
             var room = _runner.ActiveZones[_runner.CurrentCell];
+            if (!_crossing && _preparedStep != _step)
+            {
+                _preparedStep = _step;
+                foreach (var interaction in room.GetComponentsInChildren<InteractableObject>())
+                {
+                    var data = new SerializedObject(interaction);
+                    var completion = (EventName)data.FindProperty("eventName").intValue;
+                    interaction.Interact();
+                    Check(completion != EventName.None && GameData.instance.IsEventCompleted(completion), "Authored interaction unlocks progression in " + room.ZoneId);
+                }
+                return; // Allow authored gate destruction to finish before querying physics.
+            }
             if (!_crossing)
             {
                 Check(room.TryGetExit(Path[_step], "Default", out var exit), "Exit exists at step " + _step);

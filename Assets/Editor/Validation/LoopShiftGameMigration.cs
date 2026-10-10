@@ -69,6 +69,7 @@ namespace LamentsNeverEnd.Editor
                 }
                 finally { PrefabUtility.UnloadPrefabContents(contents); }
             }
+            LoopShiftPassageAudit.ApplyAnchors();
             var graph = ScriptableObject.CreateInstance<LevelGraphAsset>();
             AssetDatabase.CreateAsset(graph, GraphPath);
             var index = 0;

@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8543b363daf540e6b31a5be3bbfcc322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: 0
+  eventName: 5
   disappearSpeed: 1
 --- !u!1 &490443813587749110
 GameObject:

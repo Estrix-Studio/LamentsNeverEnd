@@ -37,7 +37,9 @@ Packages/                          Package manifest, lock and embedded packages
 ProjectSettings/                   Unity project and build configuration
 Docs/                              Architecture and verification guidance
   Evidence/                        Retained test results and integration reports
-Tools/                             Repository validation entry points
+  Publication/                     Listing draft and release acceptance checklist
+Tools/                             Build, migration and validation entry points
+  LoopShiftValidation/             Consumer-only test and player probes (not shipped)
 ~~~
 
 ## Ownership rules

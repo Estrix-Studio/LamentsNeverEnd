@@ -18,7 +18,7 @@ Automatic renderer bounds transform geometry into room space. Collider world bou
 
 With recenterOnTransition, active rooms and registered targets shift so the current room stays at the runner origin. Register independent camera rigs and update independent world-space effects through WorldShifted. Child targets shift once. Logical CurrentCell continues to advance; recentering does not create an unlimited integer address space.
 
-A graph can request a different room in an occupied cell. Speculative preload retains the existing occupant; an accepted crossing replaces the conflicting cell. This supports looping topology but cannot make every arbitrary graph geometrically consistent. Verify the authored routes visually.
+A graph can request a different room in an occupied cell. With preloading enabled, immediate routes from the current room replace conflicting or misaligned neighbors. More distant speculative routes retain existing occupants; an accepted crossing also resolves conflicts. This supports looping topology but cannot make every arbitrary graph geometrically consistent. Verify the authored routes visually.
 
 ## Reproducible choices
 

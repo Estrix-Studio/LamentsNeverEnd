@@ -42,13 +42,14 @@ Pooling bounds retained room instances. Actual CPU and memory use depends on roo
 
 contact@estrixstudio.com
 
+https://estrixstudio.com
+
 ## AI assistance disclosure draft
 
-AI tools assisted development of the package's C# runtime and editor code, automated tests, documentation and the tooling that creates the geometric sample assets. The publisher must review the final functional content, disclosure wording and media before submission.
+AI tools assisted development of the package's C# runtime and editor code, automated tests, documentation and the tooling that creates the geometric sample assets. The local conceptual marketing cover was generated with AI and does not depict bundled room artwork or the editor interface. The publisher must review the final functional content, disclosure wording and media before submission.
 
 ## Publisher decisions still required
 
-- Public support website.
 - Price and final product name.
 - Confirm the proposed Tools/Level Design category in the publisher portal.
 - Approve the description, compatibility selections, disclosure and original media.
